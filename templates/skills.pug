@@ -1,0 +1,8 @@
+article(class="skills")
+  h2 Skills
+  div(class="row")
+    each skill_row in skills
+      div(class="six columns")
+        ul
+          each skill in skill_row
+            li #{skill}

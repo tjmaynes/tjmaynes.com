@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    meta(content="utf-8" http-equiv="encoding")
+    meta(content="text/html;charset=utf-8" http-equiv="Content-Type")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description" content= description)
+
+    link(rel="preload" href="/public/fonts/lora/static/Lora-Regular.ttf" as="font" type="font/ttf" crossorigin) 
+    link(rel="preload" href="/public/fonts/lora/static/Lora-Bold.ttf" as="font" type="font/ttf" crossorigin) 
+    link(rel="preload" href="/public/fonts/oswald/static/Oswald-Regular.ttf" as="font" type="font/ttf" crossorigin) 
+    link(rel="preload" href="/public/fonts/oswald/static/Oswald-Bold.ttf" as="font" type="font/ttf" crossorigin) 
+
+    link(rel="preload" type="text/css" href="/public/stylesheets/bundle.min.css" media="all" as="style")
+    link(rel="preload" type="text/css" href="/public/stylesheets/main.min.css" media="all" as="style")
+
+    link(rel="stylesheet" type="text/css" href="/public/stylesheets/bundle.min.css" media="all")
+    link(rel="stylesheet" type="text/css" href="/public/stylesheets/main.min.css" media="all")
+  body
+    section(class="container")
+      include header.pug
+      hr
+      block content
+      hr
+      include footer.pug
