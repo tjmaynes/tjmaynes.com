@@ -52,7 +52,7 @@ run_e2e_tests() {
 main() {
   check_requirements
 
-#  run_performance_tests
+  run_performance_tests
   run_e2e_tests
 }
 
