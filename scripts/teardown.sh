@@ -11,7 +11,7 @@ check_requirements() {
 
 uninstall_npm_package() {
   NPM_PACKAGE_NAME=$1;NPM_PACKAGE=$2
-  if [[ -z "$(command -v $NPM_PACKAGE_NAME)" ]]; then
+  if [[ ! -z "$(command -v $NPM_PACKAGE_NAME)" ]]; then
     npm uninstall $NPM_PACKAGE --global
   fi
 }
