@@ -116,3 +116,6 @@ temp/
 # Cypress
 cypress/videos
 cypress/screenshots
+
+# Editors
+.idea/
