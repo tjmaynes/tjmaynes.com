@@ -41,7 +41,7 @@ main() {
   install_npm_package pug pug-cli
   install_npm_package lhci @lhci/cli
   install_npm_package purifycss purify-css
-  install_npm_package cypress cypress
+  install_npm_package cypress cypress@6.2.0
   install_npm_package http-server http-server
   install_npm_package wait-on wait-on
 }
