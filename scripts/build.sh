@@ -19,7 +19,7 @@ check_requirements() {
 
 generate_html() {
   pug \
-    --obj config/data.json \
+    --obj data.json \
     --basedir $(pwd)/templates \
     --path $(pwd)/templates/index.pug \
     --out $OUTPUT_DIRECTORY \
@@ -45,13 +45,14 @@ copy_static_files() {
   cp -f static/CNAME $OUTPUT_DIRECTORY
 }
 
-
 main() {
   check_requirements
 
+  pushd ./src
   generate_html
   generate_css
   copy_static_files
+  popd
 }
 
 main

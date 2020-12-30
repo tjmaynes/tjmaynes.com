@@ -32,17 +32,17 @@ kill_process_on_port() {
 }
 
 run_performance_tests() {
-  lhci \
-    --config config/lighthouse.js \
-    autorun
+  pushd ./test/performance
+  lhci autorun
+  popd
 }
 
 run_e2e_tests() {
   ./scripts/preview.sh $PORT $ARTIFACT_DIRECTORY & wait-on http://localhost:$PORT
 
-  cypress run \
-    --config-file config/cypress.json \
-    --headless
+  pushd ./test/e2e
+  cypress run --headless
+  popd
 
   kill_process_on_port $PORT
 }
