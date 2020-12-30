@@ -18,12 +18,15 @@ check_requirements() {
 }
 
 generate_html() {
-  pug \
-    --obj data.json \
-    --basedir $(pwd)/templates \
-    --path $(pwd)/templates/index.pug \
-    --out $OUTPUT_DIRECTORY \
-    templates/index.pug
+  PAGES=(index 404)
+  for page in "${PAGES[@]}"; do
+    pug \
+      --obj data.json \
+      --basedir $(pwd)/templates \
+      --path $(pwd)/templates/index.pug \
+      --out $OUTPUT_DIRECTORY \
+      templates/$page.pug
+  done
 }
 
 generate_css() {
