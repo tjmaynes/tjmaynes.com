@@ -38,7 +38,7 @@ run_performance_tests() {
 }
 
 run_e2e_tests() {
-  ./scripts/preview.sh $PORT $ARTIFACT_DIRECTORY & wait-on http://localhost:$PORT
+  ./scripts/preview.sh "$PORT" "$ARTIFACT_DIRECTORY" true & wait-on http://localhost:$PORT
 
   pushd ./test/e2e
   cypress run --headless

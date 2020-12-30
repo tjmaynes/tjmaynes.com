@@ -4,6 +4,7 @@ set -e
 
 PORT=$1
 ARTIFACT_DIRECTORY=$2
+ENABLE_TEST_MODE=$3
 
 check_requirements() {
   if [[ -z "$(command -v http-server)" ]]; then
@@ -18,12 +19,21 @@ check_requirements() {
   fi
 }
 
-main() {
-  check_requirements
-
+run_http_server() {
   http-server \
     --port $PORT \
     $ARTIFACT_DIRECTORY
+}
+
+main() {
+  check_requirements
+
+  if [[ -z $ENABLE_TEST_MODE ]]; then
+    run_http_server & wait-on http://localhost:$PORT
+    open http://localhost:$PORT
+  else
+    run_http_server
+  fi
 }
 
 main
