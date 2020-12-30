@@ -27,7 +27,7 @@ kill_process_on_port() {
   if [[ -z $PORT ]]; then
     echo "Please provide a PORT to kill process from."
   else
-    kill -9 $(lsof -t -i:$PORT)
+    kill -9 $(lsof -t -i:$PORT) || true
   fi
 }
 
@@ -38,6 +38,8 @@ run_performance_tests() {
 }
 
 run_e2e_tests() {
+  kill_process_on_port $PORT
+
   ./scripts/preview.sh "$PORT" "$ARTIFACT_DIRECTORY" true & wait-on http://localhost:$PORT
 
   pushd ./test/e2e
@@ -50,7 +52,7 @@ run_e2e_tests() {
 main() {
   check_requirements
 
-  run_performance_tests
+#  run_performance_tests
   run_e2e_tests
 }
 

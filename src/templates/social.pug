@@ -1,9 +1,7 @@
-div(class="social")
-  ul
-    li [
+div
+  ul(class="social")
     each social_network, index in social
-      if index != social.length - 1
-        li #[a(href=social_network.link) #{social_network.name}],
+      if index !== social.length - 1
+        li #[a(href= social_network.link) #{social_network.name}]
       else
-        li #[a(href=social_network.link) #{social_network.name}]
-    li ]
+        li #[a(href= social_network.link) #{social_network.name}]

@@ -1,37 +1,37 @@
 @font-face {
-    font-family: 'Oswald';
-    src: url('/public/fonts/oswald/static/Oswald-Regular.ttf') format('truetype');
+    font-family: "Oswald";
+    src: url("/public/fonts/oswald/static/Oswald-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Oswald';
-    src: url('/public/fonts/oswald/static/Oswald-Bold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: 800;
+    font-family: "Oswald";
+    src: url("/public/fonts/oswald/static/Oswald-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: bold;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Lora';
-    src: url('/public/fonts/lora/static/Lora-Regular.ttf') format('truetype');
+    font-family: "Lora";
+    src: url("/public/fonts/lora/static/Lora-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Lora';
-    src: url('/public/fonts/lora/static/Lora-Bold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: 800;
+    font-family: "Lora";
+    src: url("/public/fonts/lora/static/Lora-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: bold;
     font-display: swap;
 }
 
 body {
-    font-family: 'Lora', serif;
+    font-family: "Lora", serif;
 }
 
 header, footer {
@@ -48,8 +48,8 @@ header span {
 }
 
 h1, h2, h3 {
-    font-family: 'Oswald', serif;
-    font-weight: 800;
+    font-family: "Oswald", serif;
+    font-weight: bold;
 }
 
 h2 {
@@ -92,5 +92,14 @@ a, a:hover {
         font-size: 2em;
         text-align: left;
         text-decoration: none;
+    }
+
+    .expertise {
+        -moz-column-count: 2;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 20px;
+        column-count: 2;
+        column-gap: 20px;
     }
 }

@@ -21,7 +21,7 @@ generate_html() {
   PAGES=(index 404)
   for page in "${PAGES[@]}"; do
     pug \
-      --obj data.json \
+      --obj ../common/data.json \
       --basedir $(pwd)/templates \
       --path $(pwd)/templates/index.pug \
       --out $OUTPUT_DIRECTORY \

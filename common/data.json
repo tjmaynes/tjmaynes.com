@@ -1,0 +1,38 @@
+{
+  "title": "TJ Maynes",
+  "description": "A Passionate, Generalist Software Consultant.",
+  "tagline": "I write software to help people and grow businesses.",
+  "about": [
+    "Solving problems on software teams is my favorite way to start the day. It excites me to pair up with engineers, designers and product managers to problem solve, automate time-consuming manual tasks and finding iterative ways to deliver value immediately. \uD83D\uDE80"
+  ],
+  "expertise": [
+    "Extreme Programming (XP) and Lean Software Development",
+    "Full-stack Development: Javascript / Typescript, Kotlin / Java, React, Express / Spring, SQL, Bash",
+    "Automated testing strategies and test-driven development (TDD)",
+    "Continuous Integration / Delivery strategies and tooling",
+    "Pair and mob programming",
+    "Certified Kubernetes Application Developer (CKAD)",
+    "SOLID, functional programming and domain-driven design patterns",
+    "Automating time-consuming, manual tasks and documentation",
+    "Leading agile software projects",
+    "Mentoring / Upskilling greener software engineers"
+  ],
+  "social": [
+    {
+      "name": "Medium",
+      "link": "https://medium.com/@tjmaynes"
+    },
+    {
+      "name": "GitHub",
+      "link": "https://github.com/tjmaynes"
+    },
+    {
+      "name": "Twitter",
+      "link": "https://twitter.com/tjmaynes"
+    },
+    {
+      "name": "Linkedin",
+      "link": "https://linkedin.com/in/tjmaynes"
+    }
+  ]
+}
