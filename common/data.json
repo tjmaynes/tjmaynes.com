@@ -3,19 +3,20 @@
   "description": "A Passionate, Generalist Software Consultant.",
   "tagline": "I write software to help people and grow businesses.",
   "about": [
-    "Solving problems on software teams is my favorite way to start the day. It excites me to pair up with engineers, designers and product managers to problem solve, automate time-consuming manual tasks and finding iterative ways to deliver value immediately. \uD83D\uDE80"
+    "My name is TJ Maynes and I'm a passionate, ployglot, full-stack Software Consultant and Entrepeneur. I’ve worked as an agile software developer in a range of verticals, including digital health, entertainment, and fintech. I thrive on helping build self-organizing teams, automating the hard things, and frequently deploying well-tested, high quality software. I specifically look out for full-stack projects / teams practicing test-driven development and pair programming.",
+    "Currently, I'm preparing to take the Certified Kubernetes Administrator (CKA) test, diving deeper into Elixir and React Native, and beginning my content creation journey."
   ],
   "expertise": [
     "Extreme Programming (XP) and Lean Software Development",
-    "Full-stack Development: Javascript / Typescript, Kotlin / Java, React, Express / Spring, SQL, Bash",
+    "Full-stack Development: Javascript / Typescript, Elixir, React, Express, SQL, HTML, CSS, Bash",
     "Automated testing strategies and test-driven development (TDD)",
     "Continuous Integration / Delivery strategies and tooling",
     "Pair and mob programming",
     "Certified Kubernetes Application Developer (CKAD)",
     "SOLID, functional programming and domain-driven design patterns",
-    "Automating time-consuming, manual tasks and documentation",
+    "Automating time-consuming manual tasks and documentation",
     "Leading agile software projects",
-    "Mentoring / Upskilling greener software engineers"
+    "Mentoring / upskilling greener software engineers"
   ],
   "social": [
     {
