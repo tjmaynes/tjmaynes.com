@@ -32,8 +32,11 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve --port 9000",
+    "preview": "./scripts/preview.sh",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test:e2e": "./scripts/e2e.sh true",
+    "test:performance": "./scripts/performance.sh",
+    "test": "npm run build && npm run test:e2e && npm run test:performance"
   },
   "repository": {
     "type": "git",

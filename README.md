@@ -4,27 +4,26 @@
 
 ## Requirements
 
-- [GNU Make](https://www.gnu.org/software/make/)
 - [Node](https://nodejs.org/en/)
 
 ## Usage
 
 To install project dependencies, run the following command:
 ```bash
-make install_dependencies
+./scripts/install-dependencies.sh
 ```
 
 To build the website, run the following command:
 ```bash
-make build
+npm run build
 ```
 
 To test the website, run the following command:
 ```bash
-make test
+npm test
 ```
 
 To preview the website, run the following command:
 ```bash
-make preview
+npm run preview
 ```
