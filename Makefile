@@ -1,29 +1,19 @@
-ARTIFACT_DIRECTORY = $(PWD)/build
-PORT               = 8080
-
 install_dependencies:
 	./scripts/install-dependencies.sh
 
-.PHONY: build
 build: clean
-	./scripts/build.sh \
-		$(ARTIFACT_DIRECTORY)
+	npm run build
 
-preview: build
-	./scripts/preview.sh \
-		$(PORT) \
-		$(ARTIFACT_DIRECTORY)
+preview:
+	./scripts/preview.sh
 
-test: clean install_dependencies build
-	./scripts/test.sh \
-		$(PORT) \
-		$(ARTIFACT_DIRECTORY)
+test: build e2e performance
 
-test_with_details: build
-	lhci collect --config config/lighthouse.js && lhci open
+e2e:
+	./scripts/e2e.sh true
+
+performance:
+	./scripts/performance.sh
 
 clean:
-	rm -rf build/ temp/
-
-teardown:
-	./scripts/teardown.sh
+	rm -rf public/ temp/

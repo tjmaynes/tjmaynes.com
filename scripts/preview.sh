@@ -2,37 +2,26 @@
 
 set -e
 
-PORT=$1
-ARTIFACT_DIRECTORY=$2
-ENABLE_TEST_MODE=$3
+ENABLE_TEST_MODE=$1
 
 check_requirements() {
-  if [[ -z "$(command -v http-server)" ]]; then
-    echo "Please install http-server package on your machine."
+  if [[ -z "$(command -v gatsby)" ]]; then
+    echo "Please install 'gatsby' package on your machine."
     exit 1
-  elif [[ -z $PORT ]]; then
-    echo "Please provide a port to serve content on."
-    exit 1
-  elif [[ -z $ARTIFACT_DIRECTORY ]]; then
-    echo "Please provide a directory to serve content from."
+  elif [[ -z "$(command -v wait-on)" ]]; then
+    echo "Please install 'wait-on' package on your machine."
     exit 1
   fi
-}
-
-run_http_server() {
-  http-server \
-    --port $PORT \
-    $ARTIFACT_DIRECTORY
 }
 
 main() {
   check_requirements
 
-  if [[ -z $ENABLE_TEST_MODE ]]; then
-    run_http_server & wait-on http://localhost:$PORT
-    open http://localhost:$PORT
+  if [[ -z "$ENABLE_TEST_MODE" ]]; then
+    npm run serve & wait-on http://localhost:9000
+    open http://localhost:9000
   else
-    run_http_server
+    npm run serve
   fi
 }
 

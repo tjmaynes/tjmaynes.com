@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Oswald";
-    src: url("/public/fonts/oswald/static/Oswald-Regular.ttf") format("truetype");
+    src: url("../fonts/oswald/static/Oswald-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: "Oswald";
-    src: url("/public/fonts/oswald/static/Oswald-Bold.ttf") format("truetype");
+    src: url("../fonts/oswald/static/Oswald-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: bold;
     font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: "Lora";
-    src: url("/public/fonts/lora/static/Lora-Regular.ttf") format("truetype");
+    src: url("../fonts/lora/static/Lora-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: "Lora";
-    src: url("/public/fonts/lora/static/Lora-Bold.ttf") format("truetype");
+    src: url("../fonts/lora/static/Lora-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: bold;
     font-display: swap;
@@ -35,7 +35,7 @@ body {
 }
 
 header, footer {
-    margin: 30px 0px;
+    margin: 30px 0;
     text-align: center;
 }
 
@@ -62,7 +62,7 @@ li {
 }
 
 ul:last-child, p:last-child {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 a, a:hover {

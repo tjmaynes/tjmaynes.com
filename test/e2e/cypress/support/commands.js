@@ -1,4 +1,5 @@
-Cypress.Commands.add("fetchJsonData", (path) => cy.readFile(path))
+Cypress.Commands.add("fetchJsonData", (path) => cy.readFile(path));
+Cypress.Commands.add("fetchConfigData", () => cy.fetchJsonData("../../data/config.json"));
 
 Cypress.Commands.add("linkElementShouldContain", (linkElement, name, link) =>
     cy
