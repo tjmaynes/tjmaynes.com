@@ -10,20 +10,20 @@
 
 To install project dependencies, run the following command:
 ```bash
-./scripts/install-dependencies.sh
+make install_dependencies
 ```
 
 To build the website, run the following command:
 ```bash
-npm run build
+make build
 ```
 
 To test the website, run the following command:
 ```bash
-npm test
+make test
 ```
 
 To preview the website, run the following command:
 ```bash
-npm run preview
+make preview
 ```

@@ -2,13 +2,6 @@
 
 set -e
 
-check_requirements() {
-  if [[ -z "$(command -v cypress)" ]]; then
-    echo "Please install the CypressJS e2e testing tool."
-    exit 1
-  fi
-}
-
 # Originally found here: https://stackoverflow.com/a/32592965
 kill_process_on_port() {
   PORT=$1
@@ -20,14 +13,12 @@ kill_process_on_port() {
 }
 
 main() {
-  check_requirements
-
   kill_process_on_port 9000
 
-  ./scripts/preview.sh true & wait-on http://localhost:9000
+  ./scripts/preview.sh true & npx wait-on http://localhost:9000
 
   pushd ./test/e2e
-  cypress run --headless
+  npx cypress run --headless
   popd
 
   kill_process_on_port 9000

@@ -32,12 +32,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve --port 9000",
-    "preview": "./scripts/preview.sh",
-    "clean": "gatsby clean",
-    "test:e2e": "./scripts/e2e.sh true",
-    "test:performance": "./scripts/performance.sh",
-    "test": "npm run build && npm run test:e2e && npm run test:performance"
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",
