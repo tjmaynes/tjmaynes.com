@@ -11,6 +11,6 @@ e2e:
 	./scripts/$@.sh true
 
 preview:
-	./scripts/$@.sh
+	npm run start
 
 test: install_dependencies build performance e2e
