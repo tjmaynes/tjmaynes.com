@@ -5,13 +5,27 @@ import SEO from "../components/seo"
 import Expertise from "../components/expertise";
 import About from "../components/about";
 
-const Index: React.FC = () => (
-  <Layout>
-    <SEO pageTitle="TJ Maynes" />
-    <About />
-    <hr />
-    <Expertise />
-  </Layout>
-)
+import { graphql, StaticQuery } from "gatsby";
+
+const Index: React.FC = () =>
+  <StaticQuery
+    query={graphql`
+      query IndexQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }`
+    }
+    render={({ site: { siteMetadata: { title } } }) => (
+      <Layout>
+        <SEO pageTitle={title} />
+        <About />
+        <hr />
+        <Expertise />
+      </Layout>
+    )}
+  />
 
 export default Index

@@ -34,7 +34,8 @@ body {
     font-family: "Lora", serif;
 }
 
-header, footer {
+header,
+footer {
     margin: 30px 0;
     text-align: center;
 }
@@ -47,7 +48,9 @@ header span {
     font-size: 7em;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: "Oswald", serif;
     font-weight: bold;
 }
@@ -61,23 +64,25 @@ li {
     list-style-type: disc;
 }
 
-ul:last-child, p:last-child {
+p:last-child {
     margin-bottom: 0;
 }
 
-a, a:hover {
+a,
+a:hover {
     color: #0e478b;
     text-decoration: none;
 }
 
-.social ul, .social li {
-    list-style-type: none;
-    display: inline;
+.social {
+    display: flex;
+    justify-content: center;
 }
 
 .social li {
     padding: 0 10px;
     border-right: 1px solid #000;
+    list-style-type: none;
 }
 
 .social li:last-child {
