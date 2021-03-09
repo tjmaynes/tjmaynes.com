@@ -4,7 +4,6 @@ describe('Home Page', () => {
     it("successfully loads", () => {
         cy.fetchConfigData().then((data) => {
             shouldHaveTitle(data["title"]);
-            shouldContainSocialLinks(data["social"]);
             shouldContainAboutSection(data["about"]);
             shouldContainExpertiseSection(data["expertise"]);
         });

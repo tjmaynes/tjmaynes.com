@@ -15,7 +15,7 @@ kill_process_on_port() {
 main() {
   kill_process_on_port 9000
 
-  npm run start & npx wait-on http://localhost:9000
+  ./scripts/preview.sh true & npx wait-on http://localhost:9000
 
   pushd ./test/e2e
   npx cypress run --headless
