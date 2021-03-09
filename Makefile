@@ -1,5 +1,5 @@
 install_dependencies:
-	./scripts/install-dependencies.sh
+	./scripts/$@.sh
 
 build:
 	npm run build

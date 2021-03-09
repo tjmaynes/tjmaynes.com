@@ -3,7 +3,7 @@
 set -e
 
 main() {
-  pushd ./test/performance
+  pushd ./tests/performance
   npx lhci autorun
   popd
 }

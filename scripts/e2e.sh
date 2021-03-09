@@ -17,7 +17,7 @@ main() {
 
   ./scripts/preview.sh true & npx wait-on http://localhost:9000
 
-  pushd ./test/e2e
+  pushd ./tests/e2e
   npx cypress run --headless
   popd
 
