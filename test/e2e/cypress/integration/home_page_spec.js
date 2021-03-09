@@ -12,13 +12,6 @@ describe('Home Page', () => {
 
     const shouldHaveTitle = (title) => cy.title().should("eq", title);
 
-    const shouldContainSocialLinks = (social) => cy.getEachElementByIndex(
-        ".social > li a", (socialElement, index) => {
-            const { name, link } = social[index];
-            cy.linkElementShouldContain(socialElement, name, link)
-        }
-    );
-
     const shouldContainAboutSection = (about) => cy.getEachElementByIndex(
         ".about > p", (item, index) => cy.elementShouldContainText(item, about[index])
     );
