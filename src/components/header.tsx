@@ -1,6 +1,6 @@
-import * as React from "react"
+import { graphql, Link, StaticQuery } from "gatsby";
+import * as React from "react";
 
-import { graphql, StaticQuery, Link } from "gatsby";
 
 type PageLink = { name: string, link: string };
 
@@ -16,18 +16,15 @@ const Header: React.FC = () =>
       query HeaderQuery {
         site {
           siteMetadata {
-            tagline,
-            pages {
-              name, link
-            }
+            tagline
           }
         }
       }`
     }
-    render={({ site: { siteMetadata: { tagline, pages } } }) => (
+    render={({ site: { siteMetadata: { tagline } } }) => (
       <header>
         <span>👨‍💻</span>
-        <h1>Hi, I'm TJ Maynes.</h1>
+        <h1>Hi, I'm <a href="/links">TJ Maynes</a>.</h1>
         <p>{tagline}</p>
       </header>
     )}

@@ -20,28 +20,24 @@
     "Leading agile software projects",
     "Mentoring / upskilling greener software engineers"
   ],
-  "pages": [
-    {
-      "name": "Links",
-      "link": "/link"
-    }
-  ],
-  "social": [
-    {
-      "name": "GitHub",
-      "link": "https://github.com/tjmaynes"
-    },
-    {
-      "name": "YouTube",
-      "link": "https://youtube.com/tjmaynes"
-    },
-    {
-      "name": "Twitter",
-      "link": "https://twitter.com/tjmaynes"
-    },
-    {
-      "name": "Linkedin",
-      "link": "https://linkedin.com/in/tjmaynes"
-    }
-  ]
+  "links": {
+    "social": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/tjmaynes"
+      },
+      {
+        "name": "YouTube",
+        "link": "https://youtube.com/tjmaynes"
+      },
+      {
+        "name": "Twitter",
+        "link": "https://twitter.com/tjmaynes"
+      },
+      {
+        "name": "Linkedin",
+        "link": "https://linkedin.com/in/tjmaynes"
+      }
+    ]
+  }
 }

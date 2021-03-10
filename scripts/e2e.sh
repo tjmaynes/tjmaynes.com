@@ -18,7 +18,10 @@ main() {
   ./scripts/preview.sh true & npx wait-on http://localhost:9000
 
   pushd ./tests/e2e
-  npx cypress run --headless
+  npx cypress run --headless || {
+    kill_process_on_port 9000
+    exit 1
+  }
   popd
 
   kill_process_on_port 9000

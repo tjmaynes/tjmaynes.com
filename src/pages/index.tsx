@@ -1,13 +1,11 @@
-import * as React from "react"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Expertise from "../components/expertise";
-import About from "../components/about";
-
 import { graphql, StaticQuery } from "gatsby";
+import * as React from "react";
+import About from "../components/about";
+import Expertise from "../components/expertise";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-const Index: React.FC = () =>
+const IndexPage: React.FC = () =>
   <StaticQuery
     query={graphql`
       query IndexQuery {
@@ -28,4 +26,4 @@ const Index: React.FC = () =>
     )}
   />
 
-export default Index
+export default IndexPage
