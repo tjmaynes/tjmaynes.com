@@ -6,11 +6,11 @@
   "author": "@tjmaynes",
   "about": [
     "My name is TJ Maynes and I'm a passionate, ployglot, full-stack Software Consultant and Entrepeneur. I’ve worked as an agile software developer in a range of verticals, including digital health, entertainment, and fintech. I thrive on helping build self-organizing teams, automating the hard things, and frequently deploying well-tested, high quality software.",
-    "Currently, I'm preparing to take the Azure Solutions Architect Expert test, spending more time with C# (.NET 5 & Blazor) and my synthesizers 🎵."
+    "Currently, I'm spending more time with Python 🐍 and my synthesizers 🎵."
   ],
   "expertise": [
     "Extreme Programming (XP) and Lean Software Development",
-    "Full-stack Development: C#, Javascript / Typescript, GatsbyJS, React, SQL, HTML, CSS, Bash",
+    "Full-stack Development: Python, Javascript / Typescript, React, SQL, HTML, CSS, Bash",
     "Automated testing strategies and test-driven development (TDD)",
     "Continuous Integration / Delivery strategies and tooling",
     "Pair and mob programming",
