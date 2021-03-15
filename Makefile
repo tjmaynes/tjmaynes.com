@@ -10,7 +10,12 @@ performance:
 e2e:
 	./scripts/$@.sh true
 
-preview: build
+preview: build download_career_files
 	./scripts/$@.sh
 
-test: install_dependencies build performance e2e
+test: build performance e2e
+
+download_career_files:
+	./scripts/download-career-files.sh
+
+ship_it: install_dependencies test download_career_files

@@ -19,8 +19,8 @@ jobs:
             ${{ runner.os }}-
       - name: 🔨 Install Dependencies 🔨
         run: sudo apt-get update && sudo apt-get install make
-      - name: 🧪 Run Tests 🧪
-        run: make test
+      - name: 🧪 Ship it 🧪
+        run: make ship_it
       - name: 🚀 Deploy Website 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
