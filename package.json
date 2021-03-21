@@ -29,7 +29,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop --port 9000",
+    "develop": "gatsby develop --port $PORT",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "clean": "gatsby clean"

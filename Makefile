@@ -1,3 +1,8 @@
+ENVIRONMENT := development
+
+include .env.$(ENVIRONMENT)
+export $(shell sed 's/=.*//' .env.$(ENVIRONMENT))
+
 install_dependencies:
 	./scripts/$@.sh
 
@@ -8,10 +13,10 @@ performance:
 	./scripts/$@.sh
 
 e2e:
-	./scripts/$@.sh true
+	./scripts/$@.sh $(PORT)
 
-preview: build download_career_files
-	./scripts/$@.sh
+start: build download_career_files
+	npx serve -l tcp://0.0.0.0:$(PORT) public/
 
 test: build performance e2e
 

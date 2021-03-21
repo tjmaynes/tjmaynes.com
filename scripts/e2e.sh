@@ -2,29 +2,28 @@
 
 set -e
 
+PORT=$1
+
 # Originally found here: https://stackoverflow.com/a/32592965
 kill_process_on_port() {
   PORT=$1
-  if [[ -z $PORT ]]; then
-    echo "Please provide a PORT to kill process from."
-  else
-    kill -9 "$(lsof -t -i:$PORT)" || true
+  if [[ ! -z "$(lsof -t -i :$PORT)" ]]; then
+    (kill -9 "$(lsof -t -i:$PORT -sTCP:LISTEN)" >/dev/null 2>&1) || true
   fi
 }
 
 main() {
-  kill_process_on_port 9000
+  echo "Starting server on http://localhost:$PORT..."
+  make start & npx wait-on "http://localhost:$PORT"
 
-  ./scripts/preview.sh true & npx wait-on http://localhost:9000
+  CYPRESS_OPTS="--headless --config-file=false --config=baseUrl=http://localhost:$PORT,video=false"
 
   pushd ./tests/e2e
-  npx cypress run --headless || {
-    kill_process_on_port 9000
+  npx cypress run $CYPRESS_OPTS || {
+    kill_process_on_port $PORT
     exit 1
   }
   popd
-
-  kill_process_on_port 9000
 }
 
 main
