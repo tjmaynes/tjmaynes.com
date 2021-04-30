@@ -5,12 +5,11 @@
   "tagline": "I write software to help people and grow businesses.",
   "author": "@tjmaynes",
   "about": [
-    "My name is TJ Maynes and I'm a passionate, ployglot, full-stack Software Consultant and Entrepeneur. I’ve worked as an agile software developer in a range of verticals, including digital health, entertainment, and fintech. I thrive on helping build self-organizing teams, automating the hard things, and frequently deploying well-tested, high quality software.",
-    "Currently, I'm spending time with iOS, Clojure and learning music synthesis 🎵."
+    "My name is TJ Maynes and I'm a passionate, ployglot, full-stack Software Consultant and Entrepeneur. I’ve worked as an agile software developer in a range of verticals, including digital health, entertainment, and fintech. I thrive on helping build self-organizing teams, automating the hard things, and continuously deploying well-tested, high quality software."
   ],
   "expertise": [
     "Extreme Programming (XP) and Lean Software Development",
-    "Full-stack Development: Typescript / Javascript, Swift, Spring / Kotlin, Clojure, React, HTML, CSS, Bash",
+    "Full-stack Development: Spring (Kotlin/Java), iOS (Swift), React (Typescript/Javascript), HTML, CSS, git, make, shell scripts",
     "Automated testing strategies and test-driven development (TDD)",
     "Continuous Integration / Delivery strategies and tooling",
     "Pair and mob programming",
