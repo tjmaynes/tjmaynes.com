@@ -1,0 +1,33 @@
+title: TJ Maynes
+email: tj@tjmaynes.com
+description: >-
+  A mobile development and devops automation blog.
+url: "https://tjmaynes.com"
+twitter_username: tjmaynes 
+github_username:  tjmaynes
+instagram_username: tjmaynes
+linkedin_username: tjmaynes
+
+theme: jekyll-theme-clean-blog
+
+paginate: 5
+paginate_path: "/posts/page:num/"
+permalink: /posts/:title:output_ext
+
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+
+exclude:
+  - _notes/
+  - Makefile
+  - README.md
+  - shell.nix
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - scripts/

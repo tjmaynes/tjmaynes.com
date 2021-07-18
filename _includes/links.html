@@ -1,0 +1,9 @@
+<ul>
+  {% for link in site.data.links %}
+  <li style="text-align: center">
+    <a href="{{ link.target }}">
+      {{ link.name }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
