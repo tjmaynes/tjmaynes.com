@@ -1,14 +1,13 @@
 title: TJ Maynes
 email: tj@tjmaynes.com
+work_email: tmaynes@vmware.com
 description: >-
-  A mobile development and devops automation blog.
+  A fullstack mobile development blog for iOS and Elixir enthusiasts
 url: "https://tjmaynes.com"
 twitter_username: tjmaynes 
 github_username:  tjmaynes
 instagram_username: tjmaynes
 linkedin_username: tjmaynes
-
-theme: jekyll-theme-clean-blog
 
 paginate: 5
 paginate_path: "/posts/page:num/"

@@ -1,5 +1,7 @@
 install:
-	bundle install --path vendor/bundle
+	bundle config set path 'vendor/bundle'
+	bundle config build.sassc --disable-lto
+	bundle install
 
 build:
 	bundle exec jekyll build

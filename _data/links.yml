@@ -1,2 +1,10 @@
-- name: My IMDB Credits!
+- name: DEV.to
+  target: https://dev.to/tjmaynes
+- name: Soundcloud
+  target: https://soundcloud.com/tjmaynes
+- name: GitHub
+  target: https://github.com/tjmaynes
+- name: CV
+  target: /career/cv.pdf
+- name: IMDB
   target: https://www.imdb.com/name/nm5299167
