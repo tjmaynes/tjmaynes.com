@@ -112,7 +112,7 @@ a:hover {
   background-color: #FBFBFB;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   .links a {
     min-width: 100%;
   }
