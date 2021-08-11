@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Inconsolata';
-  src: url('/font/Inconsolata-webfont.eot');
-  src: url('/font/Inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
-  url('/font/Inconsolata-webfont.woff') format('woff'),
-  url('/font/Inconsolata-webfont.ttf') format('truetype'),
-  url('/font/Inconsolata-webfont.svg#InconsolataMedium') format('svg');
+  src: url('/public/font/Inconsolata-webfont.eot');
+  src: url('/public/font/Inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
+  url('/public/font/Inconsolata-webfont.woff') format('woff'),
+  url('/public/font/Inconsolata-webfont.ttf') format('truetype'),
+  url('/public/font/Inconsolata-webfont.svg#InconsolataMedium') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -36,9 +36,8 @@ time, mark, audio, video {
 
 body {
   padding: 10px;
-  font: 16px/1.5 "Lucida Sans Typewriter", "Lucida Console", Monaco, monospace;
-  color: #88j;
-  font-weight: 300;
+  font: 16px/1.5 "Inconsolata", "Lucida Sans Typewriter", "Lucida Console", Monaco, monospace;
+  color: #888;
   background-color: #fbfbfb;
   margin: 0 auto;
   max-width: 800px;
@@ -81,6 +80,7 @@ nav {
 a {
   color: #080808;
   text-decoration: none;
+  font-weight: 800;
 }
 
 a:hover {
