@@ -1,5 +1,5 @@
 # tjmaynes.com
-> A mobile development and devops automation blog. 
+> A fullstack mobile development blog for iOS and Elixir enthusiasts.
 
 ## Requirements
 
