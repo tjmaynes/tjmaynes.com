@@ -91,7 +91,6 @@ a:hover {
   display: flex;
   flex-flow: column nowrap;
   list-style-type: none;
-  padding-top: 20px;
 }
 
 .links li {
@@ -104,8 +103,7 @@ a:hover {
   min-width: 60%;
   padding: 0.9em 0;
   background-color: #DFFFA5;
-  border: #000 solid;
-  border-radius: 20px;
+  border: 3px #000 solid;
 }
 
 .links a:hover {
