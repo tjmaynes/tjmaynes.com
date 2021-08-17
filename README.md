@@ -1,5 +1,5 @@
 # tjmaynes.com
-> A fullstack mobile development blog for iOS and Elixir enthusiasts.
+> A fullstack mobile development blog for iOS and Rust enthusiasts.
 
 ## Requirements
 
