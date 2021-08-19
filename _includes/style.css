@@ -48,7 +48,7 @@ time, mark, audio, video {
 body {
   padding: 10px;
   font: 16px/1.5 "Inconsolata", "Lucida Sans Typewriter", "Lucida Console", Monaco, monospace;
-  color: #888;
+  color: #000;
   background-color: #fbfbfb;
   margin: 0 auto;
   max-width: 800px;
@@ -58,6 +58,10 @@ body > * {
   font-size: 100%;
   margin-left: 1em;
   margin-right: 1em;
+}
+
+p {
+  text-align: justify;
 }
 
 h1, h2 {
@@ -89,13 +93,9 @@ nav {
 }
 
 a {
-  color: #080808;
+  color: #20399D;
   text-decoration: none;
   font-weight: 800;
-}
-
-a:hover {
-  text-decoration: none;
 }
 
 .links {
@@ -119,6 +119,18 @@ a:hover {
 
 .links a:hover {
   background-color: #FBFBFB;
+}
+
+.social {
+  float: right;
+  text-align: center;
+  font-size: 12pt;
+  width: 1em;
+  background: yellow;
+}
+
+.post-content {
+  padding: 10px 0;
 }
 
 @media only screen and (max-width: 600px) {

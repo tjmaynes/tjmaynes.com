@@ -4,12 +4,11 @@
       {% include header-page.html %}
       <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
     </div>
-    <span class="author">Written by <a href="https://www.twitter.com/tjmaynes"
-        target="_blank">{{ site.author }}</a></span>
+    Published on {{ page.date | date: "%m-%d-%Y" }} by <span class="author">
+      <a href="https://www.twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username  }}</a>
+    </span>
   </div>
   <div class="post-content">
     {{ content }}
-    <article id="date">[{{ page.date | date: "%d %B %Y" }}]</article>
   </div>
-  {% include disqus.html %}
 </section>
