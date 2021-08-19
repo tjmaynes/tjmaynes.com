@@ -1,5 +1,5 @@
 # tjmaynes.com
-> A fullstack mobile development blog for iOS and Rust enthusiasts.
+> A fullstack mobile development blog for iOS/Macos and Rust development enthusiasts.
 
 ## Requirements
 
