@@ -1,12 +1,23 @@
 @font-face {
   font-family: 'Inconsolata';
-  src: url('/public/font/Inconsolata-webfont.eot');
-  src: url('/public/font/Inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
-  url('/public/font/Inconsolata-webfont.woff') format('woff'),
-  url('/public/font/Inconsolata-webfont.ttf') format('truetype'),
-  url('/public/font/Inconsolata-webfont.svg#InconsolataMedium') format('svg');
+  src: url('/public/font/inconsolata-regular.eot');
+  src: url('/public/font/inconsolata-regular.eot?#iefix') format('embedded-opentype'),
+  url('/public/font/inconsolata-regular.woff') format('woff'),
+  url('/public/font/inconsolata-regular.ttf') format('truetype'),
+  url('/public/font/inconsolata-regular.svg#InconsolataMedium') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('/public/font/inconsolata-bold.eot');
+  src: url('/public/font/inconsolata-bold.eot?#iefix') format('embedded-opentype'),
+  url('/public/font/inconsolata-bold.woff') format('woff'),
+  url('/public/font/inconsolata-bold.ttf') format('truetype'),
+  url('/public/font/inconsolata-bold.svg#InconsolataMedium') format('svg');
+  font-weight: bold;
+  font-style: bold;
 }
 
 {
