@@ -48,10 +48,10 @@ time, mark, audio, video {
 body {
   padding: 10px;
   font: 16px/1.5 "Inconsolata", "Lucida Sans Typewriter", "Lucida Console", Monaco, monospace;
-  color: #000;
+  color: #585858;
   background-color: #fbfbfb;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 720px;
 }
 
 body > * {
@@ -93,7 +93,7 @@ nav {
 }
 
 a {
-  color: #20399D;
+  color: #008B8B;
   text-decoration: none;
   font-weight: 800;
 }
@@ -113,7 +113,7 @@ a {
   display: inline-block;
   min-width: 60%;
   padding: 0.9em 0;
-  background-color: #DFFFA5;
+  background-color: #EEECE7;
   border: 3px #000 solid;
 }
 
@@ -129,8 +129,33 @@ a {
   background: yellow;
 }
 
+.posts ul {
+  list-style-type: none;
+}
+
+.posts ul li {
+  padding: 2px 0;
+}
+
+.post {
+  margin-top: 8px;
+}
+
 .post-content {
   padding: 10px 0;
+}
+
+.post-content h1 {
+  padding: 5px 0 10px 0;
+}
+
+.post-content p {
+  padding: 2px 0 15px 0;
+}
+
+.post-content ul {
+  margin-left: 22px;
+  padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -138,3 +163,5 @@ a {
     min-width: 100%;
   }
 }
+
+{% include pygments.css %}
