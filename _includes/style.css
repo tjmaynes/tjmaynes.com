@@ -56,8 +56,8 @@ body {
 
 body > * {
   font-size: 100%;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 p {
@@ -137,7 +137,7 @@ a {
 }
 
 .post {
-  margin-top: 8px;
+  padding: 8px 0 15px 0;
 }
 
 .post-content {
