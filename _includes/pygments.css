@@ -1,15 +1,17 @@
 code, pre {
   font-family: "Inconsolata", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
   font-size: 14px;
-  background-color: #EEECE7;
 }
+
+code { background-color: #EEECE7; }
+.highlight code { background-color: #fbfbfb; }
 
 pre {
   padding: 10px;
   margin-bottom: 10px;
   line-height: 1.42857;
   overflow: auto;
-  background-color: #EEECE7;
+  /* background-color: #EEECE7; */
 }
 
 .highlight .hll { background-color: #ffffcc }

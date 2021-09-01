@@ -19,3 +19,10 @@ download_career_files:
 	./scripts/download-career-files.sh "_site"
 
 build_for_deployment: install build download_career_files
+
+mp4_to_gif:
+	ffmpeg \
+		-i "${VIDEO_INPUT}.mp4" \
+		-vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
+		-loop 0 \
+		"${VIDEO_INPUT}.gif"
