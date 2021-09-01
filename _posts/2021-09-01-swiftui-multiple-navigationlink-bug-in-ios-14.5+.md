@@ -5,7 +5,7 @@ author: tjmaynes
 date: 2021-09-01 16:05:24
 published: true
 ---
-**TL;DR**: There is a bug in SwiftUI 2.0, that occurs in iOS versions 14.5+ and up, where your NavigationLink logic will start to redirect in an unexpected way when you have more than two NavigationLinks in the same SwiftUI view.
+**TL;DR**: There is a bug in SwiftUI 2.0, that occurs in iOS versions 14.5 and up, where your NavigationLink logic will start to redirect in an unexpected way when you have more than two NavigationLinks in the same SwiftUI view.
 
 # Introduction
 Recently, my pair and I were tasked with building a user onboarding experience in our internal iOS application. The requirements for this experience included enabling the user to navigate back and forth, and due to API calls, double popping (back to parent's parent view). Since a majority of the UI development in our iOS application is built using SwiftUI, we thought that we could easily use SwiftUI's programmable [NavigationLinks](https://developer.apple.com/documentation/swiftui/navigationlink) to build this experience out. In this blog post, I'm going to document how to reproduce a bug we found in SwiftUI 2.0 where having more than two NavigationLinks (a common workflow) will break navigation logic in iOS 14.5+.
