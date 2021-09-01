@@ -2,9 +2,10 @@
 layout: post
 title: "Drawing Shapes with NAO"
 date: 2015-05-09 20:18:28
-background: /public/images/posts/2015-05-09-drawing-shapes-with-nao/1.jpg
 published: true
 ---
+![NAO Robot - 1](/public/images/posts/2015-05-09-drawing-shapes-with-nao/1.jpg)
+
 This blog post discusses how to "teach" the NAO robot to draw shapes that it "sees" using NAOqi, Python and OpenCV. By the end of this blog post, you should have a better understanding of Canny Edge Detection and using Pixel Position interpolation to map a virual space to Forward Kinematics.
 
 ## Background
@@ -71,7 +72,8 @@ The issues that caused the motion trajectory problems were from not fully unders
 
 Finally, there were problems with how well the NAO robot was drawing the shapes that it had seen. The main reason behind these issues was that the NAO had a difficult time gripping the marker that was being used to draw the shape seen. Other reasons also include the friction and force, from the speed of the NAO's setAngle execution, caused the marker to move around slightly creating curved lines. We were able to fix a majority of these problems by making sure the NAO's grip on the marker was more stable by adding another rubberband around its hand.
 
-#+CAPTION: Figure 6 - Final video of the NAO's journey to discovering the power of drawing shapes.
+<iframe class="external-video" src="https://www.youtube.com/embed/1_-gUEW5GuY" frameborder="0" allowfullscreen></iframe>
+<p class="info">Final video of the NAO's journey to discovering the power of drawing shapes.</p>
 
 ## Conclusion
 Given a semesters worth of time, we were able to have the NAO robot draw a somewhat decent interpretation of the shape it sees. We learned quite a bit about robotics from this project including properly setting up motion trajectories, understanding and using motion interpolation and bilinear interpolation for pixel positions found to the workspace, and how to decide the various approaches that can be used to solve a robotics related problem. If we had more time, we would liked to have the NAO robot draw different shapes/objects dependent in the NAO's workspace. Also, we would have liked to be able to tweak the motion trajectory algorithm in order to have smoother lines drawn. This could have potentially been solved by using a marker that had a prismatic joint for its tip, so that there would be little friction between the paper and the marker (no jerkiness between each angle position drawn). Also, it could have been pretty cool to if the NAO robot could draw, based on our current codebase, other objects like trees, cars, houses, etc.
