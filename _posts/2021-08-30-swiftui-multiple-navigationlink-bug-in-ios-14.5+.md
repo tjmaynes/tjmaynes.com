@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Multiple NavigationLink bug in iOS 14.5+"
+title: "SwiftUI Multiple NavigationLink bug in iOS 14.5+"
 author: tjmaynes
 date: 2021-08-30 16:05:24
 image: /public/images/posts/2021-08-30-multiple-navigationlink-bug-in-ios-14.5+/background.jpg
-published: true 
+published: true
 ---
 TL;DR: There is a bug in SwiftUI 2.0, that occurs in iOS versions 14.5+ and up, where your NavigationLink logic will start to redirect in an unexpected way when you have more than two NavigationLinks in the same SwiftUI view.
 
