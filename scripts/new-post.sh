@@ -30,7 +30,8 @@ function main() {
   (mkdir -p _drafts || true) && [[ ! -f "$NEW_POST" ]] && tee -a $NEW_POST > /dev/null <<EOT
 ---
 layout: post
-title: "${POST_TITLE}"
+title: ${POST_TITLE}
+description: FILL_ME_IN
 author: tjmaynes
 date: ${POST_DATE}
 published: true

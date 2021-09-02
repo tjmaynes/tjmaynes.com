@@ -1,6 +1,8 @@
 ---
 layout: post
-title: "Drawing Shapes with NAO"
+title: Drawing Shapes with NAO
+description: This blog post discusses how to "teach" the NAO robot to draw shapes that it "sees" using NAOqi, Python and OpenCV.
+author: tjmaynes 
 date: 2015-05-09 20:18:28
 published: true
 ---
