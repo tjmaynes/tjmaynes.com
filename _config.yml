@@ -15,6 +15,7 @@ permalink: /posts/:title:output_ext
 gems:
   - jekyll-paginate
   - jekyll-feed
+  - jekyll-seo-tag
 
 exclude:
   - _notes/
