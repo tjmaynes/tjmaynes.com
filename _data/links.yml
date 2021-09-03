@@ -1,3 +1,7 @@
+- name: What I'm up to right /now
+  target: /now
+- name: Medium
+  target: https://medium.com/tjmaynes
 - name: DEV.to
   target: https://dev.to/tjmaynes
 - name: Soundcloud
@@ -6,11 +10,11 @@
   target: https://github.com/tjmaynes
 - name: Twitter
   target: https://twitter.com/tjmaynes
+- name: CV
+  target: /career/cv.pdf
 - name: Linkedin
   target: https://linkedin.com/in/tjmaynes
 - name: The Little Camera shop
   target: https://littlecamerashop.com/
-- name: CV
-  target: /career/cv.pdf
 - name: IMDB
   target: https://www.imdb.com/name/nm5299167

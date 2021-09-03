@@ -84,13 +84,6 @@ header {
   padding: 0.5rem 0 0.5rem 0
 }
 
-nav {
-  display: flex;
-  flex-flow: row wrap; 
-  justify-content: space-between;
-  width: 100%;
-}
-
 a {
   color: #008B8B;
   text-decoration: none;
@@ -120,12 +113,28 @@ a {
   background-color: #FBFBFB;
 }
 
+.menu {
+  display: flex;
+  flex-flow: row wrap; 
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menu a {
+  border-right: 1px solid #000;
+  padding-right: 8px;
+}
+
+.menu a:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
 .social {
   float: right;
   text-align: center;
   font-size: 12pt;
   width: 1em;
-  background: yellow;
 }
 
 .posts ul {
@@ -148,13 +157,13 @@ a {
   padding: 5px 0 10px 0;
 }
 
-.post-content p:last-child {
-  padding: 0;
+.post-content ul, .post-content ol {
+  margin-left: 34px;
+  padding-bottom: 10px;
 }
 
-.post-content ul {
-  margin-left: 22px;
-  padding-bottom: 10px;
+.post-content ul:last-child, .post-content ol:last-child {
+  padding-bottom: 0;
 }
 
 .external-video {

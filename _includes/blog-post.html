@@ -1,15 +1,13 @@
 <section class="post">
   <div class="post-header">
     <div class="post-header-info">
-      {% include header-page.html %}
-      <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+      {% include blog-post-social.html %}
+      <h1>{{ page.title }}</h1>
     </div>
-    Published on {{ page.date | date: "%m-%d-%Y" }} by <span class="author">
-      <a href="https://www.twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username  }}</a>
+      Last updated on {{ page.date | date: "%B %d, %Y" }} by <span class="author"><a href="https://www.twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username  }}</a>
     </span>
   </div>
   <div class="post-content">
     {{ content }}
-    {% include closing-remarks.html %}
   </div>
 </section>
