@@ -2,11 +2,9 @@
 layout: content
 permalink: /about
 ---
-![maine and me](/public/images/backgrounds/about.jpg)
+![maine and me](/public/images/me.jpg)
 
-My name is TJ Maynes and I'm a passionate, generalist Software Engineer at [VMware Tanzu Labs](https://tanzu.vmware.com/labs). If you came looking for a place to learn about building mobile apps, automating the hard things, and agile software development then this is the place for you!
-
-Over my career I've been fortunate to work with amazing people at some pretty incredible places.
+My name is TJ Maynes and I'm a passionate, generalist Software Engineer at [VMware Tanzu Labs](https://tanzu.vmware.com/labs). Over my career I've been fortunate to work with amazing people at some pretty incredible places.
 
 ## [VMware Tanzu Labs](https://tanzu.vmware.com/labs)
 
