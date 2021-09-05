@@ -6,10 +6,16 @@ author: tjmaynes
 date: 2021-09-01 16:05:24
 published: true
 ---
+![swiftui bug](/public/images/posts/2021-09-01-finding-and-reporting-a-swiftui-bug/swiftui-bug.jpg)
+
 **TL;DR**: There is a bug in SwiftUI 2.0, that occurs in iOS versions 14.5 and up, where your NavigationLink logic will start to redirect in an unexpected way when you have more than two NavigationLinks in the same SwiftUI view.
 
 # Introduction
-Recently, my pair and I were tasked with building a user onboarding experience in our internal iOS application. The requirements for this experience included enabling the user to navigate back and forth, and due to API calls, double popping (back to parent's parent view). Since a majority of the UI development in our iOS application is built using SwiftUI, we thought that we could easily use SwiftUI's programmable [NavigationLinks](https://developer.apple.com/documentation/swiftui/navigationlink) to build this experience out. In this blog post, I'm going to document how to reproduce a bug we found in SwiftUI 2.0 where having more than two NavigationLinks (a common workflow) will break navigation logic in iOS 14.5+.
+Recently, my pair and I were tasked with building a user onboarding experience in our internal iOS application. The requirements for this experience included enabling the user to navigate back and forth, and due to API calls, double popping (back to parent's parent view).
+
+Since a majority of the UI development in our iOS application is built using SwiftUI, we thought that we could easily use SwiftUI's programmable [NavigationLinks](https://developer.apple.com/documentation/swiftui/navigationlink) to build this experience out.
+
+In this blog post, I'm going to document how to reproduce a bug my pair and I found in SwiftUI 2.0, where having more than two NavigationLinks (a common workflow) will break navigation logic in iOS 14.5+, and how to report this bug to Apple.
 
 *BTW if you'd like to follow along with code by your side, I've made the source code for this project available on [GitHub](https://github.com/tjmaynes/swiftui-navigation-links-bug).*
 
@@ -44,7 +50,7 @@ In our UI test we expect to be able to tap through four different screens ("Firs
 
 ## Enter NavigationLinks
 
-We decided to use SwiftUI [NavigationLinks](https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui) because it enables developers to programmatically navigate between multiple SwiftUI views. There are multple ways to use NavigationLinks including:
+We decided to use SwiftUI [NavigationLinks](https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui) because it enables developers to programmatically navigate between multiple SwiftUI views. There are multiple ways to use NavigationLinks including:
 - using a NavigationLink like a button (non-programmatically)
 - using NavigationLink's `isActive` to programmatically control one navigation link
 - using NavigationLink's `tag` and `selection` to programmatically control more than one navigation link
@@ -136,27 +142,25 @@ struct ContentView: View {
 
 We should be in a good place now to run our UI tests. As seen in the below gif.
 
-![passing ui tests](/public/images/posts/2021-08-30-finding-and-reporting-a-swiftui-bug/passing-14.4.gif)
+![passing ui tests](/public/images/posts/2021-09-01-finding-and-reporting-a-swiftui-bug/passing-14.4.gif)
 
 We find that our UI Test is passing, and after a sanity checking by opening the app in the simulator and seeing everything work accordingly, we're ready now to push to pipeline. Eventually, we find that everything passed in our pipeline! So, we're done here...*right*?
 
 # The Bug
 
-![Surprised Pikachu Face](/public/images/posts/2021-08-30-finding-and-reporting-a-swiftui-bug/surprised-pikachu-face.jpg)
+![Surprised Pikachu Face](/public/images/posts/2021-09-01-finding-and-reporting-a-swiftui-bug/surprised-pikachu-face.jpg)
 
-We let out Project Manager know our story was ready to be QA'd and that they could download the latest iOS QA build from [AppCenter](https://appcenter.ms/). Less than five minutes later, we get a message from Product saying the story was getting `restarted` (our backlog is in [Pivotal Tracker](https://www.pivotaltracker.com/)) because the experience didn't work. Our PM even included a screenrecording of what they experienced and as you'll guess, it wasn't the same experience we were seeing locally in our iOS simulator.
+We let out Project Manager know our story was ready to be QA'd and that they could download the latest iOS QA build from [AppCenter](https://appcenter.ms/). Less than five minutes later, we get a message from Product saying the story was getting `restarted` (our backlog is in [Pivotal Tracker](https://www.pivotaltracker.com/)) because the experience didn't work. Our PM even included a screen-recording of what they experienced and as you'll guess, it wasn't the same experience we were seeing locally in our iOS simulator.
 
-After going back and forth with our PM we discover that our PM is running the latest iOS version (currently iOS 14.7.1), so we download the latest version of Xcode (due to client constraints we were unable to do this on client machines easily), and ran the app on an iOS 14.5 simulator. **And like magic** we were able to reproduce the bug and see our UI tests do not pass either! Below is a screencapture of the failure occuring in an iOS 14.5 simulator:
+After going back and forth with our PM we discover that our PM is running the latest iOS version (currently iOS 14.7.1), so we download the latest version of Xcode (due to client constraints we were unable to do this on client machines easily), and ran the app on an iOS 14.5 simulator. **And like magic** we were able to reproduce the bug and see our UI tests do not pass either! Below is a screen-capture of the failure occurring in an iOS 14.5 simulator:
 
-![failing ui tests](/public/images/posts/2021-08-30-finding-and-reporting-a-swiftui-bug/failing-14.5.gif)
+![failing ui tests](/public/images/posts/2021-09-01-finding-and-reporting-a-swiftui-bug/failing-14.5.gif)
 
 We even get a bug report from Apple in the console window:
 
-![xcode bug report screenshot](/public/images/posts/2021-08-30-finding-and-reporting-a-swiftui-bug/xcode-bug-report-screenshot.jpg)
+![xcode bug report screenshot](/public/images/posts/2021-09-01-finding-and-reporting-a-swiftui-bug/xcode-bug-report-screenshot.jpg)
 
-## The Fix
-
-We were able to turn the bug "on and off", when we commented out the third `NavigationLink`, which means that in order to control the flow of multiple views in SwiftUI, and support iOS devices 14.5 and higher, we would need to break out the `NavigationLinks` to sub-views. The sub-view refactor wasn't much effort to accomplish, we actually had a fix out before lunch time that morning.
+We were able to turn the bug "on and off", when we commented out the third `NavigationLink`, which means that in order to control the flow of multiple views in SwiftUI, and support iOS devices 14.5 and higher, we'd need to break out our `NavigationLinks` into subviews.
 
 ## Opening a bug report
 
@@ -174,7 +178,7 @@ It is doing this instead...
 2. Step 2
 ```
 
-It's helpful also to include code snippets, a runnable testcase, and a picture or video of the bug in action. *Try to put yourself in their shoes, what would you need to reproduce the bug?*
+It's helpful also to include code snippets, a runnable test-case, and a picture or video of the bug in action. *Try to put yourself in their shoes, what would you need to reproduce the bug?*
 
 You can find the bug I reported in the OpenRadar portal [here](https://openradar.appspot.com/radar?id=5059954041946112).
 
