@@ -14,7 +14,7 @@ September 15th, 2019 was my first day as a Consultant at Pivotal Labs. Since the
 
 VMware Tanzu Labs is a fantastic place to work and if your interested in working here, I highly recommend checking out the [careers site](https://careers.vmware.com/main/jobs?keywords=labs&location=New%20York).
 
-## NBCUniversal
+## [NBCUniversal]()
 
 On December 1st, 2016, I started my first day on a newly formed product team within the Content Distribution department at NBCUniversal. At NBCUniversal, our team was responsible for managing and adding new features to the MSNBC, Eonline, Syfy, Oxygen, Telemundo, USA, and Universo. Much of my time at NBCUniversal was spent working on backend services, (sole developer for) one website for the World Cup and automating our AWS infrastructure.
 
