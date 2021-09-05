@@ -34,13 +34,13 @@ Using this lookup table and the NAOqi `getAngles` function, we will enable the N
 ### Edge Detection
 In order to implement edge detection using the NAO robot's camera, we first had PIL, Python Imaging Library. PIL allowed us to capture and save the image from the NAO's camera. Next, we read in the captured photo and used OpenCV's Canny Edge Detection function. The Canny Edge Detection algorithm is implemented in following order:
 
-- We read the image created by PIL, called *noognagnook.png*, from disk by OpenCV's imread function. The /imread/ function loads an image from file.
-- The loaded image is now converted to black and white using OpenCV's /cvtColor/ function. The /cvtColor/ function coverts an image from one color space to another.
-- The black and white image is now blurred using OpenCV's /GaussianBlur/ function. The black and white image is blurred because we do not want any extra noise or else that noise will show up as a line in the edge detection. The /GaussianBlur/ function blurs an image using a gaussian filter.
+- We read the image created by PIL, called *noognagnook.png*, from disk by OpenCV's imread function. The `imread` function loads an image from file.
+- The loaded image is now converted to black and white using OpenCV's `cvtColor` function. The `cvtColor` function coverts an image from one color space to another.
+- The black and white image is now blurred using OpenCV's `GaussianBlur` function. The black and white image is blurred because we do not want any extra noise or else that noise will show up as a line in the edge detection. The `GaussianBlur` function blurs an image using a gaussian filter.
 - The black and white blurred image is passed to OpenCV's Canny function. The Canny function creates a mask of thresholds/bright lines that represent our shapes seen by the NAO robot.
-- The canny image is saved to a file for referencing/debugging.
-- The canny image is now passed to a function called /findContours/. The /findContours/ function returns a sets of Numpy arrays of pixel positions that make up each contour found in an image.
-- For each contour found, we take a smaller number of points that it will take to make that contour by using OpenCV's /approxPolyDP/. The /approxPolyDP/ function uses an alogrithm called [Douglas-Peucker algorithm](https://en.wikipedia.org/wiki/Ramer–Douglas–Peucker_algorithm) that will approximate a curve or a polygon with another curve/polygon with less vertices so that the distance between them is less or equal to the specified precision.
+- The canny image is saved to a file for debugging.
+- The canny image is now passed to a function called `findContours`. The `findContours` function returns a sets of Numpy arrays of pixel positions that make up each contour found in an image.
+- For each contour found, we take a smaller number of points that it will take to make that contour by using OpenCV's `approxPolyDP`. The `approxPolyDP` function uses an alogrithm called [Douglas-Peucker algorithm](https://en.wikipedia.org/wiki/Ramer–Douglas–Peucker_algorithm) that will approximate a curve or a polygon with another curve/polygon with less vertices so that the distance between them is less or equal to the specified precision.
 - Allow the NAO robot to draw a shape using the approximate number of points found at a current contour that creates a polygon.
 
 Lots of testing was done to make sure that we were using the approriate number of points and the correct points to draw from. Now that we have edge detection setup properly, we can now interpolate the detected pixel position to our workspace by using a lookup table and bilinear interpolation.
