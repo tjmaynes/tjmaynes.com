@@ -17,4 +17,4 @@ permalink: /now
 ## 🌍  Where am I
 At the moment, I'm living in Raleigh, North Carolina.
 
-*You can learn more about my career in my [CV](/public/cv.pdf).*
+*You can learn more about my career in my [CV](/career/cv.pdf).*
