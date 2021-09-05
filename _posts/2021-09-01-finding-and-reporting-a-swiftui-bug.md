@@ -64,7 +64,7 @@ struct AwesomeApp: App {
 }
 ```
 
-Next, in a file called `ContentView.swift`, we create a reusable View called `ButtonView`, which contains a Text title and a tappable button, so that the user can to navigate to the different screens.
+Next, in a file called `ContentView.swift`, we'll create a reusable View called `ButtonView`, which contains a Text title and a tappable button, so that the user can to navigate to the different screens.
 
 ```swift
 import SwiftUI
