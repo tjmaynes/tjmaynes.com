@@ -6,13 +6,7 @@ permalink: /about
 
 My name is TJ Maynes and I'm a passionate, generalist Software Engineer at [VMware Tanzu Labs](https://tanzu.vmware.com/labs). If you came looking for a place to learn about building mobile apps, automating the hard things, and agile software development then this is the place for you!
 
-If you have any questions, feel free to reach out to [me]("mailto:{{ site.email }}")!
-
-You can find out more about me in my [now page](/now) and [here](/links).
-
-<hr />
-
-Over my career I've been fortunate to work with amazing people at some amazing places.
+Over my career I've been fortunate to work with amazing people at some pretty incredible places.
 
 ## [VMware Tanzu Labs](https://tanzu.vmware.com/labs)
 
@@ -40,3 +34,7 @@ Having my first full-time job at Rejuvenan was a gift and I'll never forget the 
 ## [Spatial Networks](https://www.fulcrumapp.com/)
 
 While studying for my Computer Science degree, I accepted a Web Developer Internship at Spatial Networks, a company developing an iOS and Android app for geospatial data collection called [Fulcrum](https://www.fulcrumapp.com/company). At Spatial Networks, I learned how to contribute to a Ruby on Rails codebase with a small, yet mighty, team of developers.
+
+If you have any questions, feel free to reach out to [me]("mailto:{{ site.email }}")!
+
+You can find out more about me in my [now page](/now) and [here](/links).
