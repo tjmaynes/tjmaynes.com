@@ -1,7 +1,7 @@
 ---
 layout: post
-title: SwiftUI Multiple NavigationLink bug in iOS 14.5+
-description: There is a bug in SwiftUI 2.0, that occurs in iOS versions 14.5 and up, where your NavigationLink logic will start to redirect in an unexpected way when you have more than two NavigationLinks in the same SwiftUI view. 
+title: Finding and Reporting a SwiftUI Bug
+description: There is a bug in SwiftUI 2.0, that occurs in iOS versions 14.5 and up, where your NavigationLink logic will start to redirect in an unexpected way when you have more than two NavigationLinks in the same SwiftUI view.
 author: tjmaynes
 date: 2021-09-01 16:05:24
 published: true
@@ -136,23 +136,23 @@ struct ContentView: View {
 
 We should be in a good place now to run our UI tests. As seen in the below gif.
 
-![passing ui tests](/public/images/posts/2021-08-30-multiple-navigationlink-bug-in-ios-14.5+/passing-14.3.gif)
+![passing ui tests](/public/images/posts/2021-08-30-finding-and-reporting-a-swiftui-bug/passing-14.4.gif)
 
 We find that our UI Test is passing, and after a sanity checking by opening the app in the simulator and seeing everything work accordingly, we're ready now to push to pipeline. Eventually, we find that everything passed in our pipeline! So, we're done here...*right*?
 
 # The Bug
 
-![Surprised Pikachu Face](/public/images/posts/2021-08-30-multiple-navigationlink-bug-in-ios-14.5+/surprised-pikachu-face.jpg)
+![Surprised Pikachu Face](/public/images/posts/2021-08-30-finding-and-reporting-a-swiftui-bug/surprised-pikachu-face.jpg)
 
 We let out Project Manager know our story was ready to be QA'd and that they could download the latest iOS QA build from [AppCenter](https://appcenter.ms/). Less than five minutes later, we get a message from Product saying the story was getting `restarted` (our backlog is in [Pivotal Tracker](https://www.pivotaltracker.com/)) because the experience didn't work. Our PM even included a screenrecording of what they experienced and as you'll guess, it wasn't the same experience we were seeing locally in our iOS simulator.
 
 After going back and forth with our PM we discover that our PM is running the latest iOS version (currently iOS 14.7.1), so we download the latest version of Xcode (due to client constraints we were unable to do this on client machines easily), and ran the app on an iOS 14.5 simulator. **And like magic** we were able to reproduce the bug and see our UI tests do not pass either! Below is a screencapture of the failure occuring in an iOS 14.5 simulator:
 
-![failing ui tests](/public/images/posts/2021-08-30-multiple-navigationlink-bug-in-ios-14.5+/failing-14.5.gif)
+![failing ui tests](/public/images/posts/2021-08-30-finding-and-reporting-a-swiftui-bug/failing-14.5.gif)
 
 We even get a bug report from Apple in the console window:
 
-![xcode bug report screenshot](/public/images/posts/2021-08-30-multiple-navigationlink-bug-in-ios-14.5+/xcode-bug-report-screenshot.jpg)
+![xcode bug report screenshot](/public/images/posts/2021-08-30-finding-and-reporting-a-swiftui-bug/xcode-bug-report-screenshot.jpg)
 
 ## The Fix
 
