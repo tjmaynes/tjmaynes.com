@@ -149,20 +149,24 @@ a {
   padding: 8px 0 15px 0;
 }
 
-.post-content {
-  padding: 10px 0;
+.post-header {
+  padding-bottom: 10px;
 }
 
-.post-content p, .post-content h1, .post-content h2 {
+.content {
+  padding-bottom: 10px;
+}
+
+.content p, .content h1, .content h2 {
   padding: 5px 0 10px 0;
 }
 
-.post-content ul, .post-content ol {
+.content ul, .content ol {
   margin-left: 34px;
   padding-bottom: 10px;
 }
 
-.post-content ul:last-child, .post-content ol:last-child {
+.content ul:last-child, .content ol:last-child {
   padding-bottom: 0;
 }
 

@@ -1,5 +1,5 @@
 # tjmaynes.com
-> A fullstack mobile development blog for React Native and Rust enthusiasts.
+> A fullstack mobile development blog.
 
 ## Requirements
 
