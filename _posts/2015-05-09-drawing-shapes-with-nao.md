@@ -8,7 +8,7 @@ published: true
 ---
 ![NAO Robot - 1](/public/images/posts/2015-05-09-drawing-shapes-with-nao/1.jpg)
 
-This blog post discusses how to "teach" the NAO robot to draw shapes that it "sees" using NAOqi, Python and OpenCV. By the end of this blog post, you should have a better understanding of Canny Edge Detection and using Pixel Position interpolation to map a virual space to Forward Kinematics.
+This blog post discusses how to "teach" the NAO robot to draw shapes that it "sees" using NAOqi, Python and OpenCV. By the end of this blog post, you should have a better understanding of Canny Edge Detection and using Pixel Position interpolation to map a virtual space to Forward Kinematics.
 
 ## Background
 I just graduated with a Computer Science degree and wanted to share my Robotics class project that I'm proud of working on. Movies like [Iron Man](https://www.imdb.com/title/tt0371746/) and [Terminator 2](https://www.imdb.com/title/tt0103064) have inspired me to learn more about Computer Vision and Robotics. So, for my last semester of college, I was pretty excited to enroll in the Robotics course taught by [Dr. Yu Sun](http://www.cse.usf.edu/~yusun/).
@@ -18,8 +18,8 @@ Dr. Sun had some very expensive robots including a programmable industrial "arm"
 ## Project Design
 In order to program the NAO robot to draw basic shapes (seen through the camera sensor), some important design decisions needed to be examined at the beginning of this project. With the help of our course Teacher's Assistant, Caitrin Eaton, we decided these design pieces needed to include:
 
-- Setting up a workspace for the NAO robot to physcially work within.
-- Understanding and implementing an edge detection alogrithm to identify shapes.
+- Setting up a workspace for the NAO robot to physically work within.
+- Understanding and implementing an edge detection algorithm to identify shapes.
 - Mapping and interpolating the detected shapes (as pixel points) to points in the NAO's workspace.
 - Debugging and testing how the NAO robot draws smooth lines.
 
