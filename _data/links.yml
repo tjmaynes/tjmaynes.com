@@ -1,7 +1,7 @@
 - name: What I'm up to right now
   target: /now
 - name: Medium
-  target: https://medium.com/tjmaynes
+  target: https://medium.com/@tjmaynes
 - name: DEV.to
   target: https://dev.to/tjmaynes
 - name: Soundcloud
