@@ -1,5 +1,5 @@
 # tjmaynes.com
-> A fullstack mobile development blog.
+> A mobile fullstack development blog.
 
 ## Requirements
 
