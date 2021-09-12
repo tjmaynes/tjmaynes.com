@@ -11,10 +11,10 @@ permalink: /now
     - Mobile apps (iOS/Android)
     - Spring backend (Java/Kotlin)
     - React web apps (Typescript/Javascript)
-- Studying [React Native](https://reactnative.dev/), [Rust](https://www.rust-lang.org/) and [web3](https://web3.foundation/)
+- Studying [Rust](https://www.rust-lang.org/), [Kubernetes](https://kubernetes.io/), and [Nix](https://nixos.org/)
 - Playing music with my synthesizers
 
 ## 🌍  Where am I
-At the moment, I'm living in Raleigh, North Carolina.
+At the moment, I'm living in the Raleigh North Carolina area.
 
-*You can learn more about my career in my [CV](/career/cv.pdf).*
+*You can learn more from my [CV](/career/cv.pdf).*
