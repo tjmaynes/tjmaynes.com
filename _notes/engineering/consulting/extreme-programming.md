@@ -1,2 +1,0 @@
-# Extreme Programming
-

@@ -1,8 +1,7 @@
+# MacOS
 .DS_Store
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-.bundle/
-*.mp4
+
+# Generated
+public/
+zola-*
+zola

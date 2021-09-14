@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}" type="text/css" />
+  {% block rss %}
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
+  {% endblock %}
+  <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <body>
+    <section>
+      <header>
+        <nav class="menu">
+          <div>
+            <a href="{{ get_url(path="/") }}">Home</a>
+            <a href="{{ get_url(path="/links") }}">Links</a>
+          </div>
+          <a href="{{ get_url(path="/atom.xml") }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss">
+              <path d="M4 11a9 9 0 0 1 9 9"></path>
+              <path d="M4 4a16 16 0 0 1 16 16"></path>
+              <circle cx="5" cy="19" r="1"></circle>
+            </svg>
+          </a>
+        </nav>
+      </header>
+      {% block content %}
+      {% endblock %}
+    </section>
+  </body>
+</html>

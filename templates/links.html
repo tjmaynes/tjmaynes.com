@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul class="links">
+    {% set data = load_data(path="data/links.toml") %}
+    {% for link in data.links %}
+    <li><a href="{{ link.target }}">{{ link.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}

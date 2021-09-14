@@ -1,11 +1,10 @@
 # tjmaynes.com
-> A mobile fullstack development blog.
+> A development blog focused on Rust and mobile development.
 
 ## Requirements
 
 - [GNU Make](https://www.gnu.org/software/make/)
-- [Ruby](https://www.ruby-lang.org/en/)
-- [Bundler](https://bundler.io/)
+- [Zola](https://www.getzola.org/)
 
 ## Usage
 
@@ -18,11 +17,6 @@ To run the blog locally, run the following command:
 ```bash
 make edit
 ``` 
-
-To preview the blog, run the following command:
-```bash
-make preview
-```
 
 To create a new blog post, run the following command:
 ```bash

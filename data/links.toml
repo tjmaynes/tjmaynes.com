@@ -1,0 +1,47 @@
+[[links]]
+name = "About"
+target = "/about"
+
+[[links]]
+name = "What I'm up to right now"
+target = "/now"
+
+[[links]]
+name = "CV"
+target = "/career/cv.pdf"
+
+[[links]]
+name = "Medium"
+target = "https://medium.com/@tjmaynes"
+
+[[links]]
+name = "DEV.to"
+target = "https://dev.to/tjmaynes"
+
+[[links]]
+name = "Soundcloud"
+target = "https://soundcloud.com/tjmaynes"
+
+[[links]]
+name = "GitHub"
+target = "https://github.com/tjmaynes"
+
+[[links]]
+name = "Twitch.TV"
+target = "https://www.twitch.tv/tjmaynes"
+
+[[links]]
+name = "Twitter"
+target = "https://twitter.com/tjmaynes"
+
+[[links]]
+name = "Linkedin"
+target = "https://linkedin.com/in/tjmaynes"
+
+[[links]]
+name = "The Little Camera Shop"
+target = "https://littlecamerashop.com/"
+
+[[links]]
+name = "IMDB"
+target = "https://www.imdb.com/name/nm5299167"

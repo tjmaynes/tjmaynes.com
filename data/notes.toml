@@ -1,0 +1,56 @@
+[[notes]]
+content = 'Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features".'
+source_link = "https://en.wikipedia.org/wiki/Unix_philosophy"
+tags = ["unix philosophy", "software design"]
+
+[[notes]]
+content = "Expect the output of every program to become the input to another, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don't insist on interactive input."
+source_link = "https://en.wikipedia.org/wiki/Unix_philosophy"
+tags = ["unix philosophy", "software design"]
+
+[[notes]]
+content = "Design and build software, even operating systems, to be tried early, ideally within weeks. Don't hesitate to throw away the clumsy parts and rebuild them."
+source_link = "https://en.wikipedia.org/wiki/Unix_philosophy"
+tags = ["unix philosophy", "software design"]
+
+[[notes]]
+content = "Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them."
+source_link = "https://en.wikipedia.org/wiki/Unix_philosophy"
+tags = ["unix philosophy", "software design"]
+
+[[notes]]
+content = "Tests are Rust functions that verify that the non-test code is functioning in the expected manner."
+source_link = "https://doc.rust-lang.org/book/ch11-01-writing-tests.html#how-to-write-tests"
+code_content = """
+```rust
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        assert_eq!(2 + 2, 4);
+    }
+}
+```
+"""
+tags = ["rust"]
+
+[[notes]]
+content = "Result<T, E> is the type used for returning and propagating errors. It is an enum with the variants, Ok(T), representing success and containing a value, and Err(E), representing error and containing an error value. Functions return Result whenever errors are expected and recoverable. In the std crate, Result is most prominently used for I/O."
+source_link = "https://doc.rust-lang.org/std/result/"
+code_type = "rust"
+code_content = """
+enum Result<T, E> {
+  Ok(T),
+  Err(E),
+}
+"""
+tags = ["rust", "functional_programming"]
+
+[[notes]]
+content = "A monad is an abstract data type that allows programmers to chain complex, nondeterministic operations."
+source_link = "https://en.wikipedia.org/wiki/Monad_(functional_programming)"
+tags = ["functional programming"]
+
+[[notes]]
+content = "An abstract data type (ADT) is a kind of data type defined by it's behavior from the point of view from a user. Since an ADT is created from the user's point of view, it's internal presentation is hidden, thus enabling us to focus more on behavior than caring what data is being held (it could be a String, Integer, YourCustomObject, etc)."
+tags = ["functional programming", "software design"]

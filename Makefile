@@ -1,24 +1,23 @@
 install:
-	bundle config set path 'vendor/bundle'
-	bundle config build.sassc --disable-lto
-	bundle install
+	./scripts/install.sh
 
+.PHONY: build
 build:
-	bundle exec jekyll build
+	zola build
 
-edit:
-	bundle exec jekyll serve --watch --drafts
-
-preview:
-	bundle exec jekyll serve
+edit: build
+	zola serve --port 4000 --drafts
 
 new_post:
 	./scripts/new-post.sh "$(POST_TITLE)"
 
 download_career_files:
-	./scripts/download-career-files.sh "_site"
+	./scripts/download-career-files.sh "public"
 
-build_for_deployment: install build download_career_files
+copy_files:
+	cp -rf CNAME public/
+
+build_for_deployment: install build download_career_files copy_files
 
 mp4_to_gif:
 	./scripts/mp4-to-gif.sh "${VIDEO_INPUT}"

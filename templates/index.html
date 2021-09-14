@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="posts">
+    <ul>
+        {% set posts = get_section(path="posts/_index.md") %}
+        {% for post in posts.pages %}
+        <li><span style="padding-right:10px;">{{ post.date | date(format="%Y %b", timezone="America/New_York") }}</span><a href="{{ post.permalink | safe }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock content %}

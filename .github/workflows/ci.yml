@@ -5,15 +5,23 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v13
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          fetch-depth: '0'
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          profile: minimal
+      - name: Cache rust dependencies
+        uses: Swatinem/rust-cache@v1
+      - name: 🔨 Install Dependencies 🔨
+        run: sudo apt-get update && sudo apt-get install make
       - name: 🧪 Build for Deployment 🧪
-        run: nix-shell --run "make build_for_deployment"
+        run: make build_for_deployment
       - name: 🚀 Deploy Website 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: _site 
+          FOLDER: public
           CLEAN: true
