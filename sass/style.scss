@@ -194,6 +194,10 @@ a {
   padding: 10px 0;
 }
 
+.content header, .content header p {
+  text-align: center;
+}
+
 @media only screen and (max-width: 600px) {
   .links a {
     min-width: 100%;

@@ -1,6 +1,6 @@
 +++
 title = "About"
-permalink = "/about.html"
+description = ""
 template = "content.html"
 +++
 ![maine and me](/assets/images/me.jpg)
