@@ -17,7 +17,7 @@ Since a majority of the UI development in our iOS application is built using Swi
 
 In this blog post, I'm going to document how to reproduce a bug my pair and I found in SwiftUI 2.0, where having more than two NavigationLinks (a common workflow) will break navigation logic in iOS 14.5+, and how to report this bug to Apple.
 
-*BTW if you'd like to follow along with code by your side, I've made the source code for this project available on [GitHub](https://github.com/tjmaynes/swiftui-navigation-links-bug).*
+***BTW** if you'd like to follow along with code by your side, I've made the source code for this project available on [GitHub](https://github.com/tjmaynes/swiftui-navigation-links-bug).*
 
 # The Setup
 

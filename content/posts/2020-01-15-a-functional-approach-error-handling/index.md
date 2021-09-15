@@ -22,7 +22,7 @@ assertEquals(3, add1(2))
 ...
 ```
 
-From a functional programming perspective, this function would be considered [pure](https://en.wikipedia.org/wiki/Pure_function). A pure function is a function that has the same return value for the same input value and does not contain any side effects. The guarentees of a pure function enable software developers to write safer software. But what happens when you need to introduce a side effect into your application. Side effects are not necessarily a bad thing, it's actually great thing that they occur; it means your program is *useful*. Useful features of an application, may include (but not limited to):
+From a functional programming perspective, the `add1` function would be considered [pure](https://en.wikipedia.org/wiki/Pure_function). A **pure** function is a function that has the same return value for the same input value and does not contain any side effects. The guarentees of a pure function enable software developers to write safer software. But what happens when you need to introduce a side effect into your application. Side effects are not necessarily a bad thing, it's actually great thing that they occur; it means your program is *useful*. Useful features of an application, may include (but not limited to):
 - User input
 - Talking to a database or external service
 - Receiving command-line arguments
