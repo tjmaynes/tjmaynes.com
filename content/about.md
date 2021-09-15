@@ -1,9 +1,8 @@
 +++
 title = "About"
-description = ""
 template = "content.html"
 +++
-![maine and me](/assets/images/me.jpg)
+![maine, emmy and me](/assets/images/me.jpg)
 
 My name is TJ Maynes and I'm a passionate, generalist Software Engineer at [VMware Tanzu Labs](https://tanzu.vmware.com/labs). Over my career I've been fortunate to work with amazing people at some pretty incredible places.
 

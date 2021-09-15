@@ -194,7 +194,11 @@ a {
   padding: 10px 0;
 }
 
-.content header, .content header p {
+.content header h1 {
+  text-decoration: underline;
+}
+
+.content header h1, .content header p {
   text-align: center;
 }
 
