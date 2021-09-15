@@ -7,7 +7,7 @@ draft = true
 [extra]
 author = "tjmaynes"
 +++
-Recently, I've been asking myself, "How can this function fail?" This question has led to a different style of programming that I've chosen to utilize in various problem solving scenarios (mostly around integrations with external systems). Let's take a look at the following function written in [kotlin](https://kotlinlang.org/docs/reference):
+Recently, I've been asking myself, "How can this function fail?" This question has led to a different style of programming that I've chosen to utilize in various problem solving scenarios (mostly around integrations with external systems). Let's take a look at the following function written in [Kotlin](https://kotlinlang.org/docs/reference):
 
 ```kotlin
 fun add1(x: Int): Int = x + 1
@@ -20,17 +20,15 @@ assertEquals(1, add1(0))
 assertEquals(2, add1(1))
 assertEquals(3, add1(2))
 ...
-...
 ```
 
-From a functional programming perspective, this function would be considered [pure](https://en.wikipedia.org/wiki/Pure_functionXS). A pure function is a function that has the same return value for the same input value and does not contain any side effects. The guarentees of a pure function enable software developers to write safer software. But what happens when you need to introduce a side effect into your application. Side effects are not necessarily a bad thing, it's actually great thing that they occur; it means your program is useful. Useful features of an application, may include (but not limited to):
-
+From a functional programming perspective, this function would be considered [pure](https://en.wikipedia.org/wiki/Pure_function). A pure function is a function that has the same return value for the same input value and does not contain any side effects. The guarentees of a pure function enable software developers to write safer software. But what happens when you need to introduce a side effect into your application. Side effects are not necessarily a bad thing, it's actually great thing that they occur; it means your program is *useful*. Useful features of an application, may include (but not limited to):
 - User input
 - Talking to a database or external service
 - Receiving command-line arguments
 - Reading environment variables
 
-While usefulness has its rewards, it also comes at a cost. Anytime we introduce a side effect into our software, we introduce additional ways for our application to fail. Let's take a look at what happens when we write a function that attempts to fetch a thing (T) from a database.
+While usefulness has its rewards, it also comes at a cost. Anytime we introduce a side effect into our software, we introduce additional ways for our application to fail. Let's take a look at what happens when we write a function that attempts to fetch a thing `<T>` from a database.
 
 ```kotlin
 fun <T> getById(id: String): T =
@@ -61,11 +59,22 @@ fun <T> getById(id: String): T? =
   }
 ```
 
-This works pretty well for us. We've removed the "invisible"/implicit throwable from the function and are now back to returning a simple optional T value. However, this simplicity has come at a price.
+This works pretty well for us. We've removed the implicit throwable from the function and are now back to returning a simple optional `T` value. However, 
 
-With the above approach we have given the caller of this method a not so "truthy" return value. If an exception occurs, the caller of this method will not know, based on the name of the function, if the item was found or something else has happened (unable to connect to database, table not found, etc).
+```kotlin
+val result: Object? = getById("some-id")
+if (result.isNullOrEmpty()) { // we can only check for nullability
+  // do something
+} else {
+  // do something else
+}
+```
 
-I think we can do better job giving more information back to the caller of this method. Let's rewrite the function using two callbacks: onSuccess and onFailure.
+Since the caller of the `getById` function is unable to make a decision. For instance, if our `getById` function could tell us that a database connection issue occurred then the caller could have the option to apply retry logic, instead of handling the absence an object.
+
+With the optional approach, we have given the caller of this method a not so "truthy" return value. I
+
+I think we can do a better job giving more information back to the caller of this method. Let's rewrite the function using two callbacks: `onSuccess` and `onFailure`.
 
 ```kotlin
 fun <T> getById(id: String, onSuccess: (T?) -> Void, onFailure: (Exception) -> Void) {
@@ -77,18 +86,9 @@ fun <T> getById(id: String, onSuccess: (T?) -> Void, onFailure: (Exception) -> V
 }
 ```
 
-The above function says "given an id, we could be in a success or failure state". The function signature tells us (without looking at the implementation code) that our getById method can succeed or fail for different reasons. While this code is functionally more correct, it is harder to use now since we are relying on callbacks.
+The above function says "given an id, i'll let you know when a success or failure is given". The function signature tells us (without looking at the implementation code) that our `getById` method can succeed or fail for different reasons. While this code is functionally more correct, it is harder to use now since we are relying on callbacks.
 
 Let's look at how this is harder to use now. Previously we were able to get our value in one line. As so...
-
-```kotlin
-val result: AnObject? = getById("some-id")
-if (result != null) {
-  // do something
-} else {
-  // do something else
-}
-```
 
 The above style of using our getById function is easier to reason about since it following a conventional style of programming that most developers are used to. But with callbacks, we have to work with our function this way...
 
@@ -109,10 +109,9 @@ The *Either* monad is a monadic data type that allows you to encapsulate a resul
 fun <T> getById(id: String): Either<RepositoryError, T> =
   try {
     val result = databaseDriver.getById(id)
-    if (result) {
-      Either.Right(result)
-    }
-    Either.Left(RepositoryError.NotFound)
+
+    if (!result.isNullOrEmpty()) Either.Right(result)
+    else Either.Left(RepositoryError.NotFound)
   } catch (e: Exception) {
     Either.Left(RepositoryError.Unknown(e.localizedMessage))
   }

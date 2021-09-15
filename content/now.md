@@ -8,7 +8,7 @@ template = "content.html"
     - Mobile apps (iOS/Android)
     - Spring backend (Java/Kotlin)
     - React web apps (Typescript/Javascript)
-- Studying [Rust](https://www.rust-lang.org/), [Kubernetes](https://kubernetes.io/), and [Nix](https://nixos.org/)
+- Studying [Rust](https://www.rust-lang.org/), [React Native](https://reactnative.dev/) and [Kubernetes](https://kubernetes.io/).
 - Playing music with my synthesizers
 
 ## 🌍  Where am I
