@@ -3,6 +3,9 @@ title = "Drawing Shapes with NAO"
 description = "This blog post discusses how to 'teach' the NAO robot to draw shapes that it 'sees' using NAOqi, Python and OpenCV."
 date = "2015-05-09 20:18:28"
 
+[taxonomies]
+tags=["python"]
+
 [extra]
 author = "tjmaynes"
 +++
@@ -61,7 +64,7 @@ The purpose of interpolating the detected pixel positions is to get the theta va
 - This loop continues until we have all the desired lists of pixel position theta values.
 - The `lookup_table` function returns a path list containing a list of all the interpolated pixel position values (each of which contains a list of six theta values).
 
-Now that we have a path for the NAO robot, we can use this path to create the shape desired. We can create the shape desired by simply looping through each point in the path list. Next, we pass the effector name (/RArm/), the current point in the path, and a specified speed (0.3 seconds) to the /setAngles/ function (from the NAOqi function). The setAngles function will take a set of theta values and a specified effector (like the right arm) and perform a motion trajectory to the desired position via the set of theta values.
+Now that we have a path for the NAO robot, we can use this path to create the shape desired. We can create the shape desired by simply looping through each point in the path list. Next, we pass the effector name (`RArm`), the current point in the path, and a specified speed (0.3 seconds) to the `setAngles` function (from the NAOqi function). The setAngles function will take a set of theta values and a specified effector (like the right arm) and perform a motion trajectory to the desired position via the set of theta values.
 
 ![4](4.jpg)
 

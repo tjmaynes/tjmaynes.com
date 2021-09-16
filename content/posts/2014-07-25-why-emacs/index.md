@@ -4,6 +4,9 @@ description = "This blog post is an unordered list of reasons why I enjoy using 
 slug = "why-emacs"
 date = "2014-07-25 12:00:00"
 
+[taxonomies]
+tags=["personal"]
+
 [extra]
 author = "tjmaynes"
 +++

@@ -46,7 +46,7 @@ body {
   color: #585858;
   background-color: #fbfbfb;
   margin: 0 auto;
-  max-width: 720px;
+  max-width: 820px;
 }
 
 body > * {
@@ -59,6 +59,16 @@ body > * {
 
 p {
   text-align: justify;
+}
+
+blockquote {
+  padding: 10px 20px;
+  margin: 5px 0;
+  background-color: #EEECE7;
+}
+
+.content blockquote p {
+  padding: 0 0;
 }
 
 h1, h2 {
@@ -143,16 +153,19 @@ a {
   width: 1em;
 }
 
-.posts ul {
-  list-style-type: none;
-}
-
-.posts ul li {
-  padding: 2px 0;
+.posts {
+  ul {
+    list-style-type: none;
+  }
+  ul li {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 2px 0;
+  }
 }
 
 .post {
-  padding: 8px 0 15px 0;
+  padding-bottom: 15px;
 }
 
 .post-header {
@@ -162,6 +175,51 @@ a {
 .post-header-info {
   display: flex;
   justify-content: space-between;
+}
+
+.tag {
+  margin-right: 8px;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.tag:last-child {
+  margin-right: 0;
+}
+
+.tag-functional-programming, .tag-microservices, .tag-automated-testing, .tag-bug-reporting {
+  color: #fff;
+  background-color: #000;
+}
+
+.tag-kotlin {
+  color: #fff;
+  background-color: #F6891F;
+}
+
+.tag-kubernetes, .tag-personal {
+  color: #fff;
+  background-color: #326ce5;
+}
+
+.tag-rust {
+  color: #fff;
+  background-color: #dea584;
+}
+
+.tag-bash {
+  color: #fff;
+  background-color: #89e051;
+}
+
+.tag-python {
+  color: #fff;
+  background-color: #3572A5;
+}
+
+.tag-swift {
+  color: #fff;
+  background-color: #F05138;
 }
 
 .content {
@@ -220,6 +278,7 @@ pre {
   padding: 10px;
   line-height: 1.42857;
   overflow: auto;
+  margin: 10px 0;
 }
 
 code { background-color: #EEECE7; }

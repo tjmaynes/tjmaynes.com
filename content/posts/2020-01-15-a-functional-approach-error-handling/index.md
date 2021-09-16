@@ -4,6 +4,9 @@ date = "2020-01-15T12:00:00+01:00"
 description = "In this blog post we'll be discussing some object-oriented error handling strategies that will iterate into the Either monad."
 draft = true
 
+[taxonomies]
+tags=["kotlin", "functional programming"]
+
 [extra]
 author = "tjmaynes"
 +++
@@ -102,8 +105,20 @@ getById("some-id", { result ->
 
 What if we had a type that could represent these types...
 
-## The Either Monad
-The *Either* monad is a monadic data type that allows you to encapsulate a result that returns either one possible outcome or another possible outcome. Since Kotlin does not include an Either monad is it's standard library, we'll need to pull in a functional programming library called [ArrowKt](https://arrow-kt.io/docs/core/) for our example code.
+## Enter the Either Monad
+The *Either* monad is a monadic data type that allows you to encapsulate a result that returns either one possible outcome or another possible outcome.
+
+> A **monad** is an abstract data type that enables programmers to chain complex, nondeterministic operations in a readable way.
+
+An abstract data type (ADT) is a kind of data type defined by it's behavior from the point of view from a user. Since an ADT is created from the user's point of view, it's internal presentation is hidden, thus enabling us to focus more on behavior than caring what data is being held. For instance, an `array` can be thought of as an ADT, it holds a collection of values (of type `T`) and can be mapped over, filtered or reduced into a some other type `U`.
+
+The ability to chain operations is the functor attribute of monads. In category theory, a functor is a something has enables mappable behavior, such as iterating over a list of objects/strings/etc. To enable the chaining of nondeterministic operations, two functions are found on monadic types: return and bind.
+
+The return function places a value into a monadic context, whereas the bind function applies a function in a monadic context.
+
+Note: Depending on the programming language or library that you are using, the return function will typically be represented through the /constructor/ method and bind may have a different name such as flatMap or map.
+
+Since Kotlin does not include an Either monad is it's standard library, we'll need to pull in a functional programming library called [ArrowKt](https://arrow-kt.io/docs/core/) for our example code.
 
 ```kotlin
 fun <T> getById(id: String): Either<RepositoryError, T> =
