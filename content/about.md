@@ -1,5 +1,6 @@
 +++
 title = "About"
+description = "My name is TJ Maynes and I'm a passionate, generalist Software Engineer at VMware Tanzu Labs. Also, an amateur Screenwriter."
 template = "content.html"
 +++
 ![maine, emmy and me](/assets/images/me.jpg)

@@ -4,6 +4,9 @@ description = "In this blog post, I discuss why and how I moved my custom bash s
 date = "2021-07-18 13:45:24"
 draft = true
 
+[taxonomies]
+tags=["nix", "automation", "workstation setup"]
+
 [extra]
 author = "tjmaynes"
 +++

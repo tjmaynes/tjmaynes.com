@@ -1,11 +1,7 @@
-{% extends "base.html" %}
+{% extends "page.html" %}
 
 {% block content %}
 <div class="content">
-    <header>
-        <h1>{{ page.title }}</h1>
-        {% if page.description %}<p>{{ page.description }}</p>{% endif %}
-    </header>
-    {{ page.content | safe }}
+{{ page.content | safe }}
 </div>
 {% endblock content %}

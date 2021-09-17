@@ -11,3 +11,6 @@ minify_html = true
 highlight_code = true
 highlight_theme = "solarized-light"
 render_emoji = true
+
+[extra]
+twitter_handle = "@tjmaynes"

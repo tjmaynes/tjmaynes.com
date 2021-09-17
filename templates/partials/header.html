@@ -1,0 +1,9 @@
+<header>
+    <nav class="menu">
+        <div>
+            <a href="{{ get_url(path="/") }}">Home</a>
+            <a href="{{ get_url(path="/links") }}">Links</a>
+        </div>
+        <a href="{{ get_url(path="/atom.xml") }}">{% include "partials/rss.html" %}</a>
+    </nav>
+</header>

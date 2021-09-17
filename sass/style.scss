@@ -177,6 +177,10 @@ a {
   justify-content: space-between;
 }
 
+.tags {
+  padding-top: 4px;
+}
+
 .tag {
   margin-right: 8px;
   padding: 2px 5px;
@@ -187,9 +191,14 @@ a {
   margin-right: 0;
 }
 
-.tag-functional-programming, .tag-microservices, .tag-automated-testing, .tag-bug-reporting {
+.tag-functional-programming, .tag-microservices, .tag-automated-testing, .tag-bug-reporting, .tag-workstation-setup {
   color: #fff;
   background-color: #000;
+}
+
+.tag-nix {
+  color: #fff;
+  background-color: #7e7eff;
 }
 
 .tag-kotlin {
@@ -207,7 +216,7 @@ a {
   background-color: #dea584;
 }
 
-.tag-bash {
+.tag-bash, .tag-automation {
   color: #fff;
   background-color: #89e051;
 }

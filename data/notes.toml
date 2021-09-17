@@ -39,10 +39,12 @@ content = "Result<T, E> is the type used for returning and propagating errors. I
 source_link = "https://doc.rust-lang.org/std/result/"
 code_type = "rust"
 code_content = """
+```rust
 enum Result<T, E> {
   Ok(T),
   Err(E),
 }
+```
 """
 tags = ["rust", "functional_programming"]
 

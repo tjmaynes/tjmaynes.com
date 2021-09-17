@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "page.html" %}
 
 {% block content %}
 <ul class="notes">
@@ -7,7 +7,7 @@
     <li>
         <p>{{ note.content }} {% if note.source_link %}| <a href="{{ note.source_link }}">source</a>{% endif %} | <span style="font-weight: 800;">{{ note.tags | join(sep=", ") }}</span></p>
         {% if note.code_content %}
-        {{ note.code_content | safe }}
+        {{ note.code_content | markdown(inline=false) | safe }}
         {% endif %}
     </li>
     {% endfor %}
