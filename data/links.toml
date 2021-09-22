@@ -7,6 +7,10 @@ name = "What I'm up to right now"
 target = "/now"
 
 [[links]]
+name = "My small notes"
+target = "/notes"
+
+[[links]]
 name = "CV"
 target = "/career/cv.pdf"
 
