@@ -1,6 +1,6 @@
 base_url = "https://tjmaynes.com"
 title = "TJ Maynes"
-description = "A development blog focused on Rust and mobile development."
+description = "A development blog focused on Rust and Kubernetes."
 
 generate_feed = true
 

@@ -25,48 +25,53 @@ assertEquals(3, add1(2))
 ...
 ```
 
-From a functional programming perspective, the `add1` function would be considered [pure](https://en.wikipedia.org/wiki/Pure_function). A **pure** function is a function that has the same return value for the same input value and does not contain any side effects. The guarentees of a pure function enable software developers to write safer software. But what happens when you need to introduce a side effect into your application. Side effects are not necessarily a bad thing, it's actually great thing that they occur; it means your program is *useful*. Useful features of an application, may include (but not limited to):
+From a functional programming perspective, the `add1` function would be considered [pure](https://en.wikipedia.org/wiki/Pure_function). A **pure** function is a function that has the same return value for the same input value and does not contain any side effects. The guarentees of a pure function enable software developers to write safer software. But what happens when you need to introduce a side effect into your application. Side effects are not necessarily a bad thing, it means your program is *useful*. Useful features of an application may include:
 - User input
 - Talking to a database or external service
 - Receiving command-line arguments
 - Reading environment variables
 
-While usefulness has its rewards, it also comes at a cost. Anytime we introduce a side effect into our software, we introduce additional ways for our application to fail. Let's take a look at what happens when we write a function that attempts to fetch a thing `<T>` from a database.
+While side effects are useful, they also come at a cost. Anytime we introduce a side effect into our software, we incur the cost of an additional way that our application can fail. Let's dive into what happens when we need to write a our own class for doing for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) fetching an item by their id from a database (a common feature in a  application) using Kotlin.
 
 ```kotlin
-fun <T> getById(id: String): T =
-  databaseDriver.getById(id)
+interface Repository {
+  fun <T> getById(id: String): T 
+}
+
+class DefaultRepository(val databaseDriver: DatabaseDriver): Repository {
+  fun <T> getById(id: String): T =
+    databaseDriver.getById(id)
+}
 ```
 
-This simple function takes an id and returns a thing that is fetched from a database using a database driver. But, what happens when the thing is not in the database? If the thing is not in the database, then our function will not return our thing. Maybe we should rethink our approach to this function.
+This relatively simple function looks up an item `T` in a database by it's `id` and returns the item `T` using the database driver. But, what happens when the item is not in the database? If the item is not in the database, then our function will not return our item and thus an exception should occur. Let's rethink our approach to this function. Instead of our `getById` function returning an type `T`, what if it returned an optional type `T` as seen below:
 
 ```kotlin
+...
 fun <T> getById(id: String): T? =
   databaseDriver.getById(id) ?: null
+...
 ```
 
-There! That's it! We changed our return type to return an optional thing. This is convenient for us because that let's the caller of this function decide what to do when a thing is not found in our database.
+This "optional" refactor solves our missing item problem, however, is doesn't solve a another problem with external dependencies...*what happens if we can't connect to our database?* Our function needs to account for this, or else, the caller of the function will have to manage the nasty surprise themselves. In this particular situation, we should be able to manage this for the caller without the caller having to manage their own try/catch statement to handle an exception our `getById` function can throw.
 
-But, what happens if we can't find our thing because we were able to connect to our database?
-
-Let's assume our getById function provided by databaseDriver throws an exception. Unfortunately we have not managed what happens when our internal dependency throws an exception. Let's go through two different approaches to error handling throwable functions.
-
-A common pattern for dealing with functions that throw, is to utilize the Try...catch pattern. As seen below...
+Let's assume our `databaseDriver` will throw an exception for a database connection issue (ie `ConnectionException`) and refactor our code to use a try/catch statement to capture our database driver's connection failure exception and since we are expecting an optional `T` to be returned let's also return `null` when our database connection drops.
 
 ```kotlin
+...
 fun <T> getById(id: String): T? =
   try {
     databaseDriver.getById(id) ?: null
-  } catch (e: Exception) {
+  } catch (e: ConnectionException) {
     null
   }
+...
 ```
-
-This works pretty well for us. We've removed the implicit throwable from the function and are now back to returning a simple optional `T` value. However, 
+This works pretty well for us. We've removed the suprising throwable functionality from our `getById` function and are now back to returning a simple optional `T` value. However, 
 
 ```kotlin
-val result: Object? = getById("some-id")
-if (result.isNullOrEmpty()) { // we can only check for nullability
+val person: Person? = personRepository.getById("some-id")
+if (person.isNullOrEmpty()) {
   // do something
 } else {
   // do something else

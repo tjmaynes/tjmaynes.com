@@ -1,5 +1,5 @@
 # tjmaynes.com
-> A development blog focused on Rust and mobile development.
+> A development blog focused on Rust and Kubernetes.
 
 ## Requirements
 

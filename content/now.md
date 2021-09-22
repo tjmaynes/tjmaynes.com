@@ -11,8 +11,8 @@ template = "content.html"
     - Mobile apps (iOS/Android)
     - Spring backend (Java/Kotlin)
     - React web apps (Typescript/Javascript)
-- Studying [Rust](https://www.rust-lang.org/), [React Native](https://reactnative.dev/) and [Kubernetes](https://kubernetes.io/).
-- Playing music with my synthesizers
+- Studying [Rust](https://www.rust-lang.org/) and [Kubernetes](https://kubernetes.io/).
+- Playing music with my synthesizers and writing.
 
 ## 🌍  Where am I
 At the moment, I'm living in the Raleigh North Carolina area.
