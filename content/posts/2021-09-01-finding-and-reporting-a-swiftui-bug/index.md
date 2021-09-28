@@ -167,21 +167,129 @@ We were able to turn the bug "on and off", when we commented out the third `Navi
 
 ## Opening a bug report
 
-To disclose a bug to Apple, you can log into Apple's [Feedback Assistant](https://feedbackassistant.apple.com/) and write up your bug details there. It's helpful to have some structure to help assist an Apple Developer on the issue you report. Below is an example format you can follow:
+To disclose our bug to Apple, let's first sign into Apple's [Feedback Assistant](https://feedbackassistant.apple.com/) portal. Next, in the top-left corner, we'll tap the "New Post" icon. Next, we'll choose "Developer Tools" from the predefined list of "Feedback starting points". After this, we'll have a new "Feedback form" to fill out.
+
+For us we'll input the following for our Feedback form:
+- A "descriptive title" for this bug will be "SwiftUI - Unable to use more than two NavigationLinks in the same SwiftUI View".
+- The "area" we are seeing this issue is in the "SwiftUI Framework".
+- We are reporting "Incorrect/Unexpected Behavior" from the SwiftUI Framework
+
+Next, we'll add a helpful description. Helpful descriptions come in many shapes and sizes, so it's best to have some structure to help assist an Apple Developer on the issue you report. Below is an example format you can follow:
 
 ```markdown
 # Expected behavior:
 I should be able to...
-
 # Unexpected behavior:
 It is doing this instead...
-
 # Reproducible steps:
 1. Step 1
 2. Step 2
 ```
 
-It's helpful also to include code snippets, a runnable test-case, and a picture or video of the bug in action. *Try to put yourself in their shoes, what would you need to reproduce the bug?*
+*Try to put yourself in the Apple support teams' shoes...what all would you need to reproduce the bug?*
+
+For us, let's include the following as our helpful description to the Apple support team:
+
+```
+Reproducible builds:
+The bug exists in iOS 14.5+ simulators and devices.
+
+Expected behavior:
+I should be able to programmatically control the flow of multiple NavigationLinks destinations (within the same View) using `selection` and `tag`.
+
+Unexpected behavior:
+When a third NavigationLink is added to a SwiftUI View, the second NavigationLink will redirect back to the NavigationView root and not to the third NavigationLink destination.
+
+Notes:
+
+I've included a SwiftUI test that should fail (thus reproducing) the bug when running the XCUITest suite in an iOS 14.5 simulator. This XCUITest suite passes when running in an iOS 14.3 simulator.
+
+```swift
+import XCTest
+
+class AwesomeAppUITests: XCTestCase {
+
+  func test_whenUserTapsThroughMoreThanTwoScreens_itShouldTakeThemToLastScreen() {
+    let app = XCUIApplication()
+    app.launch()
+
+    XCTAssertTrue(app.staticTexts["First screen"].exists)
+    app.buttons["Tap me!"].tap()
+
+    XCTAssertTrue(app.staticTexts["Second screen"].exists)
+    app.buttons["Tap me, again!"].tap()
+
+    XCTAssertTrue(app.staticTexts["Third screen"].exists)
+    app.buttons["One more time..."].tap()
+
+    XCTAssertTrue(app.staticTexts["Final screen"].exists)
+  }
+}
+```
+
+```swift
+import SwiftUI
+
+struct ButtonView: View {
+  let message: String
+  let buttonTitle: String
+  let onTap: () -> Void
+
+  var body: some View {
+    VStack {
+      Text(message).padding()
+
+      Button(action: { onTap() }) {
+        Text(buttonTitle)
+      }
+    }
+  }
+}
+
+struct ContentView: View {
+  @State private var selection: String?
+
+  var body: some View {
+    NavigationView {
+      VStack {
+        ButtonView(
+          message: "First screen",
+          buttonTitle: "Tap me!",
+          onTap: { self.selection = "view-2" }
+        )
+
+        NavigationLink(
+          destination: ButtonView(
+            message: "Second screen",
+            buttonTitle: "Tap me, again!",
+            onTap: { self.selection = "view-3" }
+          ),
+          tag: "view-2",
+          selection: self.$selection
+        ) { EmptyView() }
+
+        NavigationLink(
+          destination: ButtonView(
+            message: "Third screen",
+            buttonTitle: "One more time...",
+            onTap: { self.selection = "view-4" }
+          ),
+          tag: "view-3",
+          selection: self.$selection
+        ) { EmptyView() }
+
+        NavigationLink(
+          destination: Text("Final screen"),
+          tag: "view-4",
+          selection: self.$selection
+        ) { EmptyView() }
+      }
+    }
+  }
+}
+```
+```
+This description includes expected and unexpected behavior, notes and some reproducible Swift test cases and code. Finally, let's upload our video recordings (the animated gifs) to the Feedback form too.
 
 You can find the bug I reported in the OpenRadar portal [here](https://openradar.appspot.com/radar?id=5059954041946112).
 
