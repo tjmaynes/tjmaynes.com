@@ -204,7 +204,7 @@ Notes:
 
 I've included a SwiftUI test that should fail (thus reproducing) the bug when running the XCUITest suite in an iOS 14.5 simulator. This XCUITest suite passes when running in an iOS 14.3 simulator.
 
-```swift
+--- ApplicationTest.swift
 import XCTest
 
 class AwesomeAppUITests: XCTestCase {
@@ -225,9 +225,9 @@ class AwesomeAppUITests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Final screen"].exists)
   }
 }
-```
+---
 
-```swift
+--- ContentView.swift
 import SwiftUI
 
 struct ButtonView: View {
@@ -287,8 +287,9 @@ struct ContentView: View {
     }
   }
 }
+---
 ```
-```
+
 This description includes expected and unexpected behavior, notes and some reproducible Swift test cases and code. Finally, let's upload our video recordings (the animated gifs) to the Feedback form too.
 
 You can find the bug I reported in the OpenRadar portal [here](https://openradar.appspot.com/radar?id=5059954041946112).

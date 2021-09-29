@@ -1,7 +1,8 @@
 +++
-title = "Adding a Health API endpoint to your Rust microservice"
+title = "Building a CRUD Service using Actix-web and SQLX"
 description = "In this blog post, we are going to be adding a Health API endpoint to a Rust-based microservice and discuss what kind of information you should expect to see in your health endpoint response." 
-date = "2021-09-17 19:52:44"
+date = "2021-10-04 19:52:44"
+draft = true
 
 [taxonomies]
 tags=["rust", "kubernetes", "microservices"]
@@ -130,64 +131,154 @@ date: Wed, 22 Sep 2021 17:16:47 GMT
 Healthy!%
 ```
 
-The health API now returns a `200` status code response every time an HTTP client calls `/health`. We could end this blog post here, but I want to take some time and add a more complex (real-world) scenario: what if our service relied on a database?
+The health API now returns a `200` status code response every time an HTTP client calls `/health`. We could end this blog post here, but I want to take some time and add a more complex (real-world) scenario: what if our service relied on a database? If our service relied on a database then we'd want to make sure that our service is connected to the database throughout the lifetime of the running service. This will especially be an important aspect of our service for Kubernetes to be able probe liveness checks against.
 
-*For this next section, please ensure that you have a PostgreSQL database running locally on your machine.*
+So, let's jump in and make our microservice more complex.
 
-### Adding a database connection check
-If our service relied on a database then we'd want to make sure that our service is connected to the database throughout the lifetime of the running service. This will especially be an important aspect of our service for Kubernetes to be able probe liveness checks against.
+## Getting healthier
 
-One strategy for us to check whether our database is connected or not is to write a lightweight query to database directly. `SELECT 1` is a lightweight query for checking a PostgreSQL database connection. Using the `sqlx` library, let's update our `main` function to manage a PostgreSQL database connection.
+For this section of the blog post, we're going to write some code for our service to connect to a SQL database, [PostgreSQL](https://www.postgresql.org/), using [sqlx](https://github.com/launchbadge/sqlx). There are a few popular Rust database libraries that we can choose from, I just happen to like sqlx's simplicity and documention.
+
+To accomplish this let's first install `PostgreSQL`, which you learn how to do [here](https://www.postgresql.org/download/). However, one of the easiest ways to get a PostgreSQL database up and running is through Docker Compose. If you already have Docker running on your machine, you should be able to copy the following YAML into a `docker-compose.yml` file and run the `docker compose up` command to have a your PostgreSQL database up and running.
+
+```bash
+version: '3.1'
+
+services:
+  my-service-db:
+    image: "postgres:11.5-alpine"
+    restart: always
+    volumes:
+      - my-service-volume:/var/lib/postgresql/data/
+    networks:
+      - my-service-network 
+    ports:
+      - "5432:5432"
+    environment:
+        POSTGRES_HOST: localhost
+        POSTGRES_DB: my-service
+        POSTGRES_USER: root
+        POSTGRES_PASSWORD: postgres
+
+volumes:
+  my-service-volume:
+
+networks:
+  my-service-network:
+```
+
+With PostgreSQL up and running, we'll need to add the `sqlx` library to our `Cargo.toml` file.
+
+```toml
+...
+[dependencies]
+actix-web = "3.3.2"
+sqlx = { version = "0.5.7", features = [ "runtime-actix-native-tls", "postgres" ] }
+```
+
+Rust libraries have the ability to expose certain optional ["features"](https://doc.rust-lang.org/cargo/reference/features.html) to the user. For sqlx, we want to make sure we include the "postgres" feature during compilation, so we have PostgreSQL drivers to connect to our PostgreSQL database with. Next, we'll want to make sure we have the "runtime-actix-native-tls" feature included so that sqlx can support the actix framework which uses the [tokio](https://tokio.rs/) *runtime*.
+
+> ***Note:** For newcomers to Rust, you may be thinking to yourself, "what the heck? Actix *runtime??* I thought actix-web was *just* a web framework for Rust." Well it is *and* it's much more. Since Rust was not designed to with any specific [runtime](https://en.wikipedia.org/wiki/Runtime_system) in mind, a specific runtime is needed for the problem domain that you are currently in. There are runtimes specifically for handling client/server communication needs such as [Tokio](https://docs.rs/tokio/1.12.0/tokio/), a popular event-driven, non-blocking I/O runtime. [Actix](https://docs.rs/actix/), the underlying runtime behind actix-web, is an [actor-based](https://en.wikipedia.org/wiki/Actor_model) messaging framework built on-top of the tokio runtime.*
+
+So, now that we've added the sqlx dependency line, let's go ahead and create a database connection to our PostgreSQL database. 
+
+### Creating the database connection
+
+Since we have PostgreSQL up and running already, and the host, database name, user and password already set, let's export an environment variable named `DATABASE_URL` that will serve as the database connection string that will be read in by sqlx's [connect](https://docs.rs/sqlx/0.5.7/sqlx/postgres/struct.PgConnection.html#method.connect) method.
+
+A database connection string is formatted to look something like this: `<database-type>://<user>:<password>@<db-host>:<db-port>/<db-name>`. So, for our usecase we'll run the following line `export DATABASE_URL=postgres://root:postgres@localhost:5432/oauth?sslmode=disable` whose configuration matches our local PostgreSQL setup.
+
+> **Note:** you will need to run the "export DATABASE_URL=..." line everytime you load a new terminal shell. In a production environment, we'd set this environment variable every time our service is deployed. However, for local development, this can be a pain, so I usually recommend a version controlled approach like [dotenv](https://crates.io/crates/dotenv). You can read more about this configuration approach from the twelve factor application website [here](https://12factor.net/config).
+
+With the `DATABASE_URL` environment variable available to us, let's add a line to our `main` function to fetch our newly exported environment variable. 
 
 ```rust
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    let database_url = std::env::var("DATABASE_URL").expect("Should set 'DATABASE_URL'");
+    println!("{}", database_url);
+    ...
+```
+
+Ok, great! Let's go ahead and re-run the service by running the following command:
+
+```bash
+DATABASE_URL=postgres://root:postgres@localhost:5432/oauth?sslmode=disable cargo run
+```
+
+You should eventually see the service running and the `database_url` value printed to the screen.
+
+```bash
+Compiling my-service v0.1.0 (/Users/tjmaynes/workspace/tjmaynes/my-service)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.95s
+     Running `target/debug/my-service`
+postgres://root:postgres@localhost:5432/oauth?sslmode=disable
+```
+
+This also confirms that we are properly capturing our `DATABASE_URL` environment variable because our program would fail at runtime (due to our `.expect()` method call) and we can see the `DATABASE_URL` value printed.
+
+Next, let's write some more Rust code to create a database connection to our PostgreSQL database.
+
+Inside of our `main` function, let's add some lines, below the `database_url` variable instantiation, to create the PostgreSQL database connection pool. Also, feel free to comment out the `println!` macro statement.
+
+```rust
+    ...
+    let db_conn = PgPoolOptions::new()
+        .max_connections(5)
+        .connect(database_url.as_str()) // <- Use the str version of database_url variable.
+        .await
+        .expect("Should have created a database connection");
+    ...
+```
+
+Next, we'll need to pass our `db_conn` reference to our health endpoint handler. Let's do that now.
+
+### Passing the database connection to the health endpoint handler
+
+Before we can pass our database connection to our health endpoint handler, we'll first need to create a `struct` that represents our service's shared mutable state. Actix-web enables us to share our database connection between routes, so that we don't create a new database connection on each a request which is an expensive operation and can really slow down the performance of our service.
+
+To accomplish this, we'll need to create a `struct` (above our `main` function) that we can call `AppState` containing our `db_conn` reference.
+
+```rust
+...
+use sqlx::{Pool, Postgres, postgres::PgPoolOptions};
+...
+...
 struct AppState {
     db_conn: Pool<Postgres>
 }
+...
+```
 
-#[actix_web::main]
-async fn main() -> std::io::Result<()> {
-    let db_conn = PgPoolOptions::new()
-        .max_connections(5)
-        .connect("postgres://root:postgres@localhost:5432/oauth?sslmode=disable") // <- don't hardcode this in real-life please
-        .await
-        .expect("Should have created a database connection")
+Now, underneath our `db_conn` instantiation, we're going to create an AppState dat object that is wrapped in a `web::Data` wrapper. The `web::Data` wrapper will allow us to access our AppState reference within our request handlers.
 
+```rust
+    ...
+    let app_state = web::Data::new(AppState {
+        db_conn: db_conn
+    });
+    ...
+```
+
+And finally, let's set the App's `app_data` to our cloned `app_state` variable and update our `HttpServer::new` closure with a `move` statement. 
+
+```rust
     let app_state = web::Data::new(AppState {
         db_conn: db_conn
     });
 
-    HttpServer::new(|| {
+    HttpServer::new(move || { // <- busta ah move
         App::new()
-            .app_data()
+            .app_data(app_state.clone()) // <- cloned app_state variable
             .route("/health", web::get().to(get_health_status))
     })
     .bind(("127.0.0.1", 8080))?
     .run()
     .await
-}
 ```
 
-Next, let's update our `get_health_status` handler to use the newly created database connection pool to return a different `HttpResponse` based on the status of our database connection.
+If we don't clone the `app_state` variable Rust will complain that our `app_state` variable was not created inside of our closure and there is no way for Rust to guarantee that `app_state` won't be destroyed when called upon. For more on this, checkout [Rust Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html) and the [Copy trait](https://hashrust.com/blog/moves-copies-and-clones-in-rust/) docs.
 
-```rust
-async fn get_health_status(data: Data<AppState>) -> HttpResponse {
-  let is_database_connected = sqlx::query("SELECT 1")
-        .fetch_one(&data.db_conn)
-        .await
-        .is_ok()
-
-  if is_database_connected {
-    HttpResponse::Ok()
-        .content_type("application/json")
-        .body("Healthy!")
-  } else {
-    HttpResponse::ServiceUnavailable()
-        .content_type("application/json")
-        .body(health_check.to_json().to_string());
-  }
-}
-```
+### Checking the database connection
 
 ## Conclusion
-
-I hope that this article gave you some insights into the Health API pattern and 
