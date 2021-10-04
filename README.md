@@ -1,5 +1,5 @@
 # tjmaynes.com
-> A development blog focused on Rust and Kubernetes.
+> A blog dedicated to my ramblings, learnings and other things.
 
 ## Requirements
 
