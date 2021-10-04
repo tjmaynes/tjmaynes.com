@@ -3,5 +3,4 @@
 
 # Generated
 public/
-zola-*
-zola
+bin/

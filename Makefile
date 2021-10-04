@@ -3,10 +3,10 @@ install:
 
 .PHONY: build
 build:
-	zola build
+	./bin/zola build
 
 edit: build
-	zola serve --port 4000 --drafts
+	./bin/zola serve --port 4000 --drafts
 
 new_post:
 	./scripts/new-post.sh "$(POST_TITLE)"

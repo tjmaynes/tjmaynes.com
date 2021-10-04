@@ -19,7 +19,7 @@ function install_zola() {
 
   [[ ! -f "${ZOLA_PACKAGE}.tar.gz" ]] && curl -fsSL "https://github.com/getzola/zola/releases/download/${ZOLA_PACKAGE_VERSION}/${ZOLA_PACKAGE}.tar.gz" > "${ZOLA_PACKAGE}.tar.gz"
   [[ ! -f "zola" ]] && tar -xf "${ZOLA_PACKAGE}.tar.gz" && chmod +x zola
-  sudo cp -f zola /usr/local/bin
+  (mkdir -p bin || true) && mv zola* bin/
 }
 
 function main() {
