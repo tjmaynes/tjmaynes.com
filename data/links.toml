@@ -35,16 +35,8 @@ name = "Twitch.TV"
 target = "https://www.twitch.tv/tjmaynes"
 
 [[links]]
-name = "Twitter"
-target = "https://twitter.com/tjmaynes"
-
-[[links]]
 name = "Linkedin"
 target = "https://linkedin.com/in/tjmaynes"
-
-[[links]]
-name = "The Little Camera Shop"
-target = "https://littlecamerashop.com/"
 
 [[links]]
 name = "IMDB"
