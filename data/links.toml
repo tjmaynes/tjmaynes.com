@@ -15,12 +15,16 @@ name = "CV"
 target = "/career/cv.pdf"
 
 [[links]]
-name = "Medium"
-target = "https://tjmaynes.medium.com"
+name = "YouTube"
+target = "https://youtube.com/c/TJMaynes"
 
 [[links]]
 name = "Soundcloud"
 target = "https://soundcloud.com/tjmaynes"
+
+[[links]]
+name = "Medium"
+target = "https://tjmaynes.medium.com"
 
 [[links]]
 name = "GitHub"
