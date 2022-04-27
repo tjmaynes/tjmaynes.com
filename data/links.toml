@@ -19,10 +19,6 @@ name = "Medium"
 target = "https://tjmaynes.medium.com"
 
 [[links]]
-name = "DEV.to"
-target = "https://dev.to/tjmaynes"
-
-[[links]]
 name = "Soundcloud"
 target = "https://soundcloud.com/tjmaynes"
 
@@ -31,11 +27,7 @@ name = "GitHub"
 target = "https://github.com/tjmaynes"
 
 [[links]]
-name = "Twitch.TV"
-target = "https://www.twitch.tv/tjmaynes"
-
-[[links]]
-name = "Linkedin"
+name = "LinkedIn"
 target = "https://linkedin.com/in/tjmaynes"
 
 [[links]]

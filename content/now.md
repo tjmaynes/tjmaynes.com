@@ -7,11 +7,11 @@ template = "content.html"
 *💡 This is my [Now page](https://nownownow.com/about), inspired by Derek Sivers' [Now Now Now](https://nownownow.com/) movement.*
 
 ## 👨‍💻  What I'm doing
-- Engineering at [VMware Tanzu Labs](https://tanzu.vmware.com/labs) - software enablement and delivery consulting on client projects. Usually *test-driving, and pairing,* on the following projects:
+- Engineering at [VMware Tanzu Labs](https://tanzu.vmware.com/labs) - software enablement and delivery consulting on client projects. Usually *test-driving and pairing* on the following projects:
     - Mobile apps (iOS/Android)
-    - Spring backend (Java/Kotlin)
     - React web apps (Typescript/Javascript)
-- Going deeper into [React](https://reactjs.org) and iOS Development, studying [React Native](https://reactnative.dev), [Rust](https://www.rust-lang.org/) and [Kubernetes](https://kubernetes.io/).
+    - Backend services (.NET Core/Spring)
+- Going deeper into [React](https://reactjs.org) and [Go](https://www.go.dev/).
 - Playing music with my synthesizers and writing.
 
 ## 🌍  Where am I

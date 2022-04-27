@@ -1,6 +1,6 @@
 +++
 title = "About"
-description = "My name is TJ Maynes and I'm a passionate, generalist Software Engineer at VMware Tanzu Labs. Also, an amateur Screenwriter."
+description = "My name is TJ Maynes and I'm a passionate, generalist Software Engineer at VMware Tanzu Labs. Also, I'm writing screenplays and making music."
 template = "content.html"
 +++
 ![maine, emmy and me](/assets/images/me.jpg)
@@ -9,7 +9,7 @@ My name is TJ Maynes and I'm a passionate, generalist Software Engineer at [VMwa
 
 ## [VMware Tanzu Labs](https://tanzu.vmware.com/labs)
 
-September 15th, 2019 was my first day as a Consultant at Pivotal Labs. Since then, we've since been rebranded as VMware Tanzu Labs and I've worked on 12+ software enablement and delivery engagements. I've pushed Swift/SwiftUI, Spring/Kotlin, Typescript/React, Spring/Java and Bash to production environments.
+September 15th, 2019 was my first day as a Consultant at Pivotal Labs. Since then, we've since been rebranded as VMware Tanzu Labs and I've worked on 12+ software enablement and delivery engagements. I've pushed Swift/SwiftUI, Spring, .NET Core, Typescript/React, Kubernetes YAMLs and Bash to production environments.
 
 VMware Tanzu Labs is a fantastic place to work and if your interested in working here, I highly recommend checking out the [careers site](https://careers.vmware.com/main/jobs?keywords=labs&location=New%20York).
 
