@@ -13,9 +13,9 @@ To install project dependencies, run the following command:
 make install
 ```
 
-To build the project for deployment, run the following command:
+To build the website as an artifact for deployment, run the following command:
 ```bash
-make build_for_deployment
+make artifact
 ```
 
 To run the blog locally, run the following command:
