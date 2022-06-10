@@ -12,9 +12,9 @@ template = "content.html"
     - React web apps (Typescript/Javascript)
     - Backend services (.NET Core/Spring)
 - Going deeper into [React](https://reactjs.org) and [Go](https://www.go.dev/).
-- Playing music with my synthesizers and writing.
+- Playing making movies and music.
 
 ## 🌍  Where am I
-At the moment, I'm living in the Raleigh North Carolina area.
+At the moment, I'm living in Rochester, Minnesota.
 
 *You can learn more from my [CV](/career/cv.pdf).*
