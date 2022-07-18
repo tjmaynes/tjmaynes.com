@@ -23,7 +23,7 @@ Also have [Docker](https://docs.docker.com/get-docker/) installed on your machin
 
 If this is your first time seeing the [Rust](https://rust-lang.org) programming language, I hope this blog post inspires you to take a deeper look into an interesting statically typed language and ecosystem.
 
-*If you'd like to follow along with code by your side, I've made the source code for this project available on [GitHub](https://github.com/tjmaynes/health-check-rust).*
+*If you'd like to follow along with code by your side, I've made the source code for this project available on [GitHub](https://github.com/tjmaynes/gists/tree/main/rust/health-check-rust).*
 
 ## Creating a new Actix-Web project
 
