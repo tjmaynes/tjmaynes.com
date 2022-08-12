@@ -4,9 +4,6 @@ description = ""
 date = "2020-02-04 12:12:24"
 draft = true
 
-[taxonomies]
-tags=["sql", "personal"]
-
 [extra]
 author = "tjmaynes"
 +++

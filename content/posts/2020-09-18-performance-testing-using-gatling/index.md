@@ -4,9 +4,6 @@ description = "In this blog post, we are going to write run your first load test
 date = "2020-09-18 12:00:00"
 draft = true
 
-[taxonomies]
-tags=["testing", "automation"]
-
 [extra]
 author = "tjmaynes"
 +++

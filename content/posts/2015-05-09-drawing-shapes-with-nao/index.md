@@ -3,9 +3,6 @@ title = "Drawing Shapes with NAO"
 description = "This blog post discusses how to 'teach' the NAO robot to draw shapes that it 'sees' using NAOqi, Python and OpenCV."
 date = "2015-05-09 20:18:28"
 
-[taxonomies]
-tags=["python"]
-
 [extra]
 author = "tjmaynes"
 +++

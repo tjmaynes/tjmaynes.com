@@ -2,7 +2,7 @@
 
 set -e
 
-ZOLA_PACKAGE_VERSION="v0.14.1"
+ZOLA_PACKAGE_VERSION="v0.16.0"
 
 function check_requirements() {
   if [[ -z "$(command -v curl)" ]]; then

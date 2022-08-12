@@ -4,9 +4,6 @@ description = "In this blog post, we're going to be discussing how Istio helps d
 date = "2021-01-24 12:00:00"
 draft = true
 
-[taxonomies]
-tags=["kubernetes", "istio"]
-
 [extra]
 author = "tjmaynes"
 +++

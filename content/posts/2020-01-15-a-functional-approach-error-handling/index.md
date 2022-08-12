@@ -4,9 +4,6 @@ date = "2020-01-15T12:00:00+01:00"
 description = "In this blog post we'll be discussing some object-oriented error handling strategies that will iterate into the Either monad."
 draft = true
 
-[taxonomies]
-tags=["kotlin", "functional programming"]
-
 [extra]
 author = "tjmaynes"
 +++

@@ -3,9 +3,6 @@ title = "Implementing the Health Check API Pattern with Rust"
 description = "In this blog post, we are going to be implementing the Health Check API pattern for a Rust-based microservice and discussing what kind of information you should expect to see in your Health Check API endpoint response."
 date = "2021-09-17 19:52:44"
 
-[taxonomies]
-tags=["rust", "kubernetes", "microservices"]
-
 [extra]
 author = "tjmaynes"
 +++

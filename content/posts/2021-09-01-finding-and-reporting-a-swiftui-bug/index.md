@@ -3,9 +3,6 @@ title = "Finding and Reporting a SwiftUI bug"
 description = "There is a bug in SwiftUI 2.0, that occurs in iOS versions 14.5 and up, where your NavigationLink logic will start to redirect in an unexpected way when you have more than two NavigationLinks in the same SwiftUI view."
 date = "2021-09-01 16:05:24"
 
-[taxonomies]
-tags=["swift", "bug reporting", "automated testing"]
-
 [extra]
 author = "tjmaynes"
 +++

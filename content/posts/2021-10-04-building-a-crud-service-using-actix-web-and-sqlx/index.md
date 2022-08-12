@@ -4,9 +4,6 @@ description = "In this blog post, we are going to be adding a Health API endpoin
 date = "2021-10-04 19:52:44"
 draft = true
 
-[taxonomies]
-tags=["rust", "kubernetes", "microservices"]
-
 [extra]
 author = "tjmaynes"
 +++
