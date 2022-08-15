@@ -1,8 +1,12 @@
-install:
-	./scripts/install.sh
+export ZOLA_PACKAGE_VERSION := v0.16.0
+
+install_zola:
+	./scripts/install-zola.sh
+
+install: install_zola
 
 .PHONY: build
-build:
+build: install
 	./bin/zola build
 
 edit: build
@@ -14,7 +18,7 @@ new_post:
 download_career_files:
 	./scripts/download-career-files.sh "public"
 
-artifact: install build download_career_files
+artifact: build download_career_files
 
 mp4_to_gif:
 	./scripts/mp4-to-gif.sh "${VIDEO_INPUT}"

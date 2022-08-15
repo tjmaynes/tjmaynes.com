@@ -24,7 +24,7 @@ jobs:
       - name: 🧪 Build Website 🧪
         run: make artifact
       - name: 🚀 Deploy Website 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
