@@ -92,14 +92,40 @@ img {
   max-width:100%;
 }
 
-header {
-  padding: 0.5rem 0 0.5rem 0
-}
-
 a {
   color: #008B8B;
   text-decoration: none;
   font-weight: 800;
+}
+
+header {
+  display: flex;
+  flex-flow: row wrap; 
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+footer {
+  display: flex;
+  flex-flow: row wrap; 
+  justify-content: center;
+  width: 100%;
+  padding-top: 10px;
+}
+
+footer a, footer a:first-child {
+  border-right: 1px solid #000;
+  padding: 0 8px 0 0;
+}
+
+footer a {
+  padding: 0 8px;
+}
+
+footer a:last-child {
+  border-right: none;
+  padding: 0 0 0 8px;
 }
 
 .links {
@@ -123,27 +149,6 @@ a {
 
 .links a:hover {
   background-color: #FBFBFB;
-}
-
-.menu {
-  display: flex;
-  flex-flow: row wrap; 
-  justify-content: space-between;
-  width: 100%;
-}
-
-.menu a, .menu a:first-child {
-  border-right: 1px solid #000;
-  padding: 0 8px 0 0;
-}
-
-.menu a {
-  padding: 0 8px;
-}
-
-.menu a:last-child {
-  border-right: none;
-  padding: 0 0 0 8px;
 }
 
 .social {
