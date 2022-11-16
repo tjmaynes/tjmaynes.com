@@ -19,14 +19,14 @@ My name is TJ Maynes and I'm a passionate, generalist Software Engineer at [InDe
 ## 💻 My Setup
 
 ### [Dev Workstation](https://github.com/tjmaynes/config-asdf)
-- IDE: Goland
-- Editor: Vim
-- Languages: Go, Typescript, Bash
 - Operating System: MacOS (latest)
+- Languages: Go, Typescript, Bash
+- Editor: [Vim](https://github.com/tjmaynes/dotfiles/blob/main/system/.vimrc)
+- IDE: Goland
 
 ### [Home Server](https://github.com/tjmaynes/geck)
-- Operating System: Raspbian
-- Services: Docker + Systemd
+- Operating System: Ubuntu Server
+- Services: Systemd + Docker
 
 # History
 
