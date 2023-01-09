@@ -1,0 +1,10 @@
+{% extends "page.html" %}
+
+{% block content %}
+<section class="post">
+    {% include "partials/post-header.html" %}
+    <div class="content">
+        {{ page.content | safe }}
+    </div>
+</section>
+{% endblock content %}

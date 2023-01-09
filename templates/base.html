@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    {% block rss %}
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
+    {% endblock %}
+
+    {% block seo -%}
+      <title itemprop="name">{% block title %}{% endblock title %} | {{ config.title }}</title>
+      <meta name="language" content="en" />
+
+      {% if config.extra.author %}
+      <meta name="author" content="{{ config.extra.author }}" />
+      {% endif %}
+
+      <meta name="application-name" content="{{ config.title }}" />
+
+      {% if current_url %}
+        <link rel="canonical" href="{{ current_url | safe }}" itemprop="url" />
+        <meta name="url" content="{{ current_url | safe }}" />
+
+        <meta property="og:title" content="{% block title %}{% endblock title %}">
+        <meta property="og:description" content="{% block description %}{% endblock description %}">
+        <meta property="og:url" content="{{ current_url | safe }}">
+        <meta property="og:site_name" content="{{ config.title }}">
+
+        {% if page.date %}
+          <meta property="og:type" content="article" />
+          <meta property="article:published_time" content="{{ page.date | date(format="%+") }}" />
+        {% else %}
+          <meta property="og:type" content="website" /> 
+        {% endif %}
+
+        <meta name="twitter:title" content="{% block title %}{% endblock title %}" />
+        <meta name="twitter:description" content="{% block description %}{% endblock description %}" />
+        <meta name="twitter:url" content="{{ current_url | safe }}" />
+        <meta property="twitter:site" content="{{ config.extra.twitter_handle }}">
+      {% endif %}
+
+      {% if page.earlier -%}
+        <link rel="prev" href="{{ page.earlier.permalink | safe }}" />
+      {%- endif %}
+      {% if page.later -%}
+        <link rel="next" href="{{ page.later.permalink | safe }}" />
+      {%- endif %}
+    {% endblock seo %}
+
+    {% set css_style = load_data(path="style.css", format="plain") -%}
+    <style>{{ css_style | safe }}</style>
+  </head>
+  <body>
+    {% include "partials/header.html" %}
+    {% block content %}
+    {% endblock %}
+    {% include "partials/footer.html" %}
+  </body>
+</html>
