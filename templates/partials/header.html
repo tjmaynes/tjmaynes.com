@@ -1,6 +1,14 @@
 <header>
-    <div>
-        <a href="{{ get_url(path="/") }}">Home</a>
-    </div>
+    <nav>
+        <li>
+            <a href="{{ get_url(path="/") }}">Home</a>
+        </li>
+        <li>
+            <a href="{{ get_url(path="/about") }}">About</a>
+        </li>
+        <li>
+            <a href="{{ get_url(path="/notes") }}">Notes</a>
+        </li>
+    </nav>
     <a href="{{ get_url(path="/atom.xml") }}">{% include "partials/rss.html" %}</a>
 </header>

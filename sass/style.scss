@@ -105,6 +105,15 @@ header {
   padding: 0.5rem 0 0.5rem 0;
 }
 
+header nav {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+header nav li {
+  list-style: none;
+}
+
 footer {
   display: flex;
   flex-flow: row wrap; 

@@ -1,4 +1,4 @@
-export ZOLA_PACKAGE_VERSION := v0.16.0
+export ZOLA_PACKAGE_VERSION := v0.17.2
 
 install_zola:
 	./scripts/install-zola.sh
@@ -10,7 +10,7 @@ build: install
 	./bin/zola build
 
 edit: build
-	./bin/zola serve --port 4000 --drafts
+	./bin/zola serve --port 4000 --drafts --open --fast
 
 new_post:
 	./scripts/new-post.sh "$(POST_TITLE)"
