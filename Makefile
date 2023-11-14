@@ -1,24 +1,28 @@
-export ZOLA_PACKAGE_VERSION := v0.17.2
+install:
+	npm install
 
-install_zola:
-	./scripts/install-zola.sh
-
-install: install_zola
+edit:
+	npm run dev
 
 .PHONY: build
-build: install
-	./bin/zola build
+build:
+	npm run build
 
-edit: build
-	./bin/zola serve --port 4000 --drafts --open --fast
+start: build
+	npm run start
 
-new_post:
-	./scripts/new-post.sh "$(POST_TITLE)"
+lint:
+	npm run lint
+
+lint_fix:
+	npm run lint:fix
+
+lighthouse:
+	npx @lhci/cli autorun
+
+test: lint build lighthouse
 
 download_career_files:
 	./scripts/download-career-files.sh "public"
 
-artifact: build download_career_files
-
-mp4_to_gif:
-	./scripts/mp4-to-gif.sh "${VIDEO_INPUT}"
+artifact: test download_career_files build

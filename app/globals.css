@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-theme='dark'] {
+  /* [ElementColorType.backgroundColor]: '#002b36',
+  [ElementColorType.textColor]: '#839496',
+  [ElementColorType.buttonColor]: '#859900',
+  [ElementColorType.colorSwitcherButtonColor]: 'yellow', */
+
+  --background: theme('colors.black');
+  --background-secondary: theme('colors.gray.800');
+
+  --accent-dark: '#859900';
+  --accent-medium: theme('colors.fuchsia.700');
+  --accent-light: theme('colors.fuchsia.500');
+
+  --primary-dark: theme('colors.gray.300');
+  --primary-medium: theme('colors.gray.200');
+  --primary-light: theme('colors.gray.100');
+}
