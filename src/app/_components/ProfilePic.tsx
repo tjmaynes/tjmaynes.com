@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export const ProfilePic = () => {
+const ProfilePic = () => {
   return (
     <Image
       className="border-4 border-black  drop-shadow-xl shadow-black rounded-full"
@@ -12,3 +12,5 @@ export const ProfilePic = () => {
     />
   )
 }
+
+export default ProfilePic

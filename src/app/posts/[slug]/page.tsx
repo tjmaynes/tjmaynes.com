@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getFormattedDate } from '@/lib/date'
 import { findPostBySlug, getSortedPosts } from '@/lib/posts'
-import { PostMarkdown } from '@/app/_components'
+import PostMarkdown from './_components/PostMarkdown'
 
 type PostMetadata = { slug: string }
 

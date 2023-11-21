@@ -23,7 +23,7 @@ import {
   ColorMode,
   ElementColorType,
   useCustomColorTheme,
-} from '../_hooks/useCustomColorTheme'
+} from '../../../_hooks/useCustomColorTheme'
 
 SyntaxHighlighter.registerLanguage('tsx', tsx)
 SyntaxHighlighter.registerLanguage('typescript', typescript)
@@ -41,8 +41,9 @@ type MarkdownProps = {
   markdownContent: string
 }
 
-export const PostMarkdown: React.FC<MarkdownProps> = ({ markdownContent }) => {
+const PostMarkdown: React.FC<MarkdownProps> = ({ markdownContent }) => {
   const { colorMode, getColorForElement } = useCustomColorTheme()
+
   const syntaxTheme =
     colorMode === ColorMode.dark ? solarizedDark : solarizedLight
 
@@ -143,3 +144,5 @@ export const PostMarkdown: React.FC<MarkdownProps> = ({ markdownContent }) => {
     </article>
   )
 }
+
+export default PostMarkdown

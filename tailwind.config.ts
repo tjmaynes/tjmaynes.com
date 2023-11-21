@@ -11,7 +11,7 @@ const disabledCss = {
 }
 
 const config: Config = {
-  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       typography: {

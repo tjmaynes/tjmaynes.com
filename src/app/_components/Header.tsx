@@ -12,14 +12,16 @@ const HeaderLink = ({ name, destination }: HeaderLinkProps) => (
     className="text-white/90 no-underline hover:text-white px-1"
     aria-label={name}
   >
-    {name}
+    {name.toLocaleUpperCase()}
   </Link>
 )
 
-export const Header = () => {
+const Header = () => {
   const links: HeaderLinkProps[] = [
     { name: 'Home', destination: '/' },
-    { name: 'Posts', destination: '/posts' },
+    { name: 'About', destination: '/about' },
+    // { name: 'Posts', destination: '/posts' },
+    { name: 'Web Playground', destination: '' },
     { name: 'CV', destination: '/career/cv.pdf' },
   ]
 
@@ -32,3 +34,5 @@ export const Header = () => {
     </nav>
   )
 }
+
+export default Header

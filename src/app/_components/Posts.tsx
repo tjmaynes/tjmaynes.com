@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { getSortedPosts } from '@/lib/posts'
-import { getFormattedDate } from '@/lib/date'
 
-export const Post = ({ slug, date, title, description }: BlogPost) => (
+import { getFormattedDate } from '@/lib/date'
+import { getSortedPosts } from '@/lib/posts'
+
+const Post = ({ slug, date, title, description }: BlogPost) => (
   <>
     <Link href={`/posts/${slug}`} className="underline hover:text-black/70">
       {title}
@@ -17,7 +18,6 @@ const Posts = async () => {
 
   return (
     <section className="mx-auto px-4 mt-6 max-w-2xl">
-      <h1 className="text-5xl font-bold">Posts</h1>
       <ul className="w-full">
         {posts.map((post: BlogPost) => (
           <li key={post.id} className="mt-4 text-2xl">

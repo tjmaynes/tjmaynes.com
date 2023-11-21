@@ -1,7 +1,7 @@
 install:
 	npm install
 
-edit:
+dev:
 	npm run dev
 
 .PHONY: build
@@ -25,4 +25,4 @@ test: lint build lighthouse
 download_career_files:
 	./scripts/download-career-files.sh "public"
 
-artifact: test download_career_files build
+artifact: test download_career_files lint build

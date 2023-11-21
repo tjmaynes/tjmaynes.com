@@ -2,8 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import getConfig from 'next/config'
-import { remark } from 'remark'
-import html from 'remark-html'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 const publicDirectory = path.join(process.cwd(), 'public')
