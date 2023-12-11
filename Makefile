@@ -1,24 +1,16 @@
-export ZOLA_PACKAGE_VERSION := v0.17.2
+install:
+	npm install
 
-install_zola:
-	./scripts/install-zola.sh
+lint:
+	npm run lint
 
-install: install_zola
+build:
+	npm run build
 
-.PHONY: build
-build: install
-	./bin/zola build
-
-edit: build
-	./bin/zola serve --port 4000 --drafts --open --fast
-
-new_post:
-	./scripts/new-post.sh "$(POST_TITLE)"
+dev: build
+	npm run dev
 
 download_career_files:
 	./scripts/download-career-files.sh "public"
 
-artifact: build download_career_files
-
-mp4_to_gif:
-	./scripts/mp4-to-gif.sh "${VIDEO_INPUT}"
+artifact: install build download_career_files

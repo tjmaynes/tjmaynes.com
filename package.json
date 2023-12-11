@@ -1,0 +1,35 @@
+{
+  "name": "tjmaynes.com",
+  "version": "1.0.0",
+  "description": "a small page on the internet",
+  "main": "public/index.html",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve",
+    "lint:pug": "prettier --write 'src/**/*.pug' --plugin='@prettier/plugin-pug'",
+    "lint:css": "stylelint 'src/**/*.{css,scss}' --fix",
+    "lint": "npm run lint:pug && npm run lint:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjmaynes/tjmaynes.com.git"
+  },
+  "author": "TJ Maynes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjmaynes/tjmaynes.com/issues"
+  },
+  "homepage": "https://github.com/tjmaynes/tjmaynes.com#readme",
+  "devDependencies": {
+    "@prettier/plugin-pug": "^3.0.0",
+    "css-loader": "^6.8.1",
+    "prettier": "^3.1.1",
+    "pug-plugin": "^4.9.9",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "stylelint-prettier": "^5.0.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

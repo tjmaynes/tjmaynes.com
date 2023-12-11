@@ -7,26 +7,24 @@ on:
 
 jobs:
   ship_it:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: '0'
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/setup-node@v3
         with:
-          toolchain: stable
-          override: true
-          profile: minimal
-      - name: Cache rust dependencies
-        uses: Swatinem/rust-cache@v1
+          node-version: 18
       - name: 🔨 Install Dependencies 🔨
         run: sudo apt-get update && sudo apt-get install make
       - name: 🧪 Build Website 🧪
-        run: make artifact         
-      - name: 🚀 Deploy Website 
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: public
-          CLEAN: true
+        run: make artifact
+      - name: 🚀 Deploy Website 🚀
+      uses: cloudflare/pages-action@v1
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        projectName: tjmaynes.com
+        directory: public/
+        gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        wranglerVersion: '3'

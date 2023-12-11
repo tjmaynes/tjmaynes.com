@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title TJ Maynes
+    meta(
+      name="viewport",
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    )
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(name="description", content="a small website on the internet.")
+    meta(name="keywords", content="TJ Maynes, tjmaynes")
+    meta(name="author", content="TJ Maynes")
+    style= require("./style.scss?inline")
+    //- script(src=require('./main.js') defer='defer')
+  body
+    header
+      img(src=require("assets/images/me2.jpg"), alt="me")
+      h1 👋 Hi, I'm TJ Maynes.
+      p Software Developer & XP Practitioner
+    main
+      article
+        div
+          h2 👨‍💻 What I'm doing now
+          p
+            | Building web experiences in Kohl's Technology Center using Typescript/Javascript and React.
+            | Also, helping teams at Kohls grow their Extreme Programming (XP) chops.
+
+        div
+          h2 🌍 Where I'm coding from
+          p Rochester, Minnesota (Central Timezone)
+    footer
+      nav
+        ul.links
+          li
+            a(href="https://tjmaynes.medium.com/") Blog
+          li
+            a(href="https://github.com/tjmaynes") GitHub
+          li
+            a(href="https://linkedin.com/in/tjmaynes") LinkedIn
+      div
+        p Built with #[a(href="https://github.com/tjmaynes/tjmaynes.com") Pug & Webpack]
