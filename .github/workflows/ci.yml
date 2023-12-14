@@ -24,7 +24,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: tjmaynes.com
+          projectName: tjmaynes-site
           directory: public/
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: "3"
