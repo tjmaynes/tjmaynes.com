@@ -24,6 +24,10 @@ download_career_files:
 
 artifact: install build test download_career_files
 
+deploy: artifact
+	chmod +x ./script/cloudflare-pages-deploy.sh
+	./script/cloudflare-pages-deploy.sh "./public" "tjmaynes-site"
+
 ship_it: test
 	git push
 
