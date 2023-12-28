@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve",
-    "start": "serve -p 9900 --no-request-logging public/",
+    "start": "npm run build && serve -p 9900 --no-request-logging public/",
     "lighthouse": "lhci autorun",
     "lint:pug": "prettier --write 'src/**/*.pug' --plugin='@prettier/plugin-pug'",
     "lint:js": "prettier --write 'src/**/*.js' '*.js'",

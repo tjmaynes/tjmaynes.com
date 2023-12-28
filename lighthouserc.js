@@ -1,7 +1,9 @@
 module.exports = {
   ci: {
     collect: {
-      staticDistDir: "./public",
+      startServerCommand: "npm run start",
+      url: "http://localhost:9900",
+      startServerReadyTimeout: 60 * 5, // 5 minutes
       numberOfRuns: 1,
     },
     assert: {
@@ -10,7 +12,7 @@ module.exports = {
         "bf-cache": "off",
         "csp-xss": "off",
         "uses-long-cache-ttl": "off",
-        "total-byte-weight": "off"
+        "total-byte-weight": "off",
       },
     },
   },
