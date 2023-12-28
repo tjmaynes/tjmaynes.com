@@ -4,7 +4,7 @@ install:
 lint:
 	npm run lint
 
-build:
+build: clean
 	npm run build
 
 dev:
@@ -16,17 +16,20 @@ start: build
 performance:
 	npm run lighthouse
 
-test: performance
+test: build performance
 
 download_career_files:
 	chmod +x ./script/download-career-files.sh
 	./script/download-career-files.sh "public"
 
-artifact: build test install download_career_files
+artifact: install build test download_career_files
 
-ship_it: build test
+ship_it: test
 	git push
 
 optimize_images:
 	chmod +x ./script/optimize-images.sh
 	./script/optimize-images.sh
+
+clean:
+	rm -rf public/
