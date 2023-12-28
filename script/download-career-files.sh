@@ -23,7 +23,7 @@ function main() {
 
   FILES=(cv resume)
   for file in "${FILES[@]}"; do
-    [[ ! -f "$TARGET_DIRECTORY/career/$file.pdf" ]] && download_career_file $file
+    [[ ! -f "$TARGET_DIRECTORY/career/$file.pdf" ]] && download_career_file "$file"
   done
 }
 

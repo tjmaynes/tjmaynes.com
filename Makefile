@@ -20,7 +20,7 @@ test: build performance
 
 download_career_files:
 	chmod +x ./script/download-career-files.sh
-	./script/download-career-files.sh "public"
+	./script/download-career-files.sh "./public"
 
 artifact: install build test download_career_files
 
