@@ -22,23 +22,25 @@ time, mark, audio, video {
 @font-face {
   font-family: "Inconsolata";
   src:
-    url("assets/font/inconsolata-regular.eot"),
-    url("assets/font/inconsolata-regular.eot?#iefix") format("embedded-opentype"),
-    url("assets/font/inconsolata-regular.woff") format("woff"),
-    url("assets/font/inconsolata-regular.ttf") format("truetype");
+    url("../font/inconsolata-regular.eot"),
+    url("../font/inconsolata-regular.eot?#iefix") format("embedded-opentype"),
+    url("../font/inconsolata-regular.woff") format("woff"),
+    url("../font/inconsolata-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Inconsolata";
   src:
-    url("assets/font/inconsolata-bold.eot"),
-    url("assets/font/inconsolata-bold.eot?#iefix") format("embedded-opentype"),
-    url("assets/font/inconsolata-bold.woff") format("woff"),
-    url("assets/font/inconsolata-bold.ttf") format("truetype");
+    url("../font/inconsolata-bold.eot"),
+    url("../font/inconsolata-bold.eot?#iefix") format("embedded-opentype"),
+    url("../font/inconsolata-bold.woff") format("woff"),
+    url("../font/inconsolata-bold.ttf") format("truetype");
   font-weight: bold;
   font-style: bold;
+  font-display: swap;
 }
 /* stylelint-enable */
 

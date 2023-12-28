@@ -22,3 +22,13 @@ To develop the website locally, run the following command:
 ```bash
 make dev
 ```
+
+To run the linter, run the following command:
+```bash
+make lint
+```
+
+To optimize images, run the following command:
+```bash
+make optimize_images
+```

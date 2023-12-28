@@ -11,11 +11,20 @@ html(lang="en")
     meta(name="description", content="a small website on the internet.")
     meta(name="keywords", content="TJ Maynes, tjmaynes")
     meta(name="author", content="TJ Maynes")
-    style= require("./style.scss?inline")
-    //- script(src=require('./main.js') defer='defer')
+    style= require("assets/stylesheets/style.scss?inline")
+    script(
+      src=require("assets/javascript/main.js"),
+      type="text/javascript",
+      defer="defer"
+    )
   body
     header
-      img(src=require("assets/images/me2.jpg"), alt="me")
+      img(
+        src=require("assets/images/me2.webp"),
+        width="150px",
+        height="150px",
+        alt="me"
+      )
       h1 👋 Hi, I'm TJ Maynes.
       p Software Developer &amp; XP Practitioner
     main

@@ -7,10 +7,23 @@ lint:
 build:
 	npm run build
 
-dev: build
+dev:
 	npm run dev
 
-download_career_files:
-	./scripts/download-career-files.sh "public"
+start: build
+	npm start
 
-artifact: install build download_career_files
+performance:
+	npm run lighthouse
+
+test: performance
+
+download_career_files:
+	chmod +x ./script/download-career-files.sh
+	./script/download-career-files.sh "public"
+
+artifact: build test install download_career_files
+
+optimize_images:
+	chmod +x ./script/optimize-images.sh
+	./script/optimize-images.sh
