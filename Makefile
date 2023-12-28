@@ -24,6 +24,9 @@ download_career_files:
 
 artifact: build test install download_career_files
 
+ship_it: build test
+	git push
+
 optimize_images:
 	chmod +x ./script/optimize-images.sh
 	./script/optimize-images.sh
