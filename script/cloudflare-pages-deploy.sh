@@ -2,8 +2,8 @@
 
 set -e
 
-CLOUDFLARE_PAGES_DIRECTORY=$1
-CLOUDFLARE_PAGES_PROJECT_NAME=$2
+CLOUDFLARE_PAGES_PROJECT_NAME=$1
+CLOUDFLARE_PAGES_DIRECTORY=$2
 
 function check_requirements() {
   if [[ -z "$(command -v node)" ]]; then

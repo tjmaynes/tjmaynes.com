@@ -28,9 +28,11 @@ ensure_cloudflare_page_exists:
 	chmod +x ./script/ensure-cloudflare-pages-exists.sh
 	./script/ensure-cloudflare-pages-exists.sh "tjmaynes-site"
 
-deploy: artifact ensure_cloudflare_page_exists
+ensure_cloudflare_infra_exists: ensure_cloudflare_page_exists
+
+deploy: artifact ensure_cloudflare_infra_exists
 	chmod +x ./script/cloudflare-pages-deploy.sh
-	./script/cloudflare-pages-deploy.sh "./public" "tjmaynes-site"
+	./script/cloudflare-pages-deploy.sh "tjmaynes-site" "./public"
 
 ship_it: test
 	git push
