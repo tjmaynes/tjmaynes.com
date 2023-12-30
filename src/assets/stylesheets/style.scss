@@ -114,8 +114,12 @@ article {
     }
   }
 
-  p {
+  p, li {
     padding-top: 6px;
+  }
+
+  ul {
+    list-style: none;
   }
 }
 
