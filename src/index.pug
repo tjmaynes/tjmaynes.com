@@ -11,7 +11,7 @@ html(lang="en")
     meta(name="description", content="a small website on the internet.")
     meta(name="keywords", content="TJ Maynes, tjmaynes")
     meta(name="author", content="TJ Maynes")
-    style= require("assets/stylesheets/style.scss?inline")
+    style= require("assets/stylesheet/style.scss?inline")
     script(
       src=require("assets/javascript/main.js"),
       type="text/javascript",
@@ -19,14 +19,40 @@ html(lang="en")
     )
   body
     header
-      img(
-        src=require("assets/images/me2.webp"),
+      img.profile(
+        src=require("assets/image/me2.webp"),
         width="150px",
         height="150px",
         alt="me"
       )
       h1 👋 Hi, I'm TJ Maynes.
       p Software Developer &amp; XP Practitioner
+      nav
+        ul.links
+          li
+            a(href="https://tjmaynes.medium.com/")
+              img(
+                src=require("assets/svg/medium.svg"),
+                width="24px",
+                height="24px",
+                alt="medium blog"
+              )
+          li
+            a(href="https://github.com/tjmaynes")
+              img(
+                src=require("assets/svg/github.svg"),
+                width="24px",
+                height="24px",
+                alt="github"
+              )
+          li
+            a(href="https://linkedin.com/in/tjmaynes")
+              img(
+                src=require("assets/svg/linkedin.svg"),
+                width="24px",
+                height="24px",
+                alt="linkedin"
+              )
     main
       article
         div
@@ -36,27 +62,19 @@ html(lang="en")
             | I'm also an Extreme Programming (XP) coach helping Kohl's engineering teams grow their XP chops.
           p I 💖 product development, developer enablement 🤝, and automating the hard things 🤖
         div
-          h2 🚀 What I'm learning
-          p 
-            | I'm learning how to design and implement scalable #[a(href="https://nextjs.org/docs") Nextjs] web experiences 🧪.
-            | Also, learning how to compose techno music using #[a(href="https://vcvrack.com/") VCV Rack] (modular synthesis) 🎛️.
-        div
           h2 👨‍🚀 Some projects I'm proud of
           ul
             li #[a(href="https://image-analyzer.tjmaynes.com") Image Analyzer] - a NextJS app that allows users to analyze images using MobileNet (via TensorflowJS), ChatGPT (for image descriptions), and Cloudflare Pages
             li #[a(href="https://github.com/tjmaynes/playbooks") Playbooks] - Ansible playbooks for managing my developer workstations across Macos &amp; Ubuntu
             li #[a(href="https://github.com/tjmaynes/career") Career] - My resume &amp; CV written in LaTeX
         div
+          h2 🚀 What I'm learning
+          p
+            | I'm learning how to design and implement scalable #[a(href="https://nextjs.org/docs") Nextjs] web experiences 🧪.
+            | Also, learning how to compose techno music using #[a(href="https://vcvrack.com/") VCV Rack] (modular synthesis) 🎛️.
+        div
           h2 🌍 Where I'm coding from
           p Rochester, Minnesota (Central Timezone)
     footer
-      nav
-        ul.links
-          li
-            a(href="https://tjmaynes.medium.com/") Blog
-          li
-            a(href="https://github.com/tjmaynes") GitHub
-          li
-            a(href="https://linkedin.com/in/tjmaynes") LinkedIn
       div
         p Built using #[a(href="https://github.com/tjmaynes/tjmaynes.com") Webpack &amp; Pugjs]

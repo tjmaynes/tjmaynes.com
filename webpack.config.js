@@ -23,7 +23,7 @@ module.exports = {
       },
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "src/assets/images/favicon.ico" }],
+      patterns: [{ from: "src/assets/image/favicon.ico" }],
     }),
   ],
   module: {
@@ -40,14 +40,21 @@ module.exports = {
         test: /\.(png|jpg|jpeg|ico|webp)/,
         type: "asset/resource",
         generator: {
-          filename: "assets/images/[name].[hash:8][ext]",
+          filename: "assets/image/[name].[hash:8][ext]",
         },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
         type: "asset/resource",
         generator: {
-          filename: "assets/fonts/[name][ext][query]",
+          filename: "assets/font/[name][ext][query]",
+        },
+      },
+      {
+        test: /\.(svg)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/svg/[name][ext][query]",
         },
       },
     ],
