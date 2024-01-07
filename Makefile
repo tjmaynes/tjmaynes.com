@@ -25,14 +25,14 @@ download_career_files:
 artifact: install build test download_career_files
 
 ensure_cloudflare_page_exists:
-	chmod +x ./script/ensure-cloudflare-pages-exists.sh
-	./script/ensure-cloudflare-pages-exists.sh "tjmaynes-site"
+	chmod +x ./script/cloudflare/ensure-cloudflare-pages-exists.sh
+	./script/cloudflare/ensure-cloudflare-pages-exists.sh "tjmaynes-site"
 
 ensure_cloudflare_infra_exists: ensure_cloudflare_page_exists
 
 deploy: artifact ensure_cloudflare_infra_exists
-	chmod +x ./script/cloudflare-pages-deploy.sh
-	./script/cloudflare-pages-deploy.sh "tjmaynes-site" "./public"
+	chmod +x ./script/cloudflare/cloudflare-pages-deploy.sh
+	./script/cloudflare/cloudflare-pages-deploy.sh "tjmaynes-site" "./public"
 
 ship_it: test
 	git push
