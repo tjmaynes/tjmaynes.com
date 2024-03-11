@@ -55,7 +55,7 @@ body {
   color: #000;
   background-color: #e9d8a6;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 1200px;
 }
 
 body > * {
@@ -103,10 +103,24 @@ header {
   box-shadow: 0 0 3px 3px #001219;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+}
+
 article {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  max-width: 500px;
   padding: 1.5rem 0;
 
+  @media (min-width: 1036px) {
+    max-width: 1000px;
+  }
+
   div {
+    max-width: 500px;
     padding-bottom: 1.5rem;
 
     &:last-child {
