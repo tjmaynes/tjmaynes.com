@@ -36,7 +36,11 @@ next-env.d.ts
 
 # Generated
 public/
-.lighthouseci
+.lighthouseci/
+.wrangler/
 
 # Editors
 .idea/
+
+# Secrets
+.envrc

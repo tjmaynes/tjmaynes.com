@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock title %}
+{% block description %}{{ config.description }}{% endblock description %}
+
+{% block content %}
+<section>
+    <ul>
+        {% set posts = get_section(path="posts/_index.md") %}
+        {% for post in posts.pages %}
+        <li class="pb-2 last:pb-0">
+            <span>{{ post.date | date(format="%Y %b", timezone="America/Chicago") }} - <a href="{{ post.permalink | safe }}">{{ post.title }}</a></span>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock content %}

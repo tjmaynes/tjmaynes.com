@@ -1,0 +1,2 @@
+export CLOUDFLARE_ACCOUNT_ID="<some-account-id>"
+export CLOUDFLARE_API_TOKEN="<some-api-token>"

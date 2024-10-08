@@ -1,0 +1,21 @@
+<header class="flex flex-row gap-2 justify-between pb-4 mb-4 border-b-2 border-b-black">
+    <nav>
+        <ul class="flex flex-row gap-2">
+            <li class="border-r-2 border-r-black pr-2">
+                <a href="{{ get_url(path="/") }}">Home</a>
+            </li>
+            <!-- <li class="border-r-2 border-r-black pr-2">
+                <a href="{{ get_url(path="/about") }}">About</a>
+            </li> -->
+            <li class="border-r-2 border-r-black pr-2">
+                <a href="{{ get_url(path="/career/cv.pdf") }}">CV</a>
+            </li>
+            <li>
+                <a href="mailto:tj@tjmaynes.com">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <a aria-label="RSS" href="{{ get_url(path="/atom.xml") }}">{% include "partials/rss.html" %}</a>
+    </div>
+</header>

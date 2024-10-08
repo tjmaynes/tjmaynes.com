@@ -1,0 +1,8 @@
+{% extends "page.html" %}
+
+{% block content %}
+<section class="prose prose-indigo prose-headings:mb-2 prose-code:before:content-none prose-code:after:content-none">
+    {% include "partials/post-header.html" %}
+    {{ page.content | safe }}
+</section>
+{% endblock content %}

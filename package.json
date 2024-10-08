@@ -1,45 +1,33 @@
 {
   "name": "tjmaynes.com",
   "version": "1.0.0",
-  "description": "a small page on the internet",
-  "main": "public/index.html",
+  "description": "Ramblings, learnings and other things",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve",
-    "start": "npm run build && serve -p 9900 --no-request-logging public/",
+    "build:css": "NODE_ENV=production npx tailwindcss -i sass/styles.scss -o static/public/styles/main.css",
+    "build": "npm run build:css && ./bin/zola build",
+    "watch:css": "npx tailwindcss -i sass/styles.scss -o public/public/styles/main.css --watch",
+    "watch": "./bin/zola serve --port 4000 --drafts & npm run watch:css",
     "lighthouse": "lhci autorun",
-    "lint:pug": "prettier --write 'src/**/*.pug' --plugin='@prettier/plugin-pug'",
-    "lint:js": "prettier --write 'src/**/*.js' '*.js'",
-    "lint:css": "stylelint 'src/**/*.{css,scss}' --fix",
-    "lint": "npm run lint:pug && npm run lint:js && npm run lint:css"
+    "start": "npm run build:css && ./bin/zola build --base-url http://localhost:9900 && serve -p 9900 --no-request-logging public/",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tjmaynes/tjmaynes.com.git"
   },
-  "author": "TJ Maynes",
+  "author": "TJ Maynes <tj@tjmaynes.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tjmaynes/tjmaynes.com/issues"
   },
   "homepage": "https://github.com/tjmaynes/tjmaynes.com#readme",
-  "devDependencies": {
-    "@lhci/cli": "^0.13.0",
-    "@prettier/plugin-pug": "^3.0.0",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.8.1",
-    "prettier": "^3.1.1",
-    "pug-plugin": "^4.9.9",
-    "sass": "^1.69.5",
-    "sass-loader": "^13.3.2",
-    "serve": "^14.2.1",
-    "stylelint-prettier": "^5.0.0",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
-    "wrangler": "^3.22.1"
-  },
   "dependencies": {
-    "fontfaceobserver": "^2.3.0"
+    "@tailwindcss/typography": "^0.5.15",
+    "tailwindcss": "^3.4.13"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.14.0",
+    "serve": "^14.2.3",
+    "wrangler": "^3.80.1"
   }
 }

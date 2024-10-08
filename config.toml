@@ -1,0 +1,17 @@
+base_url = "https://tjmaynes.com"
+title = "TJ Maynes"
+description = "Ramblings, learnings and other things"
+
+generate_feeds = true
+
+minify_html = true
+
+preserve_dotfiles_in_output = true
+
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+render_emoji = true
+
+[extra]
+twitter_handle = "@tjmaynes"
