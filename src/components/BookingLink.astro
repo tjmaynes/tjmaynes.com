@@ -1,0 +1,6 @@
+---
+import { bookingUrl, discovery } from '../config/services.mjs';
+interface Props { service?: string; placement?: string; compact?: boolean; }
+const { service = 'home', placement = 'contact', compact = false } = Astro.props;
+---
+<a class:list={['button', { 'button-small': compact }]} href={bookingUrl(service, placement)} data-booking-service={service} data-booking-placement={placement} aria-label="Book a free 15-minute discovery call">{discovery.label}<span aria-hidden="true">↗</span></a>

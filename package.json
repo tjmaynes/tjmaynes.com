@@ -1,33 +1,16 @@
 {
-  "name": "tjmaynes.com",
-  "version": "1.0.0",
-  "description": "Ramblings, learnings and other things",
+  "name": "tjmaynes-com",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.20.0 <25" },
   "scripts": {
-    "build:css": "NODE_ENV=production npx tailwindcss -i sass/styles.scss -o static/public/styles/main.css",
-    "build": "npm run build:css && ./bin/zola build",
-    "watch:css": "npx tailwindcss -i sass/styles.scss -o public/public/styles/main.css --watch",
-    "watch": "./bin/zola serve --port 4000 --drafts & npm run watch:css",
-    "lighthouse": "lhci autorun",
-    "start": "npm run build:css && ./bin/zola build --base-url http://localhost:9900 && serve -p 9900 --no-request-logging public/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm test",
+    "deploy": "wrangler pages deploy dist --project-name tjmaynes-site --branch main"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tjmaynes/tjmaynes.com.git"
-  },
-  "author": "TJ Maynes <tj@tjmaynes.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tjmaynes/tjmaynes.com/issues"
-  },
-  "homepage": "https://github.com/tjmaynes/tjmaynes.com#readme",
-  "dependencies": {
-    "@tailwindcss/typography": "^0.5.15",
-    "tailwindcss": "^3.4.13"
-  },
-  "devDependencies": {
-    "@lhci/cli": "^0.14.0",
-    "serve": "^14.2.3",
-    "wrangler": "^3.80.1"
-  }
+  "dependencies": { "astro": "7.4.2" },
+  "devDependencies": { "wrangler": "4.162.0" }
 }

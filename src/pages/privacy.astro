@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { analyticsScriptUrl } from '../lib/analytics.mjs';
+const analyticsEnabled = !!analyticsScriptUrl(import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL);
+---
+<SiteLayout title="Privacy | TJ Maynes" description="How inquiries, booking information, and website measurement are handled.">
+  <main id="main" class="wrap document"><h1>Privacy</h1>
+    <p>If you email me or book a call, I use the information you provide to respond, schedule, and discuss the work. Please leave passwords, confidential work data, and sensitive personal information out of inquiries.</p>
+    <h2>Booking and calls</h2><p>Booking links open Cal.com, which processes your booking under its <a href="https://cal.com/privacy">privacy policy</a>. Links include the service page and button location so I can understand where bookings come from. They do not include your name, email, or task description.</p><p>Recording, transcription, and AI processing of our conversations require a separate discussion and agreement. Booking a call does not grant that permission.</p>
+    <h2>Website measurement</h2><p>This site is hosted on Cloudflare. Cloudflare processes requests and may provide aggregate website statistics. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare’s privacy policy</a>. The reporting demonstration uses fictional data and runs in your browser.</p>
+    {analyticsEnabled && <p>I use Plausible to measure page visits and discovery-call button clicks. The event includes the service and button location. I remove query strings and fragments from measured page and referring URLs. See <a href="https://plausible.io/data-policy">Plausible’s data policy</a>.</p>}
+    <h2>Questions and deletion requests</h2><p>Email <a href="mailto:tj@tjmaynes.com">tj@tjmaynes.com</a> to ask about your information or request deletion. Some business records may need to be retained to meet legal or accounting obligations.</p>
+  </main>
+</SiteLayout>

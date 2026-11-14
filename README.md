@@ -1,39 +1,57 @@
 # tjmaynes.com
-> A blog dedicated to my ramblings, learnings and other things.
 
-## Requirements
+A static Astro site for TJ Maynes's business automation consulting and professional AI coaching. Cloudflare Pages project: `tjmaynes-site`.
 
-- [GNU Make](https://www.gnu.org/software/make/)
-- [Zola](https://www.getzola.org/)
+## Local development
 
-## Usage
+Use Node 24.20.0, pinned in `.node-version` and `.mise.toml`.
 
-To install project dependencies, run the following command:
-```bash
-make install
+```sh
+npm ci
+npm run dev
 ```
 
-To build the website, run the following command:
-```bash
-make build
-```
+`npm run check` builds `dist/` and runs the Node tests against the production output and the report, booking, analytics, and theme behavior. `npm run preview -- --host 100.93.107.73 --port 4321` serves that build over the existing Tailscale interface. Use your machine's actual Tailscale address if different.
 
-To watch for file changes, run the following command:
-```bash
-make watch
-```
+The public website builds without access to the private career repository. Old CV-generation hooks and Zola tooling have been removed. Generated PDFs and private career source remain ignored and are not required by public CI.
 
-To build website artifact, run the following command:
-```bash
-make artifact
-```
+## Content and shared configuration
 
-To create a new blog post, run the following command:
-```bash
-POST_TITLE=<some title> make new_post
-```
+- `src/pages/index.astro`: homepage and service choice.
+- `src/pages/services/`: consulting, coaching, and the legacy tutoring redirect.
+- `src/layouts/SiteLayout.astro`: shared metadata, navigation, theme, and footer.
+- `src/config/services.mjs`: discovery event, paid coaching terms, and fixed UTM values.
+- `src/components/`: booking callouts and the original report demonstration.
+- `src/lib/report.mjs`: deterministic validation and report calculation, with fictional inputs.
+- `src/styles/site.css`: shared layout, theme, responsive rules, and component styles.
 
-To convert mp4 (screen recordings) to gifs, run the following command:
-```bash
-VIDEO_INPUT=<some source mp4 file> make mp4_to_gif
-```
+The demonstration uses sample data, calculates totals, and produces a template draft. It does not call an AI service or send a report. Controls are revealed only when JavaScript runs; the checked example remains readable without JavaScript.
+
+## Booking and measurement
+
+All discovery CTAs link directly to `https://cal.com/tjmaynes/15min`, with only fixed service and placement UTM values. The event was verified as free and 15 minutes long, with Cal Video and available times. Its generic title and preparation questions still need account editing. No calendar booking has been created by the site tests.
+
+Cal.com stores standard UTM values on completed bookings. Use its booking records for booked calls, then record attended qualified calls and paid engagements privately. Keep those measures separate from clicks. See [Cal.com UTM documentation](https://cal.com/help/bookings/utm-tracking).
+
+Cloudflare Web Analytics can provide page visits when enabled in the existing project's Metrics tab. It does not support custom click events. See [Pages analytics setup](https://developers.cloudflare.com/pages/how-to/web-analytics/) and [Web Analytics limitations](https://developers.cloudflare.com/web-analytics/faq/).
+
+For a complete visit-to-click funnel, the optional Plausible adapter is ready but disabled. It requires an account and an account-specific script URL; no account, trial, or subscription has been created. To enable it after choosing that service:
+
+1. Add `tjmaynes.com` to the account and copy its current `https://plausible.io/js/pa-....js` URL from Site installation.
+2. Set repository Actions variable `PUBLIC_PLAUSIBLE_SCRIPT_URL` for the deploy workflow. For a local build, use the same variable in `.env`.
+3. Add a custom event goal named exactly `Discovery call click`, with service and placement properties. See [Plausible custom event documentation](https://plausible.io/docs/custom-event-goals).
+4. Deploy after review and verify pageviews and clicks in the actual dashboard. Tracking runs only on `tjmaynes.com` or `www.tjmaynes.com`, so local previews do not pollute it. Query strings and fragments are removed from measured URLs; event properties use a fixed vocabulary. Keep optional enhanced measurements off unless separately reviewed.
+
+The adapter never waits for analytics or prevents navigation. Completed bookings are sourced from Cal.com, not inferred from CTA clicks. Cloudflare remains sufficient for a minimal page-visit baseline if a separate analytics subscription is not wanted; in that setup CTA click counts are unavailable.
+
+## Deployment after review
+
+**Current hold: do not deploy until TJ has reviewed the local output.** No push or deployment was performed while preparing this version.
+
+The `Check website` workflow builds and tests pull requests and `main`. The separate `Deploy website to Cloudflare` workflow is manual and restricted to `main`. It reuses existing GitHub secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`, then deploys `dist/` to the existing `tjmaynes-site` project. It does not create a new Cloudflare project or change DNS.
+
+After TJ approves, push the reviewed changes, run checks, and run the deploy workflow. If Cloudflare's Git integration independently deploys `main`, confirm its build command (`npm run build`) and output (`dist`) and choose one deployment owner before pushing. Do not enable duplicate deployment paths.
+
+After deployment, verify the domain, both service pages, demo interaction, 404 page, legacy redirect, and a real booking journey using an agreed test identity. Confirm the event title, video link, availability, confirmation, reminders, and cancellation/rescheduling behavior. Avoid creating a real appointment without an agreed test slot.
+
+Browser rendering was not verified during preparation because local browser automation was unavailable. Review desktop and phone widths, keyboard focus, light and dark themes, and the missing-data demo before publication.

@@ -1,0 +1,72 @@
+---
+import '../styles/site.css';
+import BookingLink from '../components/BookingLink.astro';
+import Analytics from '../components/Analytics.astro';
+interface Props { title?: string; description?: string; service?: string; }
+const {
+  title = 'TJ Maynes | Business automation and AI coaching',
+  description = 'Business automation consulting and one-to-one AI coaching for professionals. Work remotely with TJ Maynes. Start with a free 15-minute discovery call.',
+  service = 'home',
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#f4f2eb" />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <script is:inline id="theme-script">
+    (() => {
+      const system = window.matchMedia('(prefers-color-scheme: dark)');
+      let preference;
+      let button;
+      function applyTheme() {
+        const theme = preference ?? (system.matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#191b18' : '#f4f2eb');
+        if (button) {
+          const icon = { light: '☀️', dark: '🌙' }[theme];
+          button.textContent = icon;
+          const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+          button.setAttribute('aria-label', `Current theme: ${theme}. Switch to ${next} theme`);
+        }
+      }
+      applyTheme();
+      system.addEventListener('change', applyTheme);
+      document.addEventListener('DOMContentLoaded', () => {
+        button = document.getElementById('theme-toggle');
+        button.hidden = false;
+        applyTheme();
+        button.addEventListener('click', () => {
+          preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+          applyTheme();
+        });
+      });
+    })();
+  </script>
+  <Analytics />
+  <title>{title}</title>
+</head>
+<body data-service={service}>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap site-header">
+    <a class="brand" href="/" aria-label="TJ Maynes home">TJ Maynes<span aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="/services/consulting/" aria-current={service === 'consulting' ? 'page' : undefined}>Consulting</a>
+      <a href="/services/coaching/" aria-current={service === 'coaching' ? 'page' : undefined}>AI coaching</a>
+      <a href="/#about">About</a>
+    </nav>
+    <div class="header-actions"><BookingLink service={service} placement="header" compact /><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme" hidden>☀️</button></div>
+  </header>
+  <slot />
+  <footer class="wrap site-footer"><p>TJ Maynes. Working remotely.</p><div><a href="https://linkedin.com/in/tjmaynes">LinkedIn</a><a href="mailto:tj@tjmaynes.com">Email</a><a href="/privacy/">Privacy</a></div></footer>
+</body>
+</html>

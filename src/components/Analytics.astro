@@ -1,0 +1,9 @@
+---
+import { analyticsScriptUrl } from '../lib/analytics.mjs';
+const scriptUrl = analyticsScriptUrl(import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL);
+---
+{scriptUrl && <meta name="analytics-script" content={scriptUrl} />}
+<script>
+  import { initializeAnalytics } from '../scripts/analytics.js';
+  initializeAnalytics();
+</script>
