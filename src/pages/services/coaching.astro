@@ -4,48 +4,43 @@ import BookingLink from '../../components/BookingLink.astro';
 import DiscoveryCall from '../../components/DiscoveryCall.astro';
 import { coaching } from '../../config/services.mjs';
 ---
-<SiteLayout service="coaching" title="AI automation coaching for professionals | TJ Maynes" description="Learn to build AI automations for your work through one-to-one remote coaching. $150 USD for 60 minutes, with a focused goal, hands-on practice, and a next-step plan.">
+<SiteLayout service="coaching" title="AI coaching | TJ Maynes" description={`One-to-one AI automation coaching with TJ Maynes for professionals working on tasks from their jobs. Sessions are $${coaching.price} ${coaching.currency} for ${coaching.minutes} minutes.}`}>
   <main id="main">
     <section class="hero wrap" aria-labelledby="coaching-title">
-      <p class="eyebrow">AI coaching for professionals</p><h1 id="coaching-title">Learn to automate the work you know best.</h1>
-      <p class="lead">Bring a recurring task from your job. We’ll work through it together so you learn how to break down a problem, use AI where it helps, and check the result.</p>
-      <p class="price">${coaching.price} {coaching.currency} <span>/ {coaching.minutes}-minute private session</span></p>
-      <div class="actions"><BookingLink service="coaching" placement="hero" /><span class="call-note">Start with a free 15-minute call.</span></div>
-      <p class="small hero-note">We’ll discuss your goal and starting point before you book paid coaching.</p>
+      <p class="eyebrow">Coaching</p>
+      <h1 id="coaching-title">I teach professionals how to automate their work.</h1>
+      <p class="lead">I offer one-to-one sessions for people who want to use AI and automation in their jobs. We’ll work on a task you bring, and I’ll help you learn how to build it and check that it works.</p>
+      <p class="price">${coaching.price} {coaching.currency} <span>for {coaching.minutes} minutes</span></p>
+      <div class="actions"><BookingLink service="coaching" placement="hero" /><span class="call-note">Free 15-minute call</span></div>
     </section>
-    <section class="section wrap split" aria-labelledby="fit-title">
-      <div><p class="eyebrow">Who it’s for</p><h2 id="fit-title">You understand your work. You want more ways to solve it.</h2></div>
-      <div class="prose"><p>You might prepare recurring updates, organize incoming requests, move information between tools, or review material that AI could help draft or classify.</p><p>You don’t need to be a developer. We can start with visual tools and sample data. If your goal needs code, paid software, or several sessions, we’ll discuss that before starting.</p><p>Coaching gives you practice and feedback while you build. If you need someone to deliver and maintain the workflow for your business, <a href="/services/consulting/">consulting may fit better</a>.</p></div>
-    </section>
-    <section class="section wrap" aria-labelledby="learn-title">
-      <div class="section-heading"><p class="eyebrow">What we’ll practice</p><h2 id="learn-title">A way to approach your next problem, too.</h2></div>
-      <div class="example-list">
-        <article><h3>Break the task into steps</h3><p>Identify inputs, decisions, outputs, and exceptions. Choose one small part worth automating and decide where AI adds value.</p></article>
-        <article><h3>Build something you can inspect</h3><p>Connect tools, write a prompt, or build a small workflow. You drive while I explain, ask questions, and help when you get stuck.</p></article>
-        <article><h3>Check it and change it</h3><p>Try representative examples and bad inputs. Learn to spot unreliable output, add checks, and decide when a person should review it.</p></article>
-      </div><p class="section-link"><a href="/#report-demo">See an example of those checks in action <span aria-hidden="true">↗</span></a></p>
-    </section>
+
     <section class="section wrap split" aria-labelledby="session-title">
-      <div><p class="eyebrow">The session</p><h2 id="session-title">One goal. Time to try it yourself.</h2></div>
-      <ol class="steps">
-        <li><h3>Set a useful goal</h3><p>Before we meet, send a short description of your task and the tools you use. I’ll help narrow it to something we can practice in an hour.</p></li>
-        <li><h3>Work together on a video call</h3><p>We’ll share a screen, build in small steps, and test what changes. Use your own authorized test account or a fictional example.</p></li>
-        <li><h3>Leave with a next step</h3><p>We’ll review what you can explain and repeat, then choose a small practice task. I’ll send a brief recap and a suggested next milestone.</p></li>
-      </ol>
-    </section>
-    <section class="section wrap split" aria-labelledby="included-title">
-      <div><p class="eyebrow">Price and scope</p><h2 id="included-title">${coaching.price} for an hour together.</h2></div>
-      <div class="prose"><p>The ${coaching.price} {coaching.currency} fee includes {coaching.minutes} minutes of one-to-one remote coaching, up to 15 minutes of preparation, and a brief recap with a practice task. Book one session at a time; there’s no subscription.</p><p>We’ll agree on the goal, tools, payment, and cancellation terms before reserving a paid session. Tool subscriptions, hosting, and AI usage are separate. An AI subscription is only needed if we agree to use one.</p><p>A session is time to learn and make progress. A production-ready automation, a repository audit, and ongoing chat support need a separate scope.</p></div>
-    </section>
-    <section class="section wrap split" aria-labelledby="coaching-faq-title">
-      <div><p class="eyebrow">Common questions</p><h2 id="coaching-faq-title">Before your first session</h2></div>
-      <div class="faq">
-        <details><summary>What tools will we use?</summary><p>We’ll meet by video and share your screen. The workflow may use the tools you already have, a visual automation tool, or code. I’ll confirm the setup beforehand, so you can check employer policies and any costs.</p></details>
-        <details><summary>Will I get a personalized roadmap?</summary><p>We’ll choose a first milestone based on your goal and experience. If we continue, we’ll update a short roadmap using what you can build and explain independently, with practice between sessions.</p></details>
-        <details><summary>Can I bring work data?</summary><p>Use fictional or sanitized examples and only material you’re authorized to share. Check your employer’s AI and data policies first. Recording or transcription is optional and requires a separate agreement; it is not part of booking consent.</p></details>
-        <details><summary>How many sessions will I need?</summary><p>It depends on the task, your starting point, and practice time. We’ll decide on a useful first session and review progress before planning more. You don’t need to buy a package to begin.</p></details>
+      <div><h2 id="session-title">What a session is like</h2></div>
+      <div class="prose">
+        <p>I’ll ask about your task and what you’ve already tried. Then we’ll break it into steps and choose something small enough to work on during the session.</p>
+        <p>You’ll share your screen and do most of the building. I’ll pair with you, explain things as they come up, and help when you get stuck. We’ll try different inputs and check what the automation does.</p>
+        <p>At the end, we’ll review what you’ve learned and choose something to practice. I’ll send a brief recap. If we continue, I’ll keep a short roadmap with you and adjust it as you make progress.</p>
       </div>
     </section>
-    <DiscoveryCall service="coaching" title="What would you like to learn to automate?" />
+
+    <section class="section wrap split" aria-labelledby="tools-title">
+      <div><h2 id="tools-title">Tools we can work with</h2></div>
+      <div class="prose">
+        <p>We can use n8n to connect apps and build workflows, Codex to work on scripts or small tools, and Claude for tasks such as drafting updates or extracting information. For coding tasks, we can also use Claude Code.</p>
+        <p>You don’t need to be a developer to get started. Some goals work well with visual tools; others need code or several sessions. We’ll talk about that before booking.</p>
+        <p>I’ll confirm the setup with you beforehand, including any software costs. Please use examples you’re allowed to share and check your employer’s policies on AI tools. We can work with fictional data when needed.</p>
+      </div>
+    </section>
+
+    <section class="section wrap split" aria-labelledby="included-title">
+      <div><h2 id="included-title">Fees and preparation</h2></div>
+      <div class="prose">
+        <p>The ${coaching.price} {coaching.currency} fee covers a {coaching.minutes}-minute session, up to 15 minutes of preparation, and a brief recap with a practice task.</p>
+        <p>Before we meet, send me a short description of what you want to work on. I’ll help narrow it to a useful goal for the hour. We’ll agree on payment and cancellation terms before confirming a paid session.</p>
+        <p>Tool subscriptions, hosting, and AI usage are separate. If your task needs more time or work outside the session, we’ll discuss that before planning anything further.</p>
+        <p>Recording and transcription are optional and need a separate agreement. If you’d like me to build the automation for your business, see <a href="/services/consulting/">consulting</a>.</p>
+      </div>
+    </section>
+    <DiscoveryCall service="coaching" />
   </main>
 </SiteLayout>

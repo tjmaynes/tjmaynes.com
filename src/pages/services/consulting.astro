@@ -3,42 +3,42 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 import BookingLink from '../../components/BookingLink.astro';
 import DiscoveryCall from '../../components/DiscoveryCall.astro';
 ---
-<SiteLayout service="consulting" title="Business automation consulting | TJ Maynes" description="Automate recurring reports, connect systems, and build AI workflows your team can operate. Remote consulting with a defined scope, validation, and handoff.">
+<SiteLayout service="consulting" title="Consulting | TJ Maynes" description="I'm TJ Maynes. I build business automations, connect systems, and work with teams on AI workflows.">
   <main id="main">
     <section class="hero wrap" aria-labelledby="consulting-title">
-      <p class="eyebrow">Business automation consulting</p><h1 id="consulting-title">Spend less of your week moving work between tools.</h1>
-      <p class="lead">I help founders, business leaders, and engineering managers turn recurring manual work into tested workflows. We’ll start with one process and agree on what a useful result looks like.</p>
-      <div class="actions"><BookingLink service="consulting" placement="hero" /><span class="call-note">Free · 15 minutes · Video call</span></div><p class="small hero-note">Tell me what repeats, where it gets stuck, and what you’d like to change.</p>
+      <p class="eyebrow">Consulting</p>
+      <h1 id="consulting-title">I help businesses automate their work.</h1>
+      <p class="lead">I work with you to understand a recurring task, figure out what can be automated, and build it. That might mean connecting apps, preparing a regular report, or writing a small internal tool.</p>
+      <div class="actions"><BookingLink service="consulting" placement="hero" /><span class="call-note">Free 15-minute call</span></div>
     </section>
-    <section class="section wrap" aria-labelledby="work-title">
-      <div class="section-heading"><p class="eyebrow">Problems we can work on</p><h2 id="work-title">Start with the work that keeps coming back.</h2></div>
-      <div class="example-list">
-        <article><h3>Recurring reports</h3><p>Your team copies figures into spreadsheets or writes the same update every week. We can collect the data, validate it, and prepare a draft for review.</p></article>
-        <article><h3>Disconnected systems</h3><p>A request arrives in one tool and someone re-enters it in another. We can connect those steps and make failures visible to the person responsible.</p></article>
-        <article><h3>AI in an existing workflow</h3><p>You have a use case for drafting, extraction, or classification. We can test it against representative examples, add review points, and decide whether it is reliable enough to use.</p></article>
-      </div><p class="section-link"><a href="/#report-demo">Try a small reporting demonstration <span aria-hidden="true">↗</span></a></p>
-    </section>
-    <section class="section wrap split" aria-labelledby="process-title">
-      <div><p class="eyebrow">How a project works</p><h2 id="process-title">A clear scope, then a working handoff.</h2></div>
-      <ol class="steps">
-        <li><h3>Understand one workflow</h3><p>We map the current steps, systems, exceptions, and who owns the result. We agree on how to check whether the change helps.</p></li>
-        <li><h3>Agree on scope and price</h3><p>You receive deliverables, acceptance checks, dependencies, and a fixed-price quote. If the unknowns are too large, I’ll quote a smaller paid assessment first.</p></li>
-        <li><h3>Build and review together</h3><p>I build in small steps, demonstrate progress, and test failures as well as the expected path. We decide where human approval belongs.</p></li>
-        <li><h3>Hand it over</h3><p>You get the workflow, documentation, and a walkthrough. We agree on ownership, access, and any ongoing support before launch.</p></li>
-      </ol>
-    </section>
-    <section class="section wrap split" aria-labelledby="pricing-title">
-      <div><p class="eyebrow">Pricing and ownership</p><h2 id="pricing-title">Know what you’re buying before work starts.</h2></div>
-      <div class="prose"><p>Implementation is quoted by scope. The fee covers the agreed build, validation, documentation, and handoff. Changes to that scope need a separate agreement.</p><p>Software subscriptions, hosting, and AI/API usage are separate unless the quote explicitly includes them. I’ll make those costs visible before you commit.</p><p>Your business should control its accounts and workflows. Ongoing monitoring, maintenance, and response commitments are agreed separately; they are not assumed to be included forever.</p><p>For an engineering team, I can pair with your developers and include them in the evaluation and handoff. If you want to build your own skills one-to-one, see <a href="/services/coaching/">AI coaching</a>.</p></div>
-    </section>
-    <section class="section wrap split" aria-labelledby="consulting-faq-title">
-      <div><p class="eyebrow">Common questions</p><h2 id="consulting-faq-title">Before we scope it</h2></div>
-      <div class="faq">
-        <details><summary>Do we have to use AI?</summary><p>No. Many useful automations are integrations and straightforward rules. We’ll use AI where it serves the task and test the parts that can vary.</p></details>
-        <details><summary>Can you work with our existing tools and team?</summary><p>That is the starting point. We’ll check the available integrations and access together, then decide whether custom code or another tool is needed.</p></details>
-        <details><summary>How long will a project take?</summary><p>I’ll give you a delivery estimate after we understand the scope, access, and dependencies. The discovery call helps us decide what needs investigating before I can quote it.</p></details>
+
+    <section class="section wrap split" aria-labelledby="work-title">
+      <div><h2 id="work-title">What I work on</h2></div>
+      <div class="prose">
+        <p>I build workflows for recurring reports, moving information between systems, and handling incoming requests. I can also help you test where AI is useful for tasks such as drafting or extracting information.</p>
+        <p>I use n8n for app integrations and workflows, and Codex, Claude, or Claude Code for scripts, internal tools, and other automation tasks. I’ll work with the tools you have and explain any additional software I recommend.</p>
+        <p>If you have an engineering team, I can pair with your developers and help them understand and maintain what we build.</p>
       </div>
     </section>
-    <DiscoveryCall service="consulting" title="Which workflow would you change first?" />
+
+    <section class="section wrap split" aria-labelledby="process-title">
+      <div><h2 id="process-title">How I work</h2></div>
+      <div class="prose">
+        <p>I’ll start by asking you to walk me through the process as it works today. I want to understand who uses it, which systems it touches, and what tends to go wrong.</p>
+        <p>During the project, I’ll show you progress and ask for feedback. I test the workflow, including what happens when an input is missing or a service fails, and document how to run it.</p>
+        <p>Before handing it over, I’ll walk you or your team through it. Your business should control the accounts and have access to the code and documentation.</p>
+      </div>
+    </section>
+
+    <section class="section wrap split" aria-labelledby="pricing-title">
+      <div><h2 id="pricing-title">Scope and fees</h2></div>
+      <div class="prose">
+        <p>I quote implementation work at a fixed price once we’ve agreed on the scope. The quote covers the build, testing, documentation, and handoff.</p>
+        <p>If I need to investigate before I can quote the build, I’ll suggest a smaller paid assessment and agree on its cost with you first.</p>
+        <p>Software subscriptions, hosting, and AI usage are separate unless included in the quote. We’ll also agree on any maintenance or ongoing support before launch.</p>
+        <p>If you’d prefer to learn to build the automation yourself, I also offer <a href="/services/coaching/">one-to-one coaching</a>.</p>
+      </div>
+    </section>
+    <DiscoveryCall service="consulting" />
   </main>
 </SiteLayout>

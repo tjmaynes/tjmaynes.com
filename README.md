@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-`npm run check` builds `dist/` and runs the Node tests against the production output and the report, booking, analytics, and theme behavior. `npm run preview -- --host 100.93.107.73 --port 4321` serves that build over the existing Tailscale interface. Use your machine's actual Tailscale address if different.
+`npm run check` builds `dist/` and runs the Node tests against the production output and booking, analytics, and theme behavior. `npm run preview -- --host 100.93.107.73 --port 4321` serves that build over the existing Tailscale interface. Use your machine's actual Tailscale address if different.
 
 The public website builds without access to the private career repository. Old CV-generation hooks and Zola tooling have been removed. Generated PDFs and private career source remain ignored and are not required by public CI.
 
@@ -21,11 +21,12 @@ The public website builds without access to the private career repository. Old C
 - `src/pages/services/`: consulting, coaching, and the legacy tutoring redirect.
 - `src/layouts/SiteLayout.astro`: shared metadata, navigation, theme, and footer.
 - `src/config/services.mjs`: discovery event, paid coaching terms, and fixed UTM values.
-- `src/components/`: booking callouts and the original report demonstration.
-- `src/lib/report.mjs`: deterministic validation and report calculation, with fictional inputs.
+- `src/components/`: shared booking callouts and analytics setup.
 - `src/styles/site.css`: shared layout, theme, responsive rules, and component styles.
 
-The demonstration uses sample data, calculates totals, and produces a template draft. It does not call an AI service or send a report. Controls are revealed only when JavaScript runs; the checked example remains readable without JavaScript.
+## Writing the site
+
+Write as TJ speaking to a prospective client. Use first person for his work and “we” for work he does with the client. Describe the work, fees, and practical arrangements directly. Keep tool names in context, and avoid benefit slogans, feature catalogs, and repeated sales copy.
 
 ## Booking and measurement
 
@@ -44,14 +45,14 @@ For a complete visit-to-click funnel, the optional Plausible adapter is ready bu
 
 The adapter never waits for analytics or prevents navigation. Completed bookings are sourced from Cal.com, not inferred from CTA clicks. Cloudflare remains sufficient for a minimal page-visit baseline if a separate analytics subscription is not wanted; in that setup CTA click counts are unavailable.
 
-## Deployment after review
+## Deployment
 
-**Current hold: do not deploy until TJ has reviewed the local output.** No push or deployment was performed while preparing this version.
+TJ reviewed the local output and authorized publication on November 14, 2026.
 
 The `Check website` workflow builds and tests pull requests and `main`. The separate `Deploy website to Cloudflare` workflow is manual and restricted to `main`. It reuses existing GitHub secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`, then deploys `dist/` to the existing `tjmaynes-site` project. It does not create a new Cloudflare project or change DNS.
 
-After TJ approves, push the reviewed changes, run checks, and run the deploy workflow. If Cloudflare's Git integration independently deploys `main`, confirm its build command (`npm run build`) and output (`dist`) and choose one deployment owner before pushing. Do not enable duplicate deployment paths.
+To publish approved changes, push them to `main`, run checks, and run the deploy workflow. If Cloudflare's Git integration independently deploys `main`, confirm its build command (`npm run build`) and output (`dist`) and choose one deployment owner before pushing. Do not enable duplicate deployment paths.
 
-After deployment, verify the domain, both service pages, demo interaction, 404 page, legacy redirect, and a real booking journey using an agreed test identity. Confirm the event title, video link, availability, confirmation, reminders, and cancellation/rescheduling behavior. Avoid creating a real appointment without an agreed test slot.
+After deployment, verify the domain, both service pages, 404 page, legacy redirect, and a real booking journey using an agreed test identity. Confirm the event title, video link, availability, confirmation, reminders, and cancellation/rescheduling behavior. Avoid creating a real appointment without an agreed test slot.
 
-Browser rendering was not verified during preparation because local browser automation was unavailable. Review desktop and phone widths, keyboard focus, light and dark themes, and the missing-data demo before publication.
+Browser rendering was not verified during preparation because local browser automation was unavailable. Review desktop and phone widths, keyboard focus, light and dark themes before publication.

@@ -1,16 +1,13 @@
 ---
 import BookingLink from './BookingLink.astro';
-interface Props { service?: string; title?: string; }
-const { service = 'home', title = 'What would you like to take off your plate?' } = Astro.props;
+interface Props { service?: string; }
+const { service = 'home' } = Astro.props;
 ---
-<section class="section contact" id="contact" aria-labelledby="contact-title">
-  <div class="wrap split">
-    <div><p class="eyebrow">Start with a conversation</p><h2 id="contact-title">{title}</h2></div>
-    <div class="prose">
-      <p>Bring one recurring task or learning goal. In a free 15-minute video call, we’ll discuss whether I can help and choose a next step.</p>
-      <p>It’s a chance to meet before committing to paid work. You don’t need a finished brief or confidential data.</p>
-      <div class="actions"><BookingLink service={service} placement="contact" /></div>
-      <p class="small">Prefer email? <a href="mailto:tj@tjmaynes.com">tj@tjmaynes.com</a></p>
-    </div>
+<section class="section wrap split" id="contact" aria-labelledby="contact-title">
+  <div><h2 id="contact-title">Get in touch</h2></div>
+  <div class="prose">
+    <p>Tell me a little about what you’re working on. I offer a free 15-minute video call so we can meet and see whether I can help.</p>
+    <div class="actions"><BookingLink service={service} placement="contact" /></div>
+    <p class="small contact-email">You can also email me at <a href="mailto:tj@tjmaynes.com">tj@tjmaynes.com</a>.</p>
   </div>
 </section>

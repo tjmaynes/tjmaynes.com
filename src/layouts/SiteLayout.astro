@@ -5,7 +5,7 @@ import Analytics from '../components/Analytics.astro';
 interface Props { title?: string; description?: string; service?: string; }
 const {
   title = 'TJ Maynes | Business automation and AI coaching',
-  description = 'Business automation consulting and one-to-one AI coaching for professionals. Work remotely with TJ Maynes. Start with a free 15-minute discovery call.',
+  description = 'TJ Maynes builds business automations and coaches professionals on using AI in their work.',
   service = 'home',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -67,6 +67,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <div class="header-actions"><BookingLink service={service} placement="header" compact /><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme" hidden>☀️</button></div>
   </header>
   <slot />
-  <footer class="wrap site-footer"><p>TJ Maynes. Working remotely.</p><div><a href="https://linkedin.com/in/tjmaynes">LinkedIn</a><a href="mailto:tj@tjmaynes.com">Email</a><a href="/privacy/">Privacy</a></div></footer>
+  <footer class="wrap site-footer"><p>TJ Maynes.</p><div><a href="https://linkedin.com/in/tjmaynes">LinkedIn</a><a href="mailto:tj@tjmaynes.com">Email</a><a href="/privacy/">Privacy</a></div></footer>
 </body>
 </html>

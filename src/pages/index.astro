@@ -2,45 +2,41 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import BookingLink from '../components/BookingLink.astro';
 import DiscoveryCall from '../components/DiscoveryCall.astro';
-import ReportDemo from '../components/ReportDemo.astro';
 import { coaching } from '../config/services.mjs';
 ---
 <SiteLayout>
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
-      <p class="eyebrow">Hi, I’m TJ. I work remotely.</p>
-      <h1 id="hero-title">I build AI automations for teams and coach professionals to build their own.</h1>
-      <p class="lead">Bring a recurring task or a workflow you want to improve. I can build it with your team, or work with you one-to-one so you learn how to do it yourself.</p>
-      <div class="actions"><BookingLink placement="hero" /><span class="call-note">Free · 15 minutes · Video call</span></div>
-      <p class="small hero-note">We’ll talk through your goal, see whether I can help, and choose a next step.</p>
-      <div class="hero-paths" aria-label="Choose a service"><a href="/services/consulting/">I need help automating a workflow <span aria-hidden="true">↗</span></a><a href="/services/coaching/">I want to learn to build one <span aria-hidden="true">↗</span></a></div>
+      <h1 id="hero-title">Hi, I’m TJ.</h1>
+      <p class="lead">I help businesses automate repetitive work and coach professionals who want to build their own AI automations.</p>
+      <p class="intro-copy">I work with clients myself, from figuring out what to build through writing the code and explaining how it works.</p>
+      <div class="actions"><BookingLink placement="hero" /><span class="call-note">Free 15-minute call</span></div>
     </section>
 
     <section class="section wrap" id="services" aria-labelledby="services-title">
-      <div class="section-heading"><p class="eyebrow">Work with me</p><h2 id="services-title">Two ways to get started</h2></div>
+      <div class="section-heading"><h2 id="services-title">Consulting and coaching</h2></div>
       <div class="two-column offers">
-        <article><h3><a href="/services/consulting/">Business automation <span aria-hidden="true">↗</span></a></h3><p>For founders, business leaders, and engineering managers with recurring work to improve. Connect systems, prepare reports, or build an AI workflow your team can operate.</p><p class="offer-terms">A defined scope and fixed-price quote before implementation.</p><a class="text-link" href="/services/consulting/">See how consulting works</a></article>
-        <article><h3><a href="/services/coaching/">AI coaching for professionals <span aria-hidden="true">↗</span></a></h3><p>Bring a task from your work. We’ll break it down, build a small automation together, and practice checking the results. You learn the approach as you use it.</p><p class="offer-terms">${coaching.price} {coaching.currency} / {coaching.minutes}-minute session. No subscription.</p><a class="text-link" href="/services/coaching/">See what a session includes</a></article>
+        <article>
+          <h3><a href="/services/consulting/">Business automation consulting</a></h3>
+          <p>I build workflows that connect the tools you already use, move data between them, and handle recurring tasks such as reporting. I can work with you or alongside your developers.</p>
+          <p class="offer-terms">We’ll agree on the scope and a fixed price before I start.</p>
+          <a class="text-link" href="/services/consulting/">More about consulting</a>
+        </article>
+        <article>
+          <h3><a href="/services/coaching/">AI coaching</a></h3>
+          <p>I pair with you on a task from your work. We’ll talk through the problem and build an automation together, with time for you to try things and ask questions.</p>
+          <p class="offer-terms">Sessions are ${coaching.price} {coaching.currency} for {coaching.minutes} minutes.</p>
+          <a class="text-link" href="/services/coaching/">More about coaching</a>
+        </article>
       </div>
     </section>
 
-    <section class="section wrap" id="report-demo" aria-labelledby="example-title">
-      <div class="section-heading"><p class="eyebrow">An example of the work</p><h2 id="example-title">A report that checks its inputs</h2><p>Collect the figures, check them, prepare a draft, and leave the final decision to a person.</p></div>
-      <ReportDemo />
-    </section>
-
     <section class="section wrap split" id="about" aria-labelledby="about-title">
-      <div><p class="eyebrow">About me</p><h2 id="about-title">You’ll work directly with me.</h2></div>
-      <div class="prose"><p>I’m TJ Maynes. I’ve built software with teams at VMware Tanzu Labs and NBCUniversal. Pairing, testing, and helping people understand the work have been a large part of that experience.</p><p>I like starting with one problem, building something small enough to test, and explaining the decisions along the way. For consulting, that means a workflow your team can own. For coaching, it means a technique you can use again.</p><a class="text-link" href="https://linkedin.com/in/tjmaynes">More about my background on LinkedIn <span aria-hidden="true">↗</span></a></div>
-    </section>
-
-    <section class="section wrap split" aria-labelledby="questions-title">
-      <div><p class="eyebrow">Before we talk</p><h2 id="questions-title">A few useful details</h2></div>
-      <div class="faq">
-        <details><summary>What happens after the discovery call?</summary><p>If consulting fits, I’ll propose a scope or a paid assessment where we need more information. If coaching fits, we’ll agree on one learning goal and schedule a paid session. You can decide after we talk.</p></details>
-        <details><summary>Do I need a technical background?</summary><p>For coaching, you need a task you understand and time to practice. We can start with visual tools and sample data. Some goals need coding or several sessions; we’ll discuss that first.</p></details>
-        <details><summary>Will I need new tools or subscriptions?</summary><p>We’ll start with what you already use. I’ll explain any proposed software, hosting, or AI usage costs before you agree to them. Those costs are separate from my fees.</p></details>
-        <details><summary>What should I bring to the call?</summary><p>A short description of one task, who does it, and what you’d like to change. Keep sensitive data and employer or client material out of the booking form.</p></details>
+      <div><h2 id="about-title">About me</h2></div>
+      <div class="prose">
+        <p>I’m TJ Maynes. I’ve built software with teams at VMware Tanzu Labs and NBCUniversal. Pairing with other people and helping teams work through technical problems have been a large part of that work.</p>
+        <p>I like working through a real problem with the person who knows it best. I’ll ask questions, show you what I’m trying, and explain the decisions along the way.</p>
+        <a class="text-link" href="https://linkedin.com/in/tjmaynes">My background on LinkedIn</a>
       </div>
     </section>
     <DiscoveryCall />

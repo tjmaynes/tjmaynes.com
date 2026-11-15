@@ -33,11 +33,10 @@ test('booking actions go directly to the 15-minute event with service attributio
   }
 });
 
-test('the homepage offers both services before the demo and keeps credentials out of the primary navigation', () => {
+test('the homepage offers both services and keeps credentials out of the primary navigation', () => {
   const html = pages.get('/');
   assert.match(html, /href="\/services\/consulting\/"/);
   assert.match(html, /href="\/services\/coaching\/"/);
-  assert.ok(html.indexOf('id="services"') < html.indexOf('id="report-demo"'));
   const nav = html.match(/<nav\b[\s\S]*?<\/nav>/)[0];
   assert.doesNotMatch(nav, /linkedin|cv\.pdf/i);
   assert.match(html, /https:\/\/linkedin.com\/in\/tjmaynes/);
