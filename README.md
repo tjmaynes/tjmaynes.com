@@ -51,7 +51,7 @@ TJ reviewed the local output and authorized publication on November 14, 2026.
 
 The `Check website` workflow builds and tests pull requests and `main`. The separate `Deploy website to Cloudflare` workflow is manual and restricted to `main`. It reuses existing GitHub secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`, then deploys `dist/` to the existing `tjmaynes-site` project. It does not create a new Cloudflare project or change DNS.
 
-To publish approved changes, push them to `main`, run checks, and run the deploy workflow. If Cloudflare's Git integration independently deploys `main`, confirm its build command (`npm run build`) and output (`dist`) and choose one deployment owner before pushing. Do not enable duplicate deployment paths.
+To publish approved changes, push them to `main`, run checks, and run the deploy workflow. The Cloudflare preflight confirmed that automatic production and preview Git deployments are disabled. The manual GitHub deployment workflow owns publication and uploads the locally built `dist/`; do not enable a second deployment path.
 
 After deployment, verify the domain, both service pages, 404 page, legacy redirect, and a real booking journey using an agreed test identity. Confirm the event title, video link, availability, confirmation, reminders, and cancellation/rescheduling behavior. Avoid creating a real appointment without an agreed test slot.
 
