@@ -22,7 +22,7 @@ npm ci
 | `just test` | `node --test tests/*.test.mjs` |
 | `just check` | Build, then test. This is what CI runs after `npm ci`. |
 
-Run `just check` after a change to pages, styles, booking, analytics, or theme behavior. Tests read `dist/` and the theme script in `src/layouts/SiteLayout.astro`, so a test-only run is not enough when the build output is stale.
+Run `just check` after a change to pages, styles, booking, or theme behavior. Tests read `dist/` and the theme script in `src/layouts/SiteLayout.astro`, so a test-only run is not enough when the build output is stale.
 
 ## Where to edit
 
@@ -31,8 +31,7 @@ Run `just check` after a change to pages, styles, booking, analytics, or theme b
 - `src/pages/privacy.astro` and `src/pages/404.astro`.
 - `src/layouts/SiteLayout.astro`: metadata, navigation, theme, and footer.
 - `src/config/services.mjs`: discovery event, coaching price and length, and booking URLs.
-- `src/components/`: booking callouts and analytics setup.
-- `src/lib/analytics.mjs` and `src/scripts/analytics.js`: measurement rules.
+- `src/components/`: booking callouts.
 - `src/styles/site.css`: layout, theme, and responsive rules.
 
 ## Writing
@@ -45,7 +44,6 @@ Write as TJ speaking to a prospective client. Use first person for his work and 
 - `/services/tutoring/` redirects to `/services/coaching/` with status 301.
 - The published `dist/` contains the public pages only. Career source, CV inputs, and private build files stay out.
 - Theme starts from the system preference on each load. The toggle switches between light and dark. A manual choice holds until the next load, including when the system theme changes.
-- Plausible stays off unless `PUBLIC_PLAUSIBLE_SCRIPT_URL` is an `https://plausible.io/js/pa-….js` script URL with no credentials, query, or fragment. Measurement runs only on `tjmaynes.com` and `www.tjmaynes.com`, and it must not block navigation.
 
 ## Publishing
 
