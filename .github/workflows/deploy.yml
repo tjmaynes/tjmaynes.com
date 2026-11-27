@@ -15,8 +15,6 @@ jobs:
   deploy:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    env:
-      PUBLIC_PLAUSIBLE_SCRIPT_URL: ${{ vars.PUBLIC_PLAUSIBLE_SCRIPT_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

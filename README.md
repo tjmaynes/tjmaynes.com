@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-`npm run check` builds `dist/` and runs the Node tests against the production output and booking, analytics, and theme behavior. `npm run preview -- --host 100.93.107.73 --port 4321` serves that build over the existing Tailscale interface. Use your machine's actual Tailscale address if different.
+`npm run check` builds `dist/` and runs the Node tests against the production output and booking and theme behavior. `npm run preview -- --host 100.93.107.73 --port 4321` serves that build over the existing Tailscale interface. Use your machine's actual Tailscale address if different.
 
 The public website builds without access to the private career repository. Old CV-generation hooks and Zola tooling have been removed. Generated PDFs and private career source remain ignored and are not required by public CI.
 
@@ -21,7 +21,7 @@ The public website builds without access to the private career repository. Old C
 - `src/pages/services/`: consulting, coaching, and the legacy tutoring redirect.
 - `src/layouts/SiteLayout.astro`: shared metadata, navigation, theme, and footer.
 - `src/config/services.mjs`: discovery event, paid coaching terms, and fixed UTM values.
-- `src/components/`: shared booking callouts and analytics setup.
+- `src/components/`: shared booking callouts.
 - `src/styles/site.css`: shared layout, theme, responsive rules, and component styles.
 
 ## Writing the site
@@ -36,14 +36,7 @@ Cal.com stores standard UTM values on completed bookings. Use its booking record
 
 Cloudflare Web Analytics can provide page visits when enabled in the existing project's Metrics tab. It does not support custom click events. See [Pages analytics setup](https://developers.cloudflare.com/pages/how-to/web-analytics/) and [Web Analytics limitations](https://developers.cloudflare.com/web-analytics/faq/).
 
-For a complete visit-to-click funnel, the optional Plausible adapter is ready but disabled. It requires an account and an account-specific script URL; no account, trial, or subscription has been created. To enable it after choosing that service:
-
-1. Add `tjmaynes.com` to the account and copy its current `https://plausible.io/js/pa-....js` URL from Site installation.
-2. Set repository Actions variable `PUBLIC_PLAUSIBLE_SCRIPT_URL` for the deploy workflow. For a local build, use the same variable in `.env`.
-3. Add a custom event goal named exactly `Discovery call click`, with service and placement properties. See [Plausible custom event documentation](https://plausible.io/docs/custom-event-goals).
-4. Deploy after review and verify pageviews and clicks in the actual dashboard. Tracking runs only on `tjmaynes.com` or `www.tjmaynes.com`, so local previews do not pollute it. Query strings and fragments are removed from measured URLs; event properties use a fixed vocabulary. Keep optional enhanced measurements off unless separately reviewed.
-
-The adapter never waits for analytics or prevents navigation. Completed bookings are sourced from Cal.com, not inferred from CTA clicks. Cloudflare remains sufficient for a minimal page-visit baseline if a separate analytics subscription is not wanted; in that setup CTA click counts are unavailable.
+Completed bookings are sourced from Cal.com, not inferred from CTA clicks.
 
 ## Deployment
 

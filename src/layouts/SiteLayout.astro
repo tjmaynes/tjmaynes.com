@@ -1,7 +1,6 @@
 ---
 import '../styles/site.css';
 import BookingLink from '../components/BookingLink.astro';
-import Analytics from '../components/Analytics.astro';
 interface Props { title?: string; description?: string; service?: string; }
 const {
   title = 'TJ Maynes | Business automation and AI coaching',
@@ -52,7 +51,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       });
     })();
   </script>
-  <Analytics />
   <title>{title}</title>
 </head>
 <body data-service={service}>
